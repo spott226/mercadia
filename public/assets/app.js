@@ -101,14 +101,18 @@
   return path.toLowerCase();
 };
 
-  async function loadBusiness(slug) {
-    const res = await fetch(`/business/${encodeURIComponent(slug)}.json`, {
-      cache: "no-store"
-    });
+ async function loadBusiness(slug) {
+  const base = window.location.origin.includes("mercadiamx.com")
+    ? "https://mercadiamx.com"
+    : window.location.origin;
 
-    if (!res.ok) throw new Error(`No existe el negocio "${slug}".`);
-    return res.json();
-  }
+  const res = await fetch(`${base}/business/${encodeURIComponent(slug)}.json`, {
+    cache: "no-store"
+  });
+
+  if (!res.ok) throw new Error(`No existe el negocio "${slug}".`);
+  return res.json();
+}
 
   const norm = (s) => String(s || "").trim().toLowerCase();
 
