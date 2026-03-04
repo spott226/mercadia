@@ -10,81 +10,13 @@ const COOLDOWN_SECONDS = 10;
 let cooldownTimer = null;
 
 // =========================
-// SEGURIDAD
-// =========================
-
-const sanitizeText = (value, maxLen = 120) => {
-
-let s = String(value ?? "");
-
-s = s.replace(/[\u0000-\u001F\u007F-\u009F]/g, "");
-
-s = s.replace(/\s+/g, " ").trim();
-
-if (s.length > maxLen) s = s.slice(0, maxLen);
-
-return s;
-
-};
-
-const sanitizePhone = (value, maxLen = 15) => {
-
-let s = String(value ?? "").replace(/[^\d]/g, "");
-
-if (s.length > maxLen) s = s.slice(0, maxLen);
-
-return s;
-
-};
-
-const startCooldown = (btn) => {
-
-if (cooldownTimer) return;
-
-let remaining = COOLDOWN_SECONDS;
-
-btn.disabled = true;
-
-const tick = () => {
-
-if (remaining <= 0) {
-
-clearInterval(cooldownTimer);
-
-cooldownTimer = null;
-
-btn.disabled = false;
-
-btn.textContent = "Enviar pedido por WhatsApp";
-
-return;
-
-}
-
-btn.textContent = `Espera ${remaining}s…`;
-
-remaining--;
-
-};
-
-tick();
-
-cooldownTimer = setInterval(tick, 1000);
-
-};
-
-// =========================
-// DINERO
+// UTILIDADES
 // =========================
 
 const money = (n) =>
-
 Number(n || 0).toLocaleString("es-MX", {
-
 style: "currency",
-
 currency: state.biz?.currency || "MXN",
-
 });
 
 // =========================
@@ -120,35 +52,6 @@ return res.json();
 }
 
 // =========================
-// MODO REGISTRO
-// =========================
-
-function adaptCheckoutMode() {
-
-if (state.biz.checkoutMode !== "registro") return;
-
-const hide = (id) => {
-
-const el = $(id);
-
-if (!el) return;
-
-const parent = el.closest("div") || el.parentElement;
-
-if (parent) parent.style.display = "none";
-
-};
-
-hide("street");
-hide("neighborhood");
-hide("zip");
-hide("city");
-hide("state");
-hide("shippingType");
-
-}
-
-// =========================
 // LOGO
 // =========================
 
@@ -171,7 +74,48 @@ container.appendChild(img);
 }
 
 // =========================
-// PRODUCTOS
+// MODO REGISTRO
+// =========================
+
+function adaptCheckoutMode() {
+
+if (state.biz.checkoutMode !== "registro") return;
+
+[
+"street",
+"neighborhood",
+"zip",
+"city",
+"state",
+"shippingType"
+].forEach(id => {
+
+const el = $(id);
+
+if (!el) return;
+
+const parent = el.closest("div");
+
+if (parent) parent.style.display = "none";
+
+});
+
+}
+
+// =========================
+// CARRITO
+// =========================
+
+function makeCartKey(productId, variants) {
+
+const keys = Object.keys(variants).sort();
+
+return productId + "__" + keys.map(k => `${k}=${variants[k]}`).join("|");
+
+}
+
+// =========================
+// RENDER PRODUCTOS
 // =========================
 
 function render() {
@@ -179,7 +123,6 @@ function render() {
 renderLogo();
 
 $("bizName").textContent = state.biz.name || "Pedido";
-
 $("bizNote").textContent = state.biz.note || "";
 
 const list = $("productList");
@@ -189,48 +132,32 @@ list.innerHTML = "";
 state.biz.products.forEach((p) => {
 
 const row = document.createElement("div");
-
 row.className = "product";
 
 const image = p.image
-
 ? `<img src="${p.image}" class="product-img">`
 : "";
 
-const variantsHtml = (p.variants || [])
+const variantsHtml = (p.variants || []).map(v => {
 
-.map((variant) => {
+const options = v.options.map(o => {
 
-const type = variant.type || "Opción";
-
-const options = (variant.options || [])
-
-.map((o) => {
-
-const name = typeof o === "string" ? o : o?.name;
+const name = typeof o === "string" ? o : o.name;
 
 return `<option value="${name}">${name}</option>`;
 
-})
-
-.join("");
+}).join("");
 
 return `
-
-<label class="label small">${type}</label>
-
-<select class="variant-select" data-variant="${type}">
+<label class="label small">${v.type}</label>
+<select class="variant-select" data-variant="${v.type}">
 ${options}
 </select>
-
 `;
 
-})
-
-.join("");
+}).join("");
 
 row.innerHTML = `
-
 <div class="product-left">
 
 ${image}
@@ -238,24 +165,32 @@ ${image}
 <div class="product-info">
 
 <div class="product-name">${p.name}</div>
-
 <div class="price">${money(p.price)}</div>
 
 ${variantsHtml}
 
 <button class="add-variant btn-mini">Agregar</button>
 
-</div>
+<div class="line-items"></div>
 
 </div>
 
+</div>
 `;
+
+const selects = [...row.querySelectorAll(".variant-select")];
 
 const btn = row.querySelector(".add-variant");
 
+const lines = row.querySelector(".line-items");
+
 btn.addEventListener("click", () => {
 
-const key = p.id;
+const variants = {};
+
+selects.forEach(s => variants[s.dataset.variant] = s.value);
+
+const key = makeCartKey(p.id, variants);
 
 const existing = state.cart.get(key);
 
@@ -263,23 +198,23 @@ if (existing) {
 
 existing.qty++;
 
-state.cart.set(key, existing);
-
 } else {
 
-state.cart.set(key, {
-
-productId: p.id,
-
-qty: 1,
-
+state.cart.set(key,{
+productId:p.id,
+variants,
+qty:1
 });
 
 }
 
+renderLineItems(lines,p.id);
+
 recalc(true);
 
 });
+
+renderLineItems(lines,p.id);
 
 list.appendChild(row);
 
@@ -290,58 +225,93 @@ recalc();
 }
 
 // =========================
-// TOTAL
+// LINEAS CARRITO
 // =========================
 
-function recalc() {
+function renderLineItems(container,productId){
 
-const byId = new Map(state.biz.products.map((p) => [p.id, p]));
+container.innerHTML="";
 
-let subtotal = 0;
+[...state.cart.entries()]
+.filter(([k,v])=>v.productId===productId)
+.forEach(([key,item])=>{
 
-for (const [, item] of state.cart) {
+const row=document.createElement("div");
 
-const p = byId.get(item.productId);
+row.className="line-item";
 
-subtotal += Number(p.price) * Number(item.qty);
+const variants=Object.entries(item.variants||{})
+.map(([k,v])=>`${k}: ${v}`)
+.join(" · ");
+
+row.innerHTML=`
+<div>${variants}</div>
+<input type="number" value="${item.qty}" min="1" class="line-qty">
+<button class="line-remove">Quitar</button>
+`;
+
+row.querySelector(".line-remove").onclick=()=>{
+
+state.cart.delete(key);
+
+render();
+
+};
+
+row.querySelector(".line-qty").oninput=(e)=>{
+
+item.qty=parseInt(e.target.value||1);
+
+recalc();
+
+};
+
+container.appendChild(row);
+
+});
 
 }
 
-$("subtotal").textContent = money(subtotal);
+// =========================
+// TOTALES
+// =========================
 
-$("shipping").textContent = money(0);
+function recalc(){
 
-$("total").textContent = money(subtotal);
+const byId=new Map(state.biz.products.map(p=>[p.id,p]));
 
-return { subtotal, shipping: 0, total: subtotal };
+let subtotal=0;
+
+for(const[,item] of state.cart){
+
+const p=byId.get(item.productId);
+
+subtotal+=p.price*item.qty;
+
+}
+
+$("subtotal").textContent=money(subtotal);
+$("shipping").textContent=money(0);
+$("total").textContent=money(subtotal);
+
+return {subtotal,shipping:0,total:subtotal};
 
 }
 
 // =========================
-// VALIDACION
+// VALIDAR
 // =========================
 
-function validate() {
+function validate(){
 
-$("error").textContent = "";
+if(state.cart.size===0) return "Agrega un producto.";
 
-if (state.cart.size === 0)
+const name=$("customerName").value.trim();
+const phone=$("customerPhone").value.trim();
 
-return "Agrega al menos un producto.";
+if(!name) return "Ingresa tu nombre.";
 
-const name = $("customerName")?.value.trim();
-
-const phone = $("customerPhone")?.value.trim();
-
-const letters = /^[a-zA-ZÁÉÍÓÚáéíóúñÑ\s]+$/;
-
-const numbers = /^[0-9]+$/;
-
-if (!name || !letters.test(name)) return "Nombre inválido.";
-
-if (!phone || !numbers.test(phone) || phone.length !== 10)
-
-return "Teléfono inválido.";
+if(!phone || phone.length!==10) return "Teléfono inválido.";
 
 return null;
 
@@ -351,53 +321,37 @@ return null;
 // WHATSAPP
 // =========================
 
-function buildMessage({ total }) {
+function buildMessage({total}){
 
-const byId = new Map(state.biz.products.map((p) => [p.id, p]));
+const byId=new Map(state.biz.products.map(p=>[p.id,p]));
 
-const items = [];
+const items=[];
 
-for (const [, item] of state.cart) {
+for(const[,item] of state.cart){
 
-const p = byId.get(item.productId);
+const p=byId.get(item.productId);
 
 items.push(`- ${p.name} x${item.qty}`);
 
 }
 
-const name = sanitizeText($("customerName").value);
+return `🧾 Pedido para ${state.biz.name}
 
-const phone = sanitizePhone($("customerPhone").value);
+Cliente: ${$("customerName").value}
+Teléfono: ${$("customerPhone").value}
 
-return [
+Productos:
+${items.join("\n")}
 
-`🧾 Pedido para ${state.biz.name}`,
-
-"",
-
-`Cliente: ${name}`,
-
-`Teléfono: ${phone}`,
-
-"",
-
-"Productos:",
-
-items.join("\n"),
-
-"",
-
-`Total: ${money(total)}`,
-
-].join("\n");
+Total: ${money(total)}`;
 
 }
 
-function openWhatsapp(message) {
+function openWhatsapp(message){
 
-const phone = String(state.biz.whatsappPhone || "").replace(/[^\d]/g, "");
+const phone=state.biz.whatsappPhone.replace(/[^\d]/g,"");
 
-location.href = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+location.href=`https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 
 }
 
@@ -405,55 +359,45 @@ location.href = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 // INIT
 // =========================
 
-async function init() {
+async function init(){
 
-try {
+try{
 
-const slug = getSlug();
+const slug=getSlug();
 
-state.biz = await loadBusiness(slug);
+state.biz=await loadBusiness(slug);
 
 adaptCheckoutMode();
 
-document.title = state.biz.name;
+document.title=state.biz.name;
 
-$("sendBtn").addEventListener("click", () => {
+$("sendBtn").onclick=()=>{
 
-const btn = $("sendBtn");
+const err=validate();
 
-if (cooldownTimer) return;
+if(err){
 
-const err = validate();
-
-if (err) {
-
-$("error").textContent = err;
+$("error").textContent=err;
 
 return;
 
 }
 
-const totals = recalc();
+const totals=recalc();
 
-const msg = buildMessage(totals);
-
-startCooldown(btn);
-
-setTimeout(() => {
+const msg=buildMessage(totals);
 
 openWhatsapp(msg);
 
-}, 600);
-
-});
+};
 
 render();
 
-} catch (e) {
+}catch(e){
 
-$("bizName").textContent = "Error";
+$("bizName").textContent="Error";
 
-$("bizNote").textContent = e.message;
+$("bizNote").textContent=e.message;
 
 }
 
