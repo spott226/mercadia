@@ -462,3 +462,49 @@ box-shadow: 0 -5px 25px rgba(0,0,0,0.05);
 }
 
 }
+
+/* =========================
+   BACKGROUNDS DINAMICOS
+========================= */
+
+.bg-gadgets{
+  background: radial-gradient(circle at center,#0f172a,#020617);
+  min-height:100vh;
+}
+
+.bg-gadgets::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background-image:
+    radial-gradient(circle,rgba(255,255,255,0.06) 1px,transparent 1px);
+  background-size:40px 40px;
+  animation:gadgetGridMove 25s linear infinite;
+  pointer-events:none;
+  z-index:-2;
+}
+
+@keyframes gadgetGridMove{
+  from{transform:translate(0,0)}
+  to{transform:translate(-200px,-200px)}
+}
+
+.bg-gadgets::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  background-image:
+    radial-gradient(circle,#38bdf8 2px,transparent 2px),
+    radial-gradient(circle,#6366f1 2px,transparent 2px),
+    radial-gradient(circle,#22c55e 2px,transparent 2px);
+  background-size:300px 300px;
+  opacity:.35;
+  animation:particlesFloat 40s linear infinite;
+  pointer-events:none;
+  z-index:-1;
+}
+
+@keyframes particlesFloat{
+  from{transform:translateY(0)}
+  to{transform:translateY(-600px)}
+}
