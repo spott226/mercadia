@@ -4,9 +4,13 @@
     "primary": "#6fa6b3",
     "primaryHover": "#4f8894"
   },
+
   "logo": "/assets/logos/cheliispa.png",
+
   "note": "Aparta tu lugar con $200 MXN. Cupo limitado.",
+
   "whatsappPhone": "524404904451",
+
   "currency": "MXN",
 
   "checkoutMode": "registro",
@@ -43,7 +47,7 @@
       "description": "Pintura sanadora en espejo · Niño interior",
       "price": 700,
       "depositRequired": 200,
-      "image": "/assets/products/cursos/mirada.png"
+      "image": "/assets/products/chelispa/mirada.png"
     }
   ]
 }
