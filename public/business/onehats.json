@@ -1,0 +1,89 @@
+{
+"name": "One Hats",
+"theme": "theme-hats",
+"logo": "/assets/logos/onehats.png",
+"note": "Todos los sets incluyen gorra premium.",
+"whatsappPhone": "5212461140588",
+"currency": "MXN",
+
+"shipping": {
+"enabled": true,
+"options": [
+{ "id": "local", "label": "Envío local", "cost": 80 },
+{ "id": "nacional", "label": "Envío nacional", "cost": 160 }
+]
+},
+
+"products": [
+{
+"id": "angel-rhinestone",
+"name": "Angel Rhinestone Set",
+"description": "Gorra negra premium con pedrería y bordado estilo street exclusivo.",
+"price": 1800,
+"image": "/products/onehats/angel-rhinestone.jpg"
+},
+{
+"id": "cloud-blue",
+"name": "Cloud Blue Set",
+"description": "Gorra azul con bordado de nubes. Diseño moderno edición limitada.",
+"price": 1800,
+"image": "/products/onehats/cloud-blue.jpg"
+},
+{
+"id": "rich-forever",
+"name": "Rich Forever Set",
+"description": "Gorra negra con bordado Rich Forever y detalles metálicos premium.",
+"price": 1800,
+"image": "/products/onehats/rich-forever.jpg"
+},
+{
+"id": "rainbow-letter",
+"name": "Rainbow Letter Set",
+"description": "Gorra negra con letras multicolor y pedrería estilo urbano.",
+"price": 1800,
+"image": "/products/onehats/rainbow-letter.jpg"
+},
+{
+"id": "canelo-cap",
+"name": "Canelo Set",
+"description": "Gorra edición especial con bordado CANELO y diseño deportivo.",
+"price": 1800,
+"image": "/products/onehats/canelo.jpg"
+},
+{
+"id": "triple-star",
+"name": "Triple Star Set",
+"description": "Gorra negra con estrellas metálicas y acabado premium.",
+"price": 1800,
+"image": "/products/onehats/triple-star.jpg"
+},
+{
+"id": "fire-haters",
+"name": "Fire All The Haters Set",
+"description": "Gorra negra con frase bordada y detalles en pedrería.",
+"price": 1800,
+"image": "/products/onehats/fire-haters.jpg"
+},
+{
+"id": "red-star",
+"name": "Red Star Script Set",
+"description": "Gorra negra con estrella roja bordada estilo street premium.",
+"price": 1800,
+"image": "/products/onehats/red-star.jpg"
+},
+{
+"id": "raza-d",
+"name": "Raza D Set",
+"description": "Gorra negra con bordado old school y pedrería decorativa.",
+"price": 1800,
+"image": "/products/onehats/raza-d.jpg"
+},
+{
+"id": "valentino-uomo",
+"name": "Valentino Uomo Set",
+"description": "Set premium con gorra exclusiva y perfume Valentino Uomo.",
+"price": 1800,
+"image": "/products/onehats/valentino-uomo.jpg"
+}
+]
+}
