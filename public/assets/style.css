@@ -1,5 +1,5 @@
 /* ======================================================
-   MERCADIA CHECKOUT STYLE
+   MERCADIA CHECKOUT STYLE (OPTIMIZADO MOBILE)
    ====================================================== */
 
 :root{
@@ -27,20 +27,25 @@ background:var(--bg);
 color:var(--text);
 margin:0;
 padding:0;
-min-height:auto;
+position:relative;
+z-index:0;
 }
 
-/* LAYOUT */
+/* ======================================================
+   LAYOUT
+   ====================================================== */
 
 .container{
 max-width:900px;
 margin:0 auto;
 padding:20px 20px 60px;
 position:relative;
-z-index:2;
+z-index:5;
 }
 
-/* HEADER */
+/* ======================================================
+   HEADER
+   ====================================================== */
 
 .header{
 text-align:center;
@@ -50,11 +55,11 @@ margin-bottom:24px;
 .logo{
 max-width:140px;
 margin-bottom:12px;
-filter:drop-shadow(0 10px 20px rgba(0,0,0,.35));
+filter:drop-shadow(0 6px 12px rgba(0,0,0,.25));
 }
 
 .header h1{
-font-size:28px;
+font-size:26px;
 font-weight:700;
 margin-bottom:6px;
 }
@@ -64,22 +69,26 @@ color:var(--muted);
 font-size:14px;
 }
 
-/* CARD */
+/* ======================================================
+   CARD
+   ====================================================== */
 
 .card{
 background:var(--card);
 border-radius:var(--radius);
-padding:26px;
-box-shadow:0 10px 30px rgba(0,0,0,.08);
+padding:24px;
+box-shadow:0 8px 24px rgba(0,0,0,.08);
 transition:.25s;
 }
 
 .card:hover{
-transform:translateY(-4px);
-box-shadow:0 18px 45px rgba(0,0,0,.12);
+transform:translateY(-3px);
+box-shadow:0 14px 30px rgba(0,0,0,.12);
 }
 
-/* PRODUCT */
+/* ======================================================
+   PRODUCT
+   ====================================================== */
 
 .product{
 display:flex;
@@ -95,7 +104,6 @@ transition:.2s;
 
 .product:hover{
 border-color:var(--primary);
-transform:scale(1.01);
 }
 
 .product-left{
@@ -130,11 +138,6 @@ object-fit:cover;
 border-radius:12px;
 border:1px solid var(--border);
 background:#fff;
-transition:.2s;
-}
-
-.product:hover .product-img{
-transform:scale(1.05);
 }
 
 /* MINI BUTTON */
@@ -154,7 +157,9 @@ transition:.2s;
 transform:translateY(-1px);
 }
 
-/* TOTALS */
+/* ======================================================
+   TOTALS
+   ====================================================== */
 
 .totals{
 margin-top:22px;
@@ -174,7 +179,9 @@ font-size:18px;
 color:var(--primary);
 }
 
-/* FORM */
+/* ======================================================
+   FORM
+   ====================================================== */
 
 .label{
 font-size:14px;
@@ -198,7 +205,9 @@ border-color:var(--primary);
 box-shadow:0 0 0 3px rgba(37,99,235,.12);
 }
 
-/* BUTTON */
+/* ======================================================
+   BUTTON
+   ====================================================== */
 
 .btn{
 width:100%;
@@ -219,7 +228,9 @@ transform:translateY(-2px);
 box-shadow:0 10px 25px rgba(0,0,0,.18);
 }
 
-/* FOOTER */
+/* ======================================================
+   FOOTER
+   ====================================================== */
 
 .footer{
 margin-top:40px;
@@ -250,12 +261,10 @@ background:#f4f6f9;
 }
 
 /* ======================================================
-   THEME GADGETS (CORREGIDO)
+   GADGETS (TECH THEME)
    ====================================================== */
 
 body.bg-gadgets{
-
-/* variables del tema */
 
 --primary:#d4af37;
 --primary-hover:#b8962e;
@@ -264,14 +273,12 @@ body.bg-gadgets{
 --card:rgba(17,24,39,.88);
 --border:#1f2937;
 
-/* fondo base */
-
 background:#020617;
 color:var(--text);
 
 }
 
-/* GRID TECNOLOGICO */
+/* GRID */
 
 body.bg-gadgets::before{
 content:"";
@@ -280,15 +287,14 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background-image:
-radial-gradient(circle,rgba(255,255,255,.05) 1px,transparent 1px);
-background-size:40px 40px;
-animation:gridMove 35s linear infinite;
+background-image:radial-gradient(circle,rgba(255,255,255,.05) 1px,transparent 1px);
+background-size:50px 50px;
+animation:gridMove 80s linear infinite;
 pointer-events:none;
-z-index:-2;
+z-index:-1;
 }
 
-/* PARTICULAS */
+/* PARTICLES */
 
 body.bg-gadgets::after{
 content:"";
@@ -301,14 +307,12 @@ background-image:
 radial-gradient(circle,#38bdf8 2px,transparent 2px),
 radial-gradient(circle,#6366f1 2px,transparent 2px),
 radial-gradient(circle,#22c55e 2px,transparent 2px);
-background-size:320px 320px;
-opacity:.35;
-animation:particlesFloat 45s linear infinite;
+background-size:400px 400px;
+opacity:.25;
+animation:particlesFloat 120s linear infinite;
 pointer-events:none;
 z-index:-1;
 }
-
-/* animaciones */
 
 @keyframes gridMove{
 from{transform:translate(0,0)}
@@ -320,16 +324,12 @@ from{transform:translateY(0)}
 to{transform:translateY(-600px)}
 }
 
-/* CARDS ADAPTADAS AL FONDO OSCURO */
-
 body.bg-gadgets .card{
-background:rgba(17,24,39,.82);
+background:rgba(17,24,39,.85);
 backdrop-filter:blur(8px);
 border:1px solid rgba(255,255,255,.05);
 color:#e5e7eb;
 }
-
-/* PRODUCTOS */
 
 body.bg-gadgets .product{
 border:1px solid rgba(255,255,255,.05);
@@ -338,8 +338,6 @@ border:1px solid rgba(255,255,255,.05);
 body.bg-gadgets .product:hover{
 border-color:#d4af37;
 }
-
-/* BOTONES */
 
 body.bg-gadgets .btn-mini{
 background:rgba(212,175,55,.15);
@@ -352,16 +350,13 @@ background:linear-gradient(135deg,#d4af37,#b8962e);
 color:#020617;
 }
 
-/* glass cards */
-
-body.bg-gadgets .card{
-background:rgba(17,24,39,.85);
-backdrop-filter:blur(10px);
-border:1px solid rgba(255,255,255,.05);
-color:#e5e7eb;
+body.bg-gadgets .muted{
+color:#9ca3af;
 }
 
-/* SPA */
+/* ======================================================
+   SPA THEME
+   ====================================================== */
 
 body.bg-spa{
 --primary:#9f7aea;
@@ -369,7 +364,9 @@ body.bg-spa{
 background:linear-gradient(180deg,#f3e8ff,#ffffff);
 }
 
-/* LUXURY */
+/* ======================================================
+   LUXURY THEME
+   ====================================================== */
 
 body.bg-luxury{
 --primary:#d4af37;
@@ -385,7 +382,9 @@ background:#0f172a;
 border:1px solid #1f2937;
 }
 
-/* RESPONSIVE */
+/* ======================================================
+   MOBILE OPTIMIZATION
+   ====================================================== */
 
 @media(max-width:768px){
 
@@ -409,6 +408,22 @@ width:100%;
 
 .card{
 padding:20px;
+}
+
+.logo{
+max-width:110px;
+}
+
+}
+
+/* MOBILE PERFORMANCE */
+
+@media(max-width:480px){
+
+body.bg-gadgets::before,
+body.bg-gadgets::after{
+animation:none;
+opacity:.15;
 }
 
 }
