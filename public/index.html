@@ -1,136 +1,276 @@
-<!-- public/pedido/index.html -->
 <!doctype html>
 <html lang="es">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Mercadia</title>
 
-  <!-- Fuente moderna -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
-  <link rel="stylesheet" href="/assets/style.css" />
+<title>Mercadia</title>
+
+<meta name="description" content="Pedido en línea vía WhatsApp">
+
+<!-- Fuente -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+<!-- Estilos -->
+<link rel="stylesheet" href="/assets/core.css">
+<link rel="stylesheet" href="/assets/themes.css">
+
 </head>
-<body>
 
+
+<body class="theme-default">
+
+<!-- Fondo animado (solo desktop) -->
 <canvas id="bgParticles"></canvas>
 
-  <main class="container">
 
-    <!-- HEADER MEJORADO -->
-    <header class="header">
-      <div id="logoContainer" class="logo-container"></div>
+<main class="container">
 
-      <h1 id="bizName">Cargando…</h1>
-      <p id="bizNote" class="muted"></p>
-    </header>
 
-    <!-- PRODUCTOS -->
-    <section class="card">
-      <h2>Selecciona tus productos</h2>
+<!-- ======================================================
+HEADER
+====================================================== -->
 
-      <div id="productList" class="product-list"></div>
+<header class="header">
 
-      <div class="totals">
-        <div class="line">
-          <span>Subtotal</span>
-          <span id="subtotal">$0</span>
-        </div>
+<div id="logoContainer" class="logo-container"></div>
 
-        <div class="line">
-          <span>Envío</span>
-          <span id="shipping">$0</span>
-        </div>
+<h1 id="bizName">Cargando…</h1>
 
-        <div class="line total">
-          <span>Total</span>
-          <span id="total">$0</span>
-        </div>
-      </div>
-    </section>
+<p id="bizNote" class="muted"></p>
 
-    <!-- DATOS -->
-    <section class="card">
-      <h2>Datos</h2>
+</header>
 
-      <!-- Honeypot oculto -->
-      <div class="hp-field" aria-hidden="true">
-        <label for="companyWebsite">Sitio web</label>
-        <input
-          id="companyWebsite"
-          name="companyWebsite"
-          type="text"
-          tabindex="-1"
-          autocomplete="off"
-          placeholder="https://"
-        />
-      </div>
 
-      <!-- Nombre / Teléfono -->
-      <div class="grid">
-        <div>
-          <label class="label">Nombre</label>
-          <input id="customerName" class="input" type="text" placeholder="Nombre completo" />
-        </div>
 
-        <div>
-          <label class="label">Teléfono</label>
-          <input id="customerPhone" class="input" type="tel" placeholder="10 dígitos" maxlength="10" />
-        </div>
-      </div>
+<!-- ======================================================
+PRODUCTOS
+====================================================== -->
 
-      <!-- CAMPOS DE DIRECCIÓN (se ocultan automáticamente para cursos) -->
-      <div class="address-field">
+<section class="card">
 
-        <label class="label">Calle y número</label>
-        <input id="street" class="input" type="text" placeholder="Ej. Av. Reforma 123" />
+<h2>Selecciona tus productos</h2>
 
-        <div class="grid">
-          <div>
-            <label class="label">Colonia</label>
-            <input id="neighborhood" class="input" type="text" />
-          </div>
+<div id="productList" class="product-list"></div>
 
-          <div>
-            <label class="label">Código Postal</label>
-            <input id="zip" class="input" type="text" maxlength="5" />
-          </div>
-        </div>
 
-        <div class="grid">
-          <div>
-            <label class="label">Ciudad</label>
-            <input id="city" class="input" type="text" />
-          </div>
+<div class="totals">
 
-          <div>
-            <label class="label">Estado</label>
-            <input id="state" class="input" type="text" />
-          </div>
-        </div>
+<div class="line">
+<span>Subtotal</span>
+<span id="subtotal">$0</span>
+</div>
 
-        <label class="label">Tipo de envío</label>
-        <select id="shippingType" class="input"></select>
+<div class="line">
+<span>Envío</span>
+<span id="shipping">$0</span>
+</div>
 
-      </div>
+<div class="line total">
+<span>Total</span>
+<span id="total">$0</span>
+</div>
 
-      <button id="sendBtn" class="btn" type="button">
-        Enviar pedido por WhatsApp
-      </button>
+</div>
 
-      <p id="error" class="error"></p>
-    </section>
+</section>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-      <p class="muted small">
-        Este pedido se envía directamente al negocio vía WhatsApp.
-      </p>
-      <p class="muted small" id="bizFooter"></p>
-    </footer>
 
-  </main>
 
-  <script src="/assets/app.js"></script>
+<!-- ======================================================
+DATOS DEL CLIENTE
+====================================================== -->
+
+<section class="card">
+
+<h2>Datos de contacto</h2>
+
+
+<!-- Honeypot anti bots -->
+<div class="hp-field" aria-hidden="true">
+
+<label for="companyWebsite">Sitio web</label>
+
+<input
+id="companyWebsite"
+name="companyWebsite"
+type="text"
+tabindex="-1"
+autocomplete="off"
+placeholder="https://"
+/>
+
+</div>
+
+
+
+<!-- Nombre / Teléfono -->
+
+<div class="grid">
+
+<div>
+
+<label for="customerName" class="label">Nombre</label>
+
+<input
+id="customerName"
+class="input"
+type="text"
+placeholder="Nombre completo"
+autocomplete="name"
+/>
+
+</div>
+
+
+<div>
+
+<label for="customerPhone" class="label">Teléfono</label>
+
+<input
+id="customerPhone"
+class="input"
+type="tel"
+placeholder="10 dígitos"
+maxlength="10"
+autocomplete="tel"
+/>
+
+</div>
+
+</div>
+
+
+
+<!-- ======================================================
+DIRECCIÓN
+(se oculta automáticamente si el negocio no usa envíos)
+====================================================== -->
+
+<div class="address-field">
+
+
+<label for="street" class="label">Calle y número</label>
+
+<input
+id="street"
+class="input"
+type="text"
+placeholder="Ej. Av. Reforma 123"
+/>
+
+
+<div class="grid">
+
+<div>
+
+<label for="neighborhood" class="label">Colonia</label>
+
+<input
+id="neighborhood"
+class="input"
+type="text"
+/>
+
+</div>
+
+<div>
+
+<label for="zip" class="label">Código Postal</label>
+
+<input
+id="zip"
+class="input"
+type="text"
+maxlength="5"
+/>
+
+</div>
+
+</div>
+
+
+<div class="grid">
+
+<div>
+
+<label for="city" class="label">Ciudad</label>
+
+<input
+id="city"
+class="input"
+type="text"
+/>
+
+</div>
+
+<div>
+
+<label for="state" class="label">Estado</label>
+
+<input
+id="state"
+class="input"
+type="text"
+/>
+
+</div>
+
+</div>
+
+
+<label for="shippingType" class="label">Tipo de envío</label>
+
+<select id="shippingType" class="input"></select>
+
+</div>
+
+
+
+<!-- BOTÓN -->
+
+<button id="sendBtn" class="btn" type="button">
+
+Enviar pedido por WhatsApp
+
+</button>
+
+
+<p id="error" class="error"></p>
+
+</section>
+
+
+
+<!-- ======================================================
+FOOTER
+====================================================== -->
+
+<footer class="footer">
+
+<p class="muted small">
+
+Este pedido se envía directamente al negocio vía WhatsApp.
+
+</p>
+
+<p class="muted small" id="bizFooter"></p>
+
+</footer>
+
+
+
+</main>
+
+
+
+<!-- ======================================================
+SCRIPTS
+====================================================== -->
+
+<script src="/assets/app.js"></script>
+
 </body>
 </html>

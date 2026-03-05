@@ -124,19 +124,11 @@ async function loadBusiness(slug) {
 
   function applyBusinessStyle() {
 
-  const style = state.biz?.style || "minimal";
+  const theme = state.biz?.style || "minimal";
 
-  const styles = {
-    gadgets: "bg-gadgets",
-    spa: "bg-spa",
-    racing: "bg-racing",
-    minimal: "bg-minimal",
-    luxury: "bg-luxury"
-  };
+  document.body.className = "";
 
-  const className = styles[style] || "bg-minimal";
-
-  document.body.classList.add(className);
+  document.body.classList.add("theme-" + theme);
 
 }
 
@@ -604,6 +596,8 @@ async function loadBusiness(slug) {
    ========================= */
 
 (function initParticles(){
+
+  if (window.innerWidth < 768) return;
 
   const canvas = document.getElementById("bgParticles");
   if(!canvas) return;

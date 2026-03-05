@@ -1,0 +1,261 @@
+/* ======================================================
+THEMES SYSTEM
+Mercadia Checkout
+====================================================== */
+
+/* ======================================================
+DEFAULT
+====================================================== */
+
+.theme-default{
+
+--primary:#2563eb;
+--primary-hover:#1d4ed8;
+
+--bg:#f4f6f9;
+--card:#ffffff;
+
+--text:#1f2937;
+--muted:#6b7280;
+
+--border:#e5e7eb;
+
+background:var(--bg);
+color:var(--text);
+
+}
+
+
+
+/* ======================================================
+TECH / GADGETS
+Para tiendas de gadgets, tecnología
+====================================================== */
+
+.theme-gadgets{
+
+--primary:#d4af37;
+--primary-hover:#b8962e;
+
+--bg:#020617;
+--card:#111827;
+
+--text:#e5e7eb;
+--muted:#9ca3af;
+
+--border:#1f2937;
+
+background:#020617;
+color:var(--text);
+
+}
+
+/* efecto glass */
+
+.theme-gadgets .card{
+
+background:rgba(17,24,39,.85);
+
+backdrop-filter:blur(8px);
+
+border:1px solid rgba(255,255,255,.05);
+
+}
+
+/* botón */
+
+.theme-gadgets .btn{
+
+background:linear-gradient(135deg,#d4af37,#b8962e);
+
+color:#020617;
+
+}
+
+
+
+/* ======================================================
+SPA / ESTÉTICA
+====================================================== */
+
+.theme-spa{
+
+--primary:#9f7aea;
+--primary-hover:#805ad5;
+
+--bg:#faf5ff;
+--card:#ffffff;
+
+--text:#2d3748;
+--muted:#718096;
+
+--border:#e9d8fd;
+
+background:linear-gradient(180deg,#f3e8ff,#ffffff);
+
+}
+
+/* estilo suave */
+
+.theme-spa .btn{
+
+background:linear-gradient(135deg,#9f7aea,#805ad5);
+
+}
+
+
+
+/* ======================================================
+DENTAL / MÉDICO
+Para instrumental odontológico
+====================================================== */
+
+.theme-dental{
+
+--primary:#0ea5e9;
+--primary-hover:#0284c7;
+
+--bg:#f8fafc;
+--card:#ffffff;
+
+--text:#0f172a;
+--muted:#64748b;
+
+--border:#e2e8f0;
+
+background:#f8fafc;
+
+}
+
+/* sensación clínica */
+
+.theme-dental .card{
+
+border:1px solid #e2e8f0;
+
+box-shadow:0 4px 14px rgba(0,0,0,.05);
+
+}
+
+
+
+/* ======================================================
+LUXURY / PREMIUM
+====================================================== */
+
+.theme-luxury{
+
+--primary:#d4af37;
+--primary-hover:#b8962e;
+
+--bg:#020617;
+--card:#0f172a;
+
+--text:#f3f4f6;
+--muted:#9ca3af;
+
+--border:#1f2937;
+
+background:#020617;
+color:#f3f4f6;
+
+}
+
+.theme-luxury .card{
+
+background:#0f172a;
+
+border:1px solid #1f2937;
+
+}
+
+
+
+/* ======================================================
+PET SHOP
+Para mascotas
+====================================================== */
+
+.theme-pets{
+
+--primary:#22c55e;
+--primary-hover:#16a34a;
+
+--bg:#f0fdf4;
+--card:#ffffff;
+
+--text:#14532d;
+--muted:#4d7c0f;
+
+--border:#bbf7d0;
+
+background:#f0fdf4;
+
+}
+
+
+
+/* ======================================================
+STREET / ROPA / PLAYERAS
+====================================================== */
+
+.theme-street{
+
+--primary:#ef4444;
+--primary-hover:#dc2626;
+
+--bg:#0f172a;
+--card:#111827;
+
+--text:#f3f4f6;
+--muted:#9ca3af;
+
+--border:#1f2937;
+
+background:#020617;
+color:#f3f4f6;
+
+}
+
+
+
+/* ======================================================
+MINIMAL / CLEAN
+====================================================== */
+
+.theme-minimal{
+
+--primary:#111827;
+--primary-hover:#000000;
+
+--bg:#ffffff;
+--card:#ffffff;
+
+--text:#111827;
+--muted:#6b7280;
+
+--border:#e5e7eb;
+
+background:#ffffff;
+
+}
+
+
+
+/* ======================================================
+UTILIDADES
+====================================================== */
+
+.theme-gadgets .muted,
+.theme-luxury .muted{
+
+color:#9ca3af;
+
+}
+
+.theme-gadgets .product:hover,
+.theme-luxury .product:hover{
+
+border-color:var(--primary);
+
+}
