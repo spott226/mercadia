@@ -1,5 +1,5 @@
 /* ======================================================
-   MERCADIA MINI-CHECK STYLE SYSTEM
+   MERCADIA CHECKOUT STYLE
    ====================================================== */
 
 :root{
@@ -13,7 +13,7 @@
 --radius:16px;
 }
 
-/* ================= RESET ================= */
+/* RESET */
 
 *{
 box-sizing:border-box;
@@ -23,37 +23,31 @@ padding:0;
 
 body{
 font-family:'Inter',system-ui,-apple-system,sans-serif;
-color:var(--text);
 background:var(--bg);
+color:var(--text);
 min-height:100vh;
-animation:fadeInBody .5s ease;
 }
 
-@keyframes fadeInBody{
-from{opacity:0;transform:translateY(8px)}
-to{opacity:1;transform:translateY(0)}
-}
-
-/* ================= LAYOUT ================= */
+/* LAYOUT */
 
 .container{
 max-width:900px;
 margin:0 auto;
-padding:40px 20px 60px;
+padding:32px 20px 60px;
 position:relative;
 z-index:2;
 }
 
-/* ================= HEADER ================= */
+/* HEADER */
 
 .header{
 text-align:center;
-margin-bottom:20px;
+margin-bottom:24px;
 }
 
 .logo{
 max-width:140px;
-margin-bottom:14px;
+margin-bottom:12px;
 filter:drop-shadow(0 10px 20px rgba(0,0,0,.35));
 }
 
@@ -65,28 +59,25 @@ margin-bottom:6px;
 
 .muted{
 color:var(--muted);
+font-size:14px;
 }
 
-.small{
-font-size:13px;
-}
-
-/* ================= CARD ================= */
+/* CARD */
 
 .card{
 background:var(--card);
 border-radius:var(--radius);
-padding:28px;
-box-shadow:0 10px 35px rgba(0,0,0,.08);
+padding:26px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
 transition:.25s;
 }
 
 .card:hover{
 transform:translateY(-4px);
-box-shadow:0 20px 50px rgba(0,0,0,.12);
+box-shadow:0 18px 45px rgba(0,0,0,.12);
 }
 
-/* ================= PRODUCT ================= */
+/* PRODUCT */
 
 .product{
 display:flex;
@@ -104,13 +95,6 @@ transition:.2s;
 border-color:var(--primary);
 transform:scale(1.01);
 }
-
-.product.active{
-border-color:var(--primary);
-background:rgba(37,99,235,.05);
-}
-
-/* LEFT */
 
 .product-left{
 display:flex;
@@ -151,7 +135,7 @@ transition:.2s;
 transform:scale(1.05);
 }
 
-/* BUTTON MINI */
+/* MINI BUTTON */
 
 .btn-mini{
 padding:10px 14px;
@@ -168,28 +152,27 @@ transition:.2s;
 transform:translateY(-1px);
 }
 
-/* ================= TOTAL ================= */
+/* TOTALS */
 
 .totals{
-margin-top:25px;
-padding-top:15px;
+margin-top:22px;
+padding-top:12px;
 border-top:1px solid var(--border);
 }
 
 .line{
 display:flex;
 justify-content:space-between;
-margin:8px 0;
-font-size:15px;
+margin:6px 0;
 }
 
 .total{
 font-weight:700;
-font-size:19px;
+font-size:18px;
 color:var(--primary);
 }
 
-/* ================= FORM ================= */
+/* FORM */
 
 .label{
 font-size:14px;
@@ -213,7 +196,7 @@ border-color:var(--primary);
 box-shadow:0 0 0 3px rgba(37,99,235,.12);
 }
 
-/* ================= BUTTON ================= */
+/* BUTTON */
 
 .btn{
 width:100%;
@@ -234,7 +217,7 @@ transform:translateY(-2px);
 box-shadow:0 10px 25px rgba(0,0,0,.18);
 }
 
-/* ================= FOOTER ================= */
+/* FOOTER */
 
 .footer{
 margin-top:40px;
@@ -243,28 +226,41 @@ font-size:13px;
 color:var(--muted);
 }
 
+/* HONEYPOT */
+
+.hp-field{
+position:absolute!important;
+left:-9999px!important;
+width:1px!important;
+height:1px!important;
+opacity:0!important;
+pointer-events:none!important;
+}
+
 /* ======================================================
    THEMES
    ====================================================== */
 
-/* ---------- LEGACY (default) ---------- */
+/* LEGACY */
 
 body.bg-legacy{
 background:#f4f6f9;
 }
 
-/* ---------- GADGETS / TECH ---------- */
+/* GADGETS */
 
 body.bg-gadgets{
 --primary:#d4af37;
 --primary-hover:#b8962e;
 --text:#e5e7eb;
 --muted:#9ca3af;
---card:rgba(17,24,39,.85);
+--card:rgba(17,24,39,.88);
 --border:#1f2937;
 
 background:radial-gradient(circle at center,#0f172a,#020617);
 }
+
+/* grid animation */
 
 body.bg-gadgets::before{
 content:"";
@@ -282,32 +278,31 @@ from{transform:translate(0,0)}
 to{transform:translate(-200px,-200px)}
 }
 
+/* glass cards */
+
 body.bg-gadgets .card{
-background:rgba(17,24,39,.8);
+background:rgba(17,24,39,.85);
 backdrop-filter:blur(10px);
 border:1px solid rgba(255,255,255,.05);
 color:#e5e7eb;
 }
 
-/* ---------- SPA ---------- */
+/* SPA */
 
 body.bg-spa{
 --primary:#9f7aea;
 --primary-hover:#805ad5;
---card:#ffffff;
-
 background:linear-gradient(180deg,#f3e8ff,#ffffff);
 }
 
-/* ---------- LUXURY ---------- */
+/* LUXURY */
 
 body.bg-luxury{
 --primary:#d4af37;
 --primary-hover:#b8962e;
---card:#111827;
+--card:#0f172a;
 --text:#f3f4f6;
 --border:#1f2937;
-
 background:#020617;
 }
 
@@ -316,20 +311,17 @@ background:#0f172a;
 border:1px solid #1f2937;
 }
 
-/* ======================================================
-   RESPONSIVE
-   ====================================================== */
+/* RESPONSIVE */
 
-@media (max-width:768px){
+@media(max-width:768px){
 
 .container{
-padding:25px 16px 40px;
+padding:24px 16px 40px;
 }
 
 .product{
 flex-direction:column;
-align-items:stretch;
-gap:12px;
+align-items:flex-start;
 }
 
 .product-img{
