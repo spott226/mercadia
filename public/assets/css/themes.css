@@ -70,17 +70,51 @@ background:#111827;
 --primary:#9f7aea;
 --primary-hover:#805ad5;
 
---bg:#faf5ff;
+--bg:linear-gradient(180deg,#f6f0ff,#ffffff);
+
 --card:#ffffff;
 
 --text:#2d3748;
 --muted:#718096;
---border:#e9d8fd;
+
+--border:#ece7ff;
 
 }
 
+.theme-spa body{
+background:linear-gradient(180deg,#f6f0ff,#ffffff);
+}
+
 .theme-spa .card{
-box-shadow:0 12px 30px rgba(159,122,234,0.12);
+
+border:1px solid #ece7ff;
+
+box-shadow:0 12px 35px rgba(159,122,234,0.15);
+
+}
+
+.theme-spa .product:hover{
+
+border-color:#9f7aea;
+
+background:rgba(159,122,234,0.05);
+
+}
+
+.theme-spa .btn{
+
+background:linear-gradient(135deg,#9f7aea,#805ad5);
+
+}
+
+.theme-spa .btn-mini{
+
+background:rgba(159,122,234,0.12);
+
+border:1px solid rgba(159,122,234,0.2);
+
+color:#805ad5;
+
 }
 
 
