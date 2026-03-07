@@ -1,6 +1,5 @@
 {
   "name": "F1 Shirts MX",
-
   "style": "store",
 
   "theme": {
@@ -30,6 +29,7 @@
     {
       "id": "p1",
       "name": "Playera Red Bull Racing 2025",
+      "description": "Playera oficial estilo Fórmula 1 edición 2025.",
       "price": 399,
       "image": "/assets/products/f1/redbull.png",
       "variants": [
@@ -55,6 +55,7 @@
     {
       "id": "p2",
       "name": "Playera Ferrari Scuderia",
+      "description": "Diseño inspirado en el equipo Ferrari F1.",
       "price": 429,
       "image": "/assets/products/f1/ferrari.jpg",
       "variants": [
@@ -80,6 +81,7 @@
     {
       "id": "p3",
       "name": "Playera Mercedes AMG Petronas",
+      "description": "Playera deportiva inspirada en Mercedes AMG F1.",
       "price": 419,
       "image": "/assets/products/f1/amg.jpg",
       "variants": [

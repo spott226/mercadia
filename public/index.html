@@ -10,27 +10,26 @@
 
 <meta name="description" content="Pedido en línea vía WhatsApp">
 
-<!-- Fuente -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
-<!-- Estilos -->
 <link rel="stylesheet" href="/assets/css/core.css">
 <link rel="stylesheet" href="/assets/css/themes.css">
 
 </head>
 
 
-<body class="theme-default">
+<body>
 
-<!-- Fondo animado (solo desktop) -->
+<!-- Fondo animado -->
 <canvas id="bgParticles"></canvas>
 
 
-<!-- ======================================================
-MENÚ (solo para temas premium)
-====================================================== -->
+<!-- =========================
+MENÚ PREMIUM
+(se activa cuando style = store)
+========================= -->
 
-<nav class="store-nav premium-only">
+<nav class="store-nav">
 
 <div class="store-nav-left">
 <span id="storeLogoText"></span>
@@ -42,7 +41,7 @@ MENÚ (solo para temas premium)
 </div>
 
 <div class="store-nav-right">
-<span id="cartCount">0</span>
+🛒 <span id="cartCount">0</span>
 </div>
 
 </nav>
@@ -51,13 +50,13 @@ MENÚ (solo para temas premium)
 <main class="container">
 
 
-<!-- ======================================================
+<!-- =========================
 HEADER
-====================================================== -->
+========================= -->
 
 <header class="header">
 
-<div id="logoContainer" class="logo-container"></div>
+<div id="logoContainer"></div>
 
 <h1 id="bizName">Cargando…</h1>
 
@@ -67,9 +66,9 @@ HEADER
 
 
 
-<!-- ======================================================
+<!-- =========================
 PRODUCTOS
-====================================================== -->
+========================= -->
 
 <section class="card" id="productos">
 
@@ -101,17 +100,18 @@ PRODUCTOS
 
 
 
-<!-- ======================================================
-DATOS DEL CLIENTE
-====================================================== -->
+<!-- =========================
+DATOS CLIENTE
+========================= -->
 
 <section class="card" id="contacto">
 
 <h2>Datos de contacto</h2>
 
 
-<!-- Honeypot anti bots -->
-<div class="hp-field" aria-hidden="true">
+<!-- honeypot -->
+
+<div class="hp-field">
 
 <label for="companyWebsite">Sitio web</label>
 
@@ -121,27 +121,23 @@ name="companyWebsite"
 type="text"
 tabindex="-1"
 autocomplete="off"
-placeholder="https://"
 />
 
 </div>
 
 
 
-<!-- Nombre / Teléfono -->
-
 <div class="grid">
 
 <div>
 
-<label for="customerName" class="label">Nombre</label>
+<label class="label">Nombre</label>
 
 <input
 id="customerName"
 class="input"
 type="text"
 placeholder="Nombre completo"
-autocomplete="name"
 />
 
 </div>
@@ -149,7 +145,7 @@ autocomplete="name"
 
 <div>
 
-<label for="customerPhone" class="label">Teléfono</label>
+<label class="label">Teléfono</label>
 
 <input
 id="customerPhone"
@@ -157,7 +153,6 @@ class="input"
 type="tel"
 placeholder="10 dígitos"
 maxlength="10"
-autocomplete="tel"
 />
 
 </div>
@@ -166,21 +161,18 @@ autocomplete="tel"
 
 
 
-<!-- ======================================================
+<!-- =========================
 DIRECCIÓN
-(se oculta automáticamente si el negocio no usa envíos)
-====================================================== -->
+========================= -->
 
 <div class="address-field">
 
-
-<label for="street" class="label">Calle y número</label>
+<label class="label">Calle y número</label>
 
 <input
 id="street"
 class="input"
 type="text"
-placeholder="Ej. Av. Reforma 123"
 />
 
 
@@ -188,7 +180,7 @@ placeholder="Ej. Av. Reforma 123"
 
 <div>
 
-<label for="neighborhood" class="label">Colonia</label>
+<label class="label">Colonia</label>
 
 <input
 id="neighborhood"
@@ -200,7 +192,7 @@ type="text"
 
 <div>
 
-<label for="zip" class="label">Código Postal</label>
+<label class="label">Código Postal</label>
 
 <input
 id="zip"
@@ -218,7 +210,7 @@ maxlength="5"
 
 <div>
 
-<label for="city" class="label">Ciudad</label>
+<label class="label">Ciudad</label>
 
 <input
 id="city"
@@ -230,7 +222,7 @@ type="text"
 
 <div>
 
-<label for="state" class="label">Estado</label>
+<label class="label">Estado</label>
 
 <input
 id="state"
@@ -243,7 +235,7 @@ type="text"
 </div>
 
 
-<label for="shippingType" class="label">Tipo de envío</label>
+<label class="label">Tipo de envío</label>
 
 <select id="shippingType" class="input"></select>
 
@@ -251,14 +243,9 @@ type="text"
 
 
 
-<!-- BOTÓN -->
-
 <button id="sendBtn" class="btn" type="button">
-
 Enviar pedido por WhatsApp
-
 </button>
-
 
 <p id="error" class="error"></p>
 
@@ -266,16 +253,14 @@ Enviar pedido por WhatsApp
 
 
 
-<!-- ======================================================
+<!-- =========================
 FOOTER
-====================================================== -->
+========================= -->
 
 <footer class="footer">
 
 <p class="muted small">
-
 Este pedido se envía directamente al negocio vía WhatsApp.
-
 </p>
 
 <p class="muted small" id="bizFooter"></p>
@@ -283,14 +268,9 @@ Este pedido se envía directamente al negocio vía WhatsApp.
 </footer>
 
 
-
 </main>
 
 
-
-<!-- ======================================================
-SCRIPTS
-====================================================== -->
 
 <script src="/assets/app.js"></script>
 
