@@ -664,12 +664,34 @@ let html = "";
 items.forEach(([key,item])=>{
 
 const product = state.biz.products.find(p=>p.id === item.productId);
-
 if(!product) return;
 
+const variants =
+Object.entries(item.variants || {})
+.map(([k,v])=>`${k}: ${v}`)
+.join(" · ");
+
+const price = Number(product.price) * Number(item.qty);
+
 html += `
-<div style="margin-bottom:10px">
-${product.name} x${item.qty}
+<div style="
+display:flex;
+justify-content:space-between;
+margin-bottom:12px;
+padding-bottom:8px;
+border-bottom:1px solid #eee;
+">
+
+<div>
+<div style="font-weight:600">${product.name}</div>
+<div style="font-size:13px;color:#666">${variants}</div>
+<div style="font-size:13px">Cantidad: ${item.qty}</div>
+</div>
+
+<div style="font-weight:600">
+${money(price)}
+</div>
+
 </div>
 `;
 
