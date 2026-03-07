@@ -466,7 +466,7 @@ align-items:stretch;
 width:100%;
 }
 
-.totals{
+body:not(.theme-store) .totals{
 position:sticky;
 bottom:0;
 background:white;
