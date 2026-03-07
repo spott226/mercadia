@@ -51,11 +51,11 @@
 "description": "Mini reloj en forma de anillo. Gadget elegante y llamativo."
 },
 {
-"id": "spray-volumen",
-"name": "Spray para dar volumen al cabello",
-"price": 150,
-"image": "/assets/products/shopopen/spray-volumen.jpg",
-"description": "Spray especial para dar volumen y estilo al cabello."
+"id": "mascara",
+"name": "Mascarilla de Calavera",
+"price": 380,
+"image": "/assets/products/shopopen/mascara.jpeg",
+"description": " Ideal para actividades al aire libre, fiesta tematicas, eventos de cosplay entere otros."
 },
 {
 "id": "cadena-plata-moissanita",
@@ -65,11 +65,11 @@
 "description": "Cadena premium de plata 925 con piedra moissanita de alto brillo."
 },
 {
-"id": "pasta-blanqueadora",
-"name": "Pasta para blanquear dientes",
-"price": 150,
-"image": "/assets/products/shopopen/pasta-blanqueadora.jpg",
-"description": "Pasta especializada para ayudar a blanquear los dientes."
+"id": "gorra-barbas",
+"name": "Barbas Hats x CT THREE STARS",
+"price": 1850,
+"image": "/assets/products/shopopen/barbas.jpeg",
+"description": "Gorra barbas en colaboracion con CT."
 },
 {
 "id": "peluche-stitch-termico",
