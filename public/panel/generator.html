@@ -2,10 +2,8 @@
 <html lang="es">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Panel de productos</title>
 
 <style>
@@ -31,7 +29,6 @@ border:1px solid #1f2937;
 }
 
 input,select,textarea{
-
 width:100%;
 padding:10px;
 margin-top:8px;
@@ -40,7 +37,6 @@ border-radius:6px;
 border:1px solid #374151;
 background:#020617;
 color:white;
-
 }
 
 textarea{
@@ -48,13 +44,11 @@ height:80px;
 }
 
 button{
-
 padding:10px 18px;
 border:none;
 border-radius:6px;
 cursor:pointer;
 font-weight:bold;
-
 }
 
 .add{
@@ -93,20 +87,18 @@ margin-bottom:20px;
 
 <div id="products"></div>
 
-<button class="add" onclick="addProduct()">Agregar producto</button>
+<button id="addBtn" class="add">Agregar producto</button>
 
 </div>
 
-<button class="send" onclick="sendJSON()">Enviar a WhatsApp</button>
+<button id="sendBtn" class="send">Enviar a WhatsApp</button>
 
 </div>
-
 
 
 <script>
 
 let productCount = 0
-
 
 function addProduct(){
 
@@ -115,7 +107,6 @@ productCount++
 const container = document.getElementById("products")
 
 const div = document.createElement("div")
-
 div.className = "product"
 
 div.innerHTML = `
@@ -150,46 +141,43 @@ container.appendChild(div)
 }
 
 
-
 function sendJSON(){
 
-const products = []
+const products=[]
 
 document.querySelectorAll(".product").forEach((p,i)=>{
 
-const imageFile = p.querySelector(".image").files[0]
+const imageFile=p.querySelector(".image").files[0]
 
 products.push({
 
-name: p.querySelector(".name").value,
-
-price: Number(p.querySelector(".price").value),
-
-category: p.querySelector(".category").value,
-
-stock: Number(p.querySelector(".stock").value),
-
-image: imageFile ? imageFile.name : "",
-
-description: p.querySelector(".description").value,
-
-featured: true,
-
-active: true
+name:p.querySelector(".name").value,
+price:Number(p.querySelector(".price").value),
+category:p.querySelector(".category").value,
+stock:Number(p.querySelector(".stock").value),
+image:imageFile ? imageFile.name : "",
+description:p.querySelector(".description").value,
+featured:true,
+active:true
 
 })
 
 })
 
-const json = JSON.stringify(products,null,2)
+const json=JSON.stringify(products,null,2)
 
-const numeroAdmin = "524491234567"
+const numeroAdmin="524491234567"
 
-const mensaje = encodeURIComponent(json)
+const mensaje=encodeURIComponent(json)
 
-window.location.href = `https://wa.me/${numeroAdmin}?text=${mensaje}`
+window.open(`https://wa.me/${numeroAdmin}?text=${mensaje}`)
 
 }
+
+
+document.getElementById("addBtn").addEventListener("click",addProduct)
+
+document.getElementById("sendBtn").addEventListener("click",sendJSON)
 
 </script>
 
