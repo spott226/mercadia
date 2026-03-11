@@ -137,17 +137,19 @@ opacity:0.85;
 
 .cart-panel{
 position:fixed;
-top:0;
-right:0;
+top:90px;
+right:20px;
 width:320px;
-height:100vh;
-background:var(--card);
-box-shadow:-4px 0 12px rgba(0,0,0,0.15);
-padding:20px;
+max-height:80vh;
 overflow-y:auto;
+background:white;
+box-shadow:0 10px 30px rgba(0,0,0,.2);
+border-radius:12px;
+padding:20px;
 display:none;
-z-index:999;
+z-index:9999;
 }
+
 
 .cart-item{
 display:flex;

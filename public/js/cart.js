@@ -114,3 +114,7 @@ const url = `https://wa.me/${phone}?text=${message}`;
 window.open(url,"_blank");
 
 }
+
+window.addToCart = addToCart;
+window.removeFromCart = removeFromCart;
+window.checkoutWhatsApp = checkoutWhatsApp;
