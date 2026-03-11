@@ -1,0 +1,17 @@
+{
+  "products": [
+    {
+      "id": 7,
+      "store": "chelispa",
+      "name": "Kit Facial Hidratante",
+      "price": 520,
+      "category": "spa",
+      "stock": 20,
+      "image": "/assets/products/chelispa/facial.jpg",
+      "description": "Kit facial hidratante cuidado profesional",
+      "featured": true,
+      "active": true
+    }
+
+  ]
+}

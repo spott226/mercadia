@@ -1,0 +1,50 @@
+{
+  "stores": [
+    {
+      "id": "shopopen",
+      "name": "Shop Open",
+      "whatsapp": "524491234567",
+      "currency": "MXN",
+      "logo": "/assets/logos/shopopen.png",
+      "active": true
+    },
+    {
+      "id": "onehats",
+      "name": "One Hats",
+      "whatsapp": "524491234568",
+      "currency": "MXN",
+      "logo": "/assets/logos/onehats.png",
+      "active": true
+    },
+    {
+      "id": "f1",
+      "name": "F1 Store",
+      "whatsapp": "524491234569",
+      "currency": "MXN",
+      "logo": "/assets/logos/f1.png",
+      "active": true
+    },
+    {
+      "id": "chelispa",
+      "name": "Cheli Spa",
+      "whatsapp": "524494904451",
+      "currency": "MXN",
+      "hero": "/assets/heroes/cheli.jpg",
+      "plan": "pro",
+      "theme": "spa",
+      "logo": "/assets/logos/chelispa.png",
+      "active": true
+    },
+       {
+      "id": "hernandez-snickers",
+      "name": "Hernandez Snickers",
+      "whatsapp": "3312436092",
+      "currency": "MXN",
+      "hero": "/assets/heroes/sneakers.jpg",
+      "plan": "pro",
+      "logo": "/assets/logos/hdz.jpeg",
+      "active": true
+    }
+
+  ]
+}

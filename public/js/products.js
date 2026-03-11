@@ -21,41 +21,39 @@ const store = getStoreFromDomain();
 
 async function loadProducts(){
 
-const res = await fetch("data/products.json");
-const data = await res.json();
+// obtener tienda desde dominio
+const store = getStoreFromDomain();
 
+// cargar datos de la tienda
+const storeRes = await fetch("data/store.json");
+const storeData = await storeRes.json();
 
-// buscar datos de la tienda
-const storeData = data.stores.find(s =>
-s.id.toLowerCase() === store
+const storeInfo = storeData.stores.find(
+s => s.id.toLowerCase() === store
 );
 
+if(storeInfo){
 
-// cargar nombre, logo, hero y plan
-if(storeData){
+window.storeWhats = storeInfo.whatsapp || "";
 
-window.storeWhats = storeData.whatsapp || "";
-
-document.body.classList.add("theme-" + storeData.theme);
+document.body.classList.add("theme-" + storeInfo.theme);
 
 const logo = document.getElementById("store-logo");
 const name = document.getElementById("store-name");
 const hero = document.getElementById("hero");
 const bot = document.getElementById("chatbot-button");
 
-if(logo) logo.src = storeData.logo;
-if(name) name.textContent = storeData.name;
+if(logo) logo.src = storeInfo.logo;
+if(name) name.textContent = storeInfo.name;
 
-
-// HERO
-if(hero && storeData.hero){
+if(hero && storeInfo.hero){
 
 hero.style.background = `
 linear-gradient(
 rgba(0,0,0,0.55),
 rgba(0,0,0,0.55)
 ),
-url("${storeData.hero}")
+url("${storeInfo.hero}")
 `;
 
 hero.style.backgroundSize = "cover";
@@ -63,19 +61,18 @@ hero.style.backgroundPosition = "center";
 
 }
 
-
-// ocultar chatbot si plan básico
-if(bot && storeData.plan === "basic"){
+if(bot && storeInfo.plan === "basic"){
 bot.style.display = "none";
 }
 
 }
 
 
-// filtrar productos por tienda
-const storeProducts = data.products.filter(
-p => p.store === store && p.active
-);
+// cargar productos de esa tienda
+const productsRes = await fetch(`data/products/${store}.json`);
+const productsData = await productsRes.json();
+
+const storeProducts = productsData.products.filter(p => p.active);
 
 window.allProducts = storeProducts;
 
@@ -84,8 +81,6 @@ renderFeatured(storeProducts);
 renderProducts(storeProducts);
 
 }
-
-
 
 // generar categorias
 function generateCategories(products){
