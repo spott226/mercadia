@@ -174,27 +174,6 @@ Agregar al carrito
 
 }
 
-// activar botones del carrito
-function activateCartButtons(){
-
-document.querySelectorAll(".add-cart").forEach(btn=>{
-
-btn.addEventListener("click",()=>{
-
-const id = parseInt(btn.dataset.id);
-
-if(typeof addToCart === "function"){
-addToCart(id);
-}
-
-});
-
-});
-
-}
-
-
-
 // filtrar por categoria
 function filterCategory(cat){
 
