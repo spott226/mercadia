@@ -3,6 +3,7 @@
 // =========================
 
 let cart = [];
+let lastAddTime = 0; // evita doble click o doble evento
 
 
 // =========================
@@ -10,6 +11,11 @@ let cart = [];
 // =========================
 
 function addToCart(id){
+
+// evita duplicación por doble evento
+const now = Date.now();
+if(now - lastAddTime < 200) return;
+lastAddTime = now;
 
 const product = window.allProducts.find(p => p.id === id);
 
@@ -85,7 +91,7 @@ cartTotal.textContent = "$" + total;
 cartCount.textContent = count;
 
 
-// activar botones eliminar
+// activar eliminar
 document.querySelectorAll(".remove-item").forEach(btn=>{
 
 btn.addEventListener("click",()=>{
@@ -138,7 +144,7 @@ let total = cart.reduce(
 
 message += `%0ATotal: $${total}`;
 
-const phone = window.storeWhats || "524491234567";
+const phone = "524491234567";
 
 const url = `https://wa.me/${phone}?text=${message}`;
 
