@@ -194,3 +194,10 @@ function botWhatsDirect() {
 }
 
 window.toggleBot = toggleBot;
+
+document.addEventListener("DOMContentLoaded", () => {
+  const botButton = document.getElementById("chatbot-button");
+  if (botButton) {
+    botButton.addEventListener("click", toggleBot);
+  }
+});
