@@ -1,31 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Panel Mercadia</title>
+<title>Panel de productos</title>
 
 <style>
 
 body{
-font-family:system-ui, -apple-system, sans-serif;
+font-family:Arial;
 background:#0f172a;
-color:#e5e7eb;
-margin:0;
+color:white;
 padding:40px;
 }
 
 .container{
-max-width:1100px;
+max-width:900px;
 margin:auto;
-}
-
-h1{
-font-size:32px;
-margin-bottom:30px;
 }
 
 .card{
@@ -36,21 +27,12 @@ margin-bottom:25px;
 border:1px solid #1f2937;
 }
 
-.card h2{
-margin-top:0;
-margin-bottom:20px;
-}
-
-.grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:15px;
-}
-
-input, select, textarea{
+input,select,textarea{
 
 width:100%;
 padding:10px;
+margin-top:8px;
+margin-bottom:12px;
 border-radius:6px;
 border:1px solid #374151;
 background:#020617;
@@ -59,15 +41,7 @@ color:white;
 }
 
 textarea{
-min-height:70px;
-}
-
-.product{
-background:#020617;
-border:1px solid #1f2937;
-padding:20px;
-border-radius:8px;
-margin-bottom:20px;
+height:80px;
 }
 
 button{
@@ -76,35 +50,27 @@ padding:10px 18px;
 border:none;
 border-radius:6px;
 cursor:pointer;
-font-weight:600;
+font-weight:bold;
 
 }
 
-.btn-add{
+.add{
 background:#2563eb;
 color:white;
 }
 
-.btn-send{
+.send{
 background:#22c55e;
 color:white;
 margin-top:20px;
 }
 
-.btn-add:hover{
-background:#1d4ed8;
-}
-
-.btn-send:hover{
-background:#16a34a;
-}
-
-@media(max-width:700px){
-
-.grid{
-grid-template-columns:1fr;
-}
-
+.product{
+background:#020617;
+padding:20px;
+border-radius:8px;
+border:1px solid #1f2937;
+margin-bottom:20px;
 }
 
 </style>
@@ -122,17 +88,12 @@ grid-template-columns:1fr;
 
 <h2>Datos de la tienda</h2>
 
-<div class="grid">
+<input id="store_name" placeholder="Nombre de la tienda">
 
-<input id="store_id" placeholder="store_id">
+<input id="store_whatsapp" placeholder="WhatsApp del negocio">
 
-<input id="store_name" placeholder="Nombre tienda">
-
-<input id="store_whatsapp" placeholder="WhatsApp negocio">
-
+<label>Logo</label>
 <input type="file" id="store_logo">
-
-</div>
 
 </div>
 
@@ -143,38 +104,38 @@ grid-template-columns:1fr;
 
 <div id="products"></div>
 
-<button class="btn-add" onclick="addProduct()">Agregar producto</button>
+<button class="add" onclick="addProduct()">Agregar producto</button>
 
 </div>
 
-
-<button class="btn-send" onclick="sendJSON()">Enviar a WhatsApp</button>
+<button class="send" onclick="sendJSON()">Enviar a WhatsApp</button>
 
 </div>
-
 
 
 <script>
 
 let productCount = 0
 
+function slug(text){
+return text.toLowerCase().replace(/\s+/g,'')
+}
 
 function addProduct(){
 
 productCount++
 
-const container = document.getElementById("products")
+const container=document.getElementById("products")
 
-const div = document.createElement("div")
-div.className = "product"
+const div=document.createElement("div")
 
-div.innerHTML = `
+div.className="product"
+
+div.innerHTML=`
 
 <h3>Producto ${productCount}</h3>
 
-<div class="grid">
-
-<input class="name" placeholder="Nombre producto">
+<input class="name" placeholder="Nombre del producto">
 
 <input class="price" type="number" placeholder="Precio">
 
@@ -190,6 +151,7 @@ div.innerHTML = `
 
 <input class="stock" type="number" placeholder="Stock">
 
+<label>Imagen</label>
 <input type="file" class="image">
 
 <textarea class="description" placeholder="Descripción"></textarea>
@@ -199,8 +161,6 @@ div.innerHTML = `
 Producto destacado
 </label>
 
-</div>
-
 `
 
 container.appendChild(div)
@@ -208,49 +168,49 @@ container.appendChild(div)
 }
 
 
-
 function sendJSON(){
 
-const logoFile = document.getElementById("store_logo").files[0]
+const storeName=document.getElementById("store_name").value
+const storeSlug=slug(storeName)
 
-const store = {
+const logoFile=document.getElementById("store_logo").files[0]
 
-id: document.getElementById("store_id").value,
-name: document.getElementById("store_name").value,
-whatsapp: document.getElementById("store_whatsapp").value,
+const store={
+
+id:storeSlug,
+name:storeName,
+whatsapp:document.getElementById("store_whatsapp").value,
 currency:"MXN",
-logo: logoFile ? "/assets/logos/"+logoFile.name : "",
+logo:logoFile?"/assets/logos/"+logoFile.name:"",
 active:true
 
 }
 
-
-const products = []
-
+const products=[]
 
 document.querySelectorAll(".product").forEach((p,i)=>{
 
-const imageFile = p.querySelector(".image").files[0]
+const imageFile=p.querySelector(".image").files[0]
 
 products.push({
 
-id: Date.now()+i,
+id:Date.now()+i,
 
-store: store.id,
+store:storeSlug,
 
-name: p.querySelector(".name").value,
+name:p.querySelector(".name").value,
 
-price: Number(p.querySelector(".price").value),
+price:Number(p.querySelector(".price").value),
 
-category: p.querySelector(".category").value,
+category:p.querySelector(".category").value,
 
-stock: Number(p.querySelector(".stock").value),
+stock:Number(p.querySelector(".stock").value),
 
-image: imageFile ? "/assets/products/"+store.id+"/"+imageFile.name : "",
+image:imageFile?"/assets/products/"+storeSlug+"/"+imageFile.name:"",
 
-description: p.querySelector(".description").value,
+description:p.querySelector(".description").value,
 
-featured: p.querySelector(".featured").checked,
+featured:p.querySelector(".featured").checked,
 
 active:true
 
@@ -258,21 +218,18 @@ active:true
 
 })
 
-
-const data = {
+const data={
 
 stores:[store],
 products:products
 
 }
 
+const json=JSON.stringify(data,null,2)
 
-const json = JSON.stringify(data,null,2)
+const numeroAdmin="524491234567"
 
-
-const numeroAdmin = "524491234567"
-
-const mensaje = encodeURIComponent(json)
+const mensaje=encodeURIComponent(json)
 
 window.open(`https://wa.me/${numeroAdmin}?text=${mensaje}`)
 
