@@ -31,7 +31,16 @@
       "currency": "MXN",
       "logo": "/assets/logos/chelispa.png",
       "active": true
+    },
+       {
+      "id": "Hernandez-Snickers",
+      "name": "Hernandez Snickers",
+      "whatsapp": "533312436092",
+      "currency": "MXN",
+      "logo": "/assets/logos/hdz.jpeg",
+      "active": true
     }
+
   ],
 
   "products": [
