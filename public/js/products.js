@@ -1,6 +1,6 @@
-// ===============================
+// ==============================
 // PRODUCTOS GLOBALES
-// ===============================
+// ==============================
 
 window.allProducts = [];
 
@@ -9,9 +9,9 @@ const featuredContainer = document.getElementById("featured-products");
 const categoriesContainer = document.getElementById("categories");
 
 
-// ===============================
-// DETECTAR TIENDA DESDE SUBDOMINIO
-// ===============================
+// ==============================
+// DETECTAR TIENDA POR SUBDOMINIO
+// ==============================
 
 function getStoreFromDomain(){
 
@@ -29,13 +29,11 @@ return subdomain.toLowerCase();
 const store = getStoreFromDomain();
 
 
-// ===============================
+// ==============================
 // CARGAR PRODUCTOS
-// ===============================
+// ==============================
 
 async function loadProducts(){
-
-try{
 
 const res = await fetch("data/products.json");
 const data = await res.json();
@@ -47,9 +45,9 @@ s => s.id.toLowerCase() === store
 );
 
 
-// ===============================
+// ==============================
 // CONFIGURAR TIENDA
-// ===============================
+// ==============================
 
 if(storeData){
 
@@ -91,9 +89,9 @@ bot.style.display = "none";
 }
 
 
-// ===============================
-// FILTRAR PRODUCTOS DE LA TIENDA
-// ===============================
+// ==============================
+// FILTRAR PRODUCTOS DE ESTA TIENDA
+// ==============================
 
 const storeProducts = data.products.filter(
 p => p.store === store && p.active
@@ -102,43 +100,36 @@ p => p.store === store && p.active
 window.allProducts = storeProducts;
 
 
-// ===============================
-// RENDERIZAR
-// ===============================
+// ==============================
+// RENDERIZAR CONTENIDO
+// ==============================
 
 generateCategories(storeProducts);
 renderFeatured(storeProducts);
 renderProducts(storeProducts);
 
-}catch(error){
-
-console.error("Error cargando productos:", error);
-
-}
-
 }
 
 
-// ===============================
+
+// ==============================
 // GENERAR CATEGORÍAS
-// ===============================
+// ==============================
 
 function generateCategories(products){
-
-if(!categoriesContainer) return;
 
 const cats = [...new Set(products.map(p => p.category))];
 
 categoriesContainer.innerHTML = "";
 
-cats.forEach(cat=>{
+cats.forEach(cat => {
 
 const div = document.createElement("div");
 div.className = "category-card";
 
 div.innerHTML = `<h3>${cat}</h3>`;
 
-div.addEventListener("click",()=>{
+div.addEventListener("click", ()=>{
 filterCategory(cat);
 });
 
@@ -149,9 +140,10 @@ categoriesContainer.appendChild(div);
 }
 
 
-// ===============================
+
+// ==============================
 // PRODUCTOS DESTACADOS
-// ===============================
+// ==============================
 
 function renderFeatured(products){
 
@@ -172,7 +164,7 @@ featuredContainer.innerHTML += `
 
 <p>$${p.price}</p>
 
-<button onclick="window.addToCart(${p.id})">
+<button class="add-cart" data-id="${p.id}">
 Agregar al carrito
 </button>
 
@@ -181,16 +173,17 @@ Agregar al carrito
 
 });
 
+activateCartButtons();
+
 }
 
 
-// ===============================
+
+// ==============================
 // TODOS LOS PRODUCTOS
-// ===============================
+// ==============================
 
 function renderProducts(products){
-
-if(!productsContainer) return;
 
 productsContainer.innerHTML = "";
 
@@ -205,7 +198,7 @@ productsContainer.innerHTML += `
 
 <p>$${p.price}</p>
 
-<button onclick="window.addToCart(${p.id})">
+<button class="add-cart" data-id="${p.id}">
 Agregar al carrito
 </button>
 
@@ -214,12 +207,41 @@ Agregar al carrito
 
 });
 
+activateCartButtons();
+
 }
 
 
-// ===============================
+
+// ==============================
+// ACTIVAR BOTONES DEL CARRITO
+// ==============================
+
+function activateCartButtons(){
+
+document.querySelectorAll(".add-cart").forEach(btn=>{
+
+btn.onclick = null; // evita duplicados
+
+btn.addEventListener("click", ()=>{
+
+const id = parseInt(btn.dataset.id);
+
+if(typeof addToCart === "function"){
+addToCart(id);
+}
+
+});
+
+});
+
+}
+
+
+
+// ==============================
 // FILTRAR POR CATEGORÍA
-// ===============================
+// ==============================
 
 function filterCategory(cat){
 
@@ -229,22 +251,17 @@ p => p.category === cat
 
 renderProducts(filtered);
 
-const productsSection = document.getElementById("products");
-
-if(productsSection){
-
-productsSection.scrollIntoView({
+document.getElementById("products").scrollIntoView({
 behavior:"smooth"
 });
 
 }
 
-}
 
 
-// ===============================
+// ==============================
 // BUSCADOR
-// ===============================
+// ==============================
 
 function searchProducts(){
 
@@ -266,8 +283,9 @@ renderProducts(filtered);
 }
 
 
-// ===============================
+
+// ==============================
 // INICIAR
-// ===============================
+// ==============================
 
 loadProducts();
