@@ -192,3 +192,5 @@ function botWhatsDirect() {
     "_blank"
   );
 }
+
+window.toggleBot = toggleBot;
