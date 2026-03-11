@@ -5,6 +5,7 @@ const productsContainer = document.getElementById("products");
 const featuredContainer = document.getElementById("featured-products");
 const categoriesContainer = document.getElementById("categories");
 
+
 // detectar tienda desde subdominio
 function getStoreFromDomain(){
 
@@ -26,10 +27,12 @@ async function loadProducts(){
 const res = await fetch("data/products.json");
 const data = await res.json();
 
+
 // buscar datos de la tienda
 const storeData = data.stores.find(s =>
 s.id.toLowerCase() === store
 );
+
 
 // cargar nombre, logo, hero y plan
 if(storeData){
@@ -44,6 +47,7 @@ const bot = document.getElementById("chatbot-button");
 if(logo) logo.src = storeData.logo;
 
 if(name) name.textContent = storeData.name;
+
 
 // HERO DINAMICO
 if(hero && storeData.hero){
@@ -62,12 +66,14 @@ hero.style.backgroundRepeat = "no-repeat";
 
 }
 
+
 // CONTROL PLAN CHATBOT
 if(bot && storeData.plan === "basic"){
 bot.style.display = "none";
 }
 
 }
+
 
 // filtrar productos por tienda
 const storeProducts = data.products.filter(
@@ -82,6 +88,8 @@ renderProducts(storeProducts);
 
 }
 
+
+
 // generar categorias HOME
 function generateCategories(products){
 
@@ -91,15 +99,22 @@ categoriesContainer.innerHTML="";
 
 cats.forEach(cat=>{
 
-categoriesContainer.innerHTML += `
-<div class="category-card" onclick="filterCategory('${cat}')">
-<h3>${cat}</h3>
-</div>
-`;
+const div = document.createElement("div");
+div.className = "category-card";
+
+div.innerHTML = `<h3>${cat}</h3>`;
+
+div.addEventListener("click",()=>{
+filterCategory(cat);
+});
+
+categoriesContainer.appendChild(div);
 
 });
 
 }
+
+
 
 // productos destacados
 function renderFeatured(products){
@@ -121,7 +136,7 @@ featuredContainer.innerHTML += `
 
 <p>$${p.price}</p>
 
-<button onclick="addToCart(${p.id})">
+<button class="add-cart" data-id="${p.id}">
 Agregar al carrito
 </button>
 
@@ -130,7 +145,11 @@ Agregar al carrito
 
 });
 
+activateCartButtons();
+
 }
+
+
 
 // todos los productos
 function renderProducts(products){
@@ -148,7 +167,7 @@ productsContainer.innerHTML += `
 
 <p>$${p.price}</p>
 
-<button onclick="addToCart(${p.id})">
+<button class="add-cart" data-id="${p.id}">
 Agregar al carrito
 </button>
 
@@ -157,7 +176,32 @@ Agregar al carrito
 
 });
 
+activateCartButtons();
+
 }
+
+
+
+// activar botones del carrito
+function activateCartButtons(){
+
+document.querySelectorAll(".add-cart").forEach(btn=>{
+
+btn.addEventListener("click",()=>{
+
+const id = parseInt(btn.dataset.id);
+
+if(typeof addToCart === "function"){
+addToCart(id);
+}
+
+});
+
+});
+
+}
+
+
 
 // filtrar por categoria
 function filterCategory(cat){
@@ -173,6 +217,8 @@ behavior:"smooth"
 });
 
 }
+
+
 
 // buscador
 function searchProducts(){
@@ -194,4 +240,7 @@ renderProducts(filtered);
 
 }
 
+
+
+// iniciar
 loadProducts();
