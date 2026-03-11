@@ -5,7 +5,7 @@ const productsContainer = document.getElementById("products");
 const featuredContainer = document.getElementById("featured-products");
 const categoriesContainer = document.getElementById("categories");
 
-// tienda fija para pruebas
+// detectar tienda desde subdominio
 function getStoreFromDomain(){
 
 const host = window.location.hostname;
@@ -26,6 +26,23 @@ async function loadProducts(){
 const res = await fetch("data/products.json");
 const data = await res.json();
 
+// buscar datos de la tienda
+const storeData = data.stores.find(s => 
+s.id.toLowerCase() === store
+);
+
+// cargar nombre y logo
+if(storeData){
+
+const logo = document.getElementById("store-logo");
+const name = document.getElementById("store-name");
+
+if(logo) logo.src = storeData.logo;
+if(name) name.textContent = storeData.name;
+
+}
+
+// filtrar productos por tienda
 const storeProducts = data.products.filter(
 p => p.store === store && p.active
 );
@@ -49,9 +66,7 @@ cats.forEach(cat=>{
 
 categoriesContainer.innerHTML += `
 <div class="category-card" onclick="filterCategory('${cat}')">
-
 <h3>${cat}</h3>
-
 </div>
 `;
 

@@ -13,6 +13,32 @@
 
 <style>
 
+/* HEADER */
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 20px;
+background:#000;
+color:white;
+}
+
+.store-header{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+#store-logo{
+height:40px;
+}
+
+.cart-icon{
+cursor:pointer;
+font-size:18px;
+}
+
 /* HERO */
 
 .hero{
@@ -84,8 +110,14 @@ grid-template-columns:1fr 1fr;
 
 <header>
 
-<div class="logo" id="store-name">
+<div class="store-header">
+
+<img id="store-logo">
+
+<div id="store-name">
 Tienda
+</div>
+
 </div>
 
 <div class="cart-icon" onclick="toggleCart()">
@@ -211,7 +243,6 @@ renderCart();
 
 }
 
-
 /* cerrar carrito al hacer click fuera */
 
 document.addEventListener("click", function(e){
@@ -228,6 +259,7 @@ cart.style.display = "none";
 }
 
 });
+
 /* BOT */
 
 function toggleBot(){
@@ -266,5 +298,4 @@ checkoutWhatsApp();
 <script src="js/search.js"></script>
 
 </body>
-
 </html>
