@@ -37,6 +37,8 @@
       "name": "Hernandez Snickers",
       "whatsapp": "533312436092",
       "currency": "MXN",
+      "hero": "/assets/heroes/sneakers.jpg",
+      "plan": "pro",
       "logo": "/assets/logos/hdz.jpeg",
       "active": true
     }

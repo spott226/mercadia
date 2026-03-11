@@ -42,7 +42,6 @@ if(logo) logo.src = storeData.logo;
 
 if(name) name.textContent = storeData.name;
 
-// fondo dinámico por tienda
 if(hero && storeData.hero){
 
 hero.style.background = `
@@ -50,7 +49,7 @@ linear-gradient(
 rgba(0,0,0,0.55),
 rgba(0,0,0,0.55)
 ),
-url(${storeData.hero})
+url("${storeData.hero}")
 `;
 
 hero.style.backgroundSize = "cover";
