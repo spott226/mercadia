@@ -19,7 +19,7 @@ const store = getStoreFromDomain();
 async function loadProducts(){
 
 // cargar datos de la tienda
-const storeRes = await fetch("data/stores.json");
+const storeRes = await fetch("data/stores.json/chelispa.json");
 const storeData = await storeRes.json();
 
 const storeInfo = storeData.stores.find(
