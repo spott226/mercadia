@@ -8,21 +8,15 @@ const categoriesContainer = document.getElementById("categories");
 
 // detectar tienda desde subdominio
 function getStoreFromDomain(){
-
 const host = window.location.hostname;
 const subdomain = host.split('.')[0];
-
 return subdomain.toLowerCase();
-
 }
 
 const store = getStoreFromDomain();
 
 
 async function loadProducts(){
-
-// obtener tienda desde dominio
-const store = getStoreFromDomain();
 
 // cargar datos de la tienda
 const storeRes = await fetch("data/store.json");
@@ -32,7 +26,11 @@ const storeInfo = storeData.stores.find(
 s => s.id.toLowerCase() === store
 );
 
-if(storeInfo){
+// si no encuentra tienda
+if(!storeInfo){
+console.error("No se encontró la tienda:", store);
+return;
+}
 
 window.storeWhats = storeInfo.whatsapp || "";
 
@@ -65,12 +63,15 @@ if(bot && storeInfo.plan === "basic"){
 bot.style.display = "none";
 }
 
-}
-
 
 // cargar productos de esa tienda
 const productsRes = await fetch(`data/products/${store}.json`);
 const productsData = await productsRes.json();
+
+if(!productsData.products){
+console.error("No hay productos en:", store);
+return;
+}
 
 const storeProducts = productsData.products.filter(p => p.active);
 
@@ -81,6 +82,7 @@ renderFeatured(storeProducts);
 renderProducts(storeProducts);
 
 }
+
 
 // generar categorias
 function generateCategories(products){
@@ -105,7 +107,6 @@ categoriesContainer.appendChild(div);
 });
 
 }
-
 
 
 // PRODUCTOS DESTACADOS
@@ -142,7 +143,6 @@ activateCartButtons();
 }
 
 
-
 // TODOS LOS PRODUCTOS
 function renderProducts(products){
 
@@ -173,7 +173,6 @@ activateCartButtons();
 }
 
 
-
 // activar botones del carrito
 function activateCartButtons(){
 
@@ -196,7 +195,6 @@ addToCart(id);
 }
 
 
-
 // filtrar por categoria
 function filterCategory(cat){
 
@@ -211,7 +209,6 @@ behavior:"smooth"
 });
 
 }
-
 
 
 // buscador
@@ -233,7 +230,6 @@ product.category.toLowerCase().includes(input)
 renderProducts(filtered);
 
 }
-
 
 
 // iniciar
