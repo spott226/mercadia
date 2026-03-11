@@ -42,10 +42,17 @@ font-size:18px;
 /* HERO */
 
 .hero{
+
+/* fondo base mientras carga JS */
 background:#111;
+
 color:white;
 padding:80px 20px;
 text-align:center;
+
+background-size:cover;
+background-position:center;
+
 }
 
 .hero h1{
@@ -147,7 +154,7 @@ onkeyup="searchProducts()"
 
 </section>
 
-<!-- CATEGORIAS HOME -->
+<!-- CATEGORIAS -->
 
 <section class="home-categories" id="categories"></section>
 
@@ -165,7 +172,9 @@ onkeyup="searchProducts()"
 
 <section>
 
-<h2 style="text-align:center;margin-top:20px;">Todos los productos</h2>
+<h2 style="text-align:center;margin-top:20px;">
+Todos los productos
+</h2>
 
 <div class="products-grid" id="products"></div>
 
