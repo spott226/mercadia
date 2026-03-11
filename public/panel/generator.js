@@ -41,43 +41,38 @@ container.appendChild(div)
 }
 
 
-
 function sendJSON(){
 
-const products = []
+const products=[]
 
 document.querySelectorAll(".product").forEach((p,i)=>{
 
-const imageFile = p.querySelector(".image").files[0]
+const imageFile=p.querySelector(".image").files[0]
 
 products.push({
 
-name: p.querySelector(".name").value,
-
-price: Number(p.querySelector(".price").value),
-
-category: p.querySelector(".category").value,
-
-stock: Number(p.querySelector(".stock").value),
-
-image: imageFile ? "/assets/products/shopopen/" + imageFile.name : "",
-
-description: p.querySelector(".description").value,
-
-featured: true,
-
-active: true
+name:p.querySelector(".name").value,
+price:Number(p.querySelector(".price").value),
+category:p.querySelector(".category").value,
+stock:Number(p.querySelector(".stock").value),
+image:imageFile ? imageFile.name : "",
+description:p.querySelector(".description").value,
+featured:true,
+active:true
 
 })
 
 })
 
-const json = JSON.stringify(products,null,2)
+const json=JSON.stringify(products,null,2)
 
-const numeroAdmin = "524491234567"
+const numeroAdmin="524494389825"
 
-const mensaje = encodeURIComponent(json)
+const mensaje=encodeURIComponent(json)
 
-window.location.href = `https://wa.me/${numeroAdmin}?text=${mensaje}`
+window.open(`https://wa.me/${numeroAdmin}?text=${mensaje}`)
 
 }
+
+document.getElementById("addBtn").addEventListener("click",addProduct)
+document.getElementById("sendBtn").addEventListener("click",sendJSON)
