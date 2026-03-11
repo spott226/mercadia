@@ -1,7 +1,4 @@
-// ==============================
-// PRODUCTOS GLOBALES
-// ==============================
-
+// productos globales
 window.allProducts = [];
 
 const productsContainer = document.getElementById("products");
@@ -9,17 +6,10 @@ const featuredContainer = document.getElementById("featured-products");
 const categoriesContainer = document.getElementById("categories");
 
 
-// ==============================
-// DETECTAR TIENDA POR SUBDOMINIO
-// ==============================
-
+// detectar tienda desde subdominio
 function getStoreFromDomain(){
 
 const host = window.location.hostname;
-
-// ejemplo:
-// hernandez-snickers.mercadiamx.com
-
 const subdomain = host.split('.')[0];
 
 return subdomain.toLowerCase();
@@ -29,10 +19,6 @@ return subdomain.toLowerCase();
 const store = getStoreFromDomain();
 
 
-// ==============================
-// CARGAR PRODUCTOS
-// ==============================
-
 async function loadProducts(){
 
 const res = await fetch("data/products.json");
@@ -40,15 +26,12 @@ const data = await res.json();
 
 
 // buscar datos de la tienda
-const storeData = data.stores.find(
-s => s.id.toLowerCase() === store
+const storeData = data.stores.find(s =>
+s.id.toLowerCase() === store
 );
 
 
-// ==============================
-// CONFIGURAR TIENDA
-// ==============================
-
+// cargar nombre, logo, hero y plan
 if(storeData){
 
 document.body.classList.add("theme-" + storeData.theme);
@@ -59,11 +42,10 @@ const hero = document.getElementById("hero");
 const bot = document.getElementById("chatbot-button");
 
 if(logo) logo.src = storeData.logo;
-
 if(name) name.textContent = storeData.name;
 
 
-// HERO DINÁMICO
+// HERO
 if(hero && storeData.hero){
 
 hero.style.background = `
@@ -76,12 +58,11 @@ url("${storeData.hero}")
 
 hero.style.backgroundSize = "cover";
 hero.style.backgroundPosition = "center";
-hero.style.backgroundRepeat = "no-repeat";
 
 }
 
 
-// CONTROL PLAN CHATBOT
+// ocultar chatbot si plan básico
 if(bot && storeData.plan === "basic"){
 bot.style.display = "none";
 }
@@ -89,20 +70,12 @@ bot.style.display = "none";
 }
 
 
-// ==============================
-// FILTRAR PRODUCTOS DE ESTA TIENDA
-// ==============================
-
+// filtrar productos por tienda
 const storeProducts = data.products.filter(
 p => p.store === store && p.active
 );
 
 window.allProducts = storeProducts;
-
-
-// ==============================
-// RENDERIZAR CONTENIDO
-// ==============================
 
 generateCategories(storeProducts);
 renderFeatured(storeProducts);
@@ -112,24 +85,21 @@ renderProducts(storeProducts);
 
 
 
-// ==============================
-// GENERAR CATEGORÍAS
-// ==============================
-
+// generar categorias
 function generateCategories(products){
 
 const cats = [...new Set(products.map(p => p.category))];
 
-categoriesContainer.innerHTML = "";
+categoriesContainer.innerHTML="";
 
-cats.forEach(cat => {
+cats.forEach(cat=>{
 
 const div = document.createElement("div");
 div.className = "category-card";
 
 div.innerHTML = `<h3>${cat}</h3>`;
 
-div.addEventListener("click", ()=>{
+div.addEventListener("click",()=>{
 filterCategory(cat);
 });
 
@@ -141,10 +111,7 @@ categoriesContainer.appendChild(div);
 
 
 
-// ==============================
 // PRODUCTOS DESTACADOS
-// ==============================
-
 function renderFeatured(products){
 
 if(!featuredContainer) return;
@@ -164,7 +131,7 @@ featuredContainer.innerHTML += `
 
 <p>$${p.price}</p>
 
-<button onclick="addToCart(${p.id})">
+<button class="add-cart" data-id="${p.id}">
 Agregar al carrito
 </button>
 
@@ -173,14 +140,13 @@ Agregar al carrito
 
 });
 
+activateCartButtons();
+
 }
 
 
 
-// ==============================
 // TODOS LOS PRODUCTOS
-// ==============================
-
 function renderProducts(products){
 
 productsContainer.innerHTML="";
@@ -196,7 +162,7 @@ productsContainer.innerHTML += `
 
 <p>$${p.price}</p>
 
-<button onclick="addToCart(${p.id})">
+<button class="add-cart" data-id="${p.id}">
 Agregar al carrito
 </button>
 
@@ -205,20 +171,20 @@ Agregar al carrito
 
 });
 
+activateCartButtons();
+
 }
 
 
-// ==============================
-// ACTIVAR BOTONES DEL CARRITO
-// ==============================
 
+// activar botones del carrito
 function activateCartButtons(){
 
 document.querySelectorAll(".add-cart").forEach(btn=>{
 
-btn.onclick = null; // evita duplicados
+btn.onclick = null;
 
-btn.addEventListener("click", ()=>{
+btn.addEventListener("click",()=>{
 
 const id = parseInt(btn.dataset.id);
 
@@ -234,10 +200,7 @@ addToCart(id);
 
 
 
-// ==============================
-// FILTRAR POR CATEGORÍA
-// ==============================
-
+// filtrar por categoria
 function filterCategory(cat){
 
 const filtered = window.allProducts.filter(
@@ -254,10 +217,7 @@ behavior:"smooth"
 
 
 
-// ==============================
-// BUSCADOR
-// ==============================
-
+// buscador
 function searchProducts(){
 
 const input = document
@@ -279,8 +239,5 @@ renderProducts(filtered);
 
 
 
-// ==============================
-// INICIAR
-// ==============================
-
+// iniciar
 loadProducts();
