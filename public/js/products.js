@@ -151,7 +151,7 @@ if(!featuredContainer) return;
 
 const featured = products.filter(p => p.featured);
 
-featuredContainer.innerHTML = "";
+featuredContainer.innerHTML="";
 
 featured.forEach(p=>{
 
@@ -164,7 +164,7 @@ featuredContainer.innerHTML += `
 
 <p>$${p.price}</p>
 
-<button class="add-cart" data-id="${p.id}">
+<button onclick="addToCart(${p.id})">
 Agregar al carrito
 </button>
 
@@ -172,8 +172,6 @@ Agregar al carrito
 `;
 
 });
-
-activateCartButtons();
 
 }
 
@@ -185,7 +183,7 @@ activateCartButtons();
 
 function renderProducts(products){
 
-productsContainer.innerHTML = "";
+productsContainer.innerHTML="";
 
 products.forEach(p=>{
 
@@ -198,7 +196,7 @@ productsContainer.innerHTML += `
 
 <p>$${p.price}</p>
 
-<button class="add-cart" data-id="${p.id}">
+<button onclick="addToCart(${p.id})">
 Agregar al carrito
 </button>
 
@@ -207,10 +205,7 @@ Agregar al carrito
 
 });
 
-activateCartButtons();
-
 }
-
 
 
 // ==============================
