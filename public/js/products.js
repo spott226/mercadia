@@ -34,6 +34,8 @@ s.id.toLowerCase() === store
 // cargar nombre, logo, hero y plan
 if(storeData){
 
+document.body.classList.add("theme-" + storeData.theme);
+
 const logo = document.getElementById("store-logo");
 const name = document.getElementById("store-name");
 const hero = document.getElementById("hero");

@@ -1,16 +1,99 @@
+/* ===============================
+TEMAS POR TIENDA
+Se aplican con:
+document.body.classList.add("theme-xxx")
+================================ */
+
+
+/* -------------------------------
+TEMA STREETWEAR / SNEAKERS
+-------------------------------- */
+
+.theme-street{
+
+--primary:#0ea5e9;
+--background:#020617;
+--card:#111827;
+--text:#ffffff;
+--accent:#38bdf8;
+
+}
+
+
+/* -------------------------------
+TEMA SPA / BELLEZA
+-------------------------------- */
+
+.theme-spa{
+
+--primary:#ec4899;
+--background:#fff1f2;
+--card:#ffffff;
+--text:#831843;
+--accent:#f472b6;
+
+}
+
+
+/* -------------------------------
+TEMA PERFUMERIA
+-------------------------------- */
+
+.theme-perfume{
+
+--primary:#7c3aed;
+--background:#1e1b4b;
+--card:#312e81;
+--text:#f5f3ff;
+--accent:#a78bfa;
+
+}
+
+
+/* -------------------------------
+TEMA MINIMAL / GENERAL
+-------------------------------- */
+
+.theme-minimal{
+
+--primary:#111827;
+--background:#ffffff;
+--card:#f9fafb;
+--text:#111827;
+--accent:#6b7280;
+
+}
+
+
+
+/* ===============================
+ELEMENTOS UI (globales)
+================================ */
+
 button{
-background:black;
+
+background:var(--primary);
 color:white;
 padding:10px 14px;
 border:none;
 cursor:pointer;
+border-radius:6px;
+
 }
 
 button:hover{
+
 opacity:0.85;
+
 }
 
+
+/* ===============================
+CHATBOT
+================================ */
+
 .chatbot{
+
 position:fixed;
 bottom:20px;
 right:20px;
@@ -19,9 +102,13 @@ color:white;
 padding:12px 16px;
 border-radius:30px;
 cursor:pointer;
+z-index:1000;
+
 }
 
+
 .chatbot-box{
+
 position:fixed;
 bottom:80px;
 right:20px;
@@ -31,9 +118,13 @@ border-radius:10px;
 box-shadow:0 4px 10px rgba(0,0,0,0.2);
 padding:15px;
 display:none;
+z-index:1000;
+
 }
 
 .chatbot-box button{
+
 width:100%;
 margin-top:5px;
+
 }
