@@ -1,12 +1,18 @@
 let botStep = 0;
 let selectedCategory = null;
 let storeWhats = "";
+let botCart = [];
 
-// obtener whatsapp de la tienda actual
+/* ================================
+   OBTENER WHATSAPP DE LA TIENDA
+================================ */
+
 document.addEventListener("DOMContentLoaded", () => {
+
   fetch("data/products.json")
     .then(res => res.json())
     .then(data => {
+
       const host = window.location.hostname;
       const subdomain = host.split(".")[0].toLowerCase();
 
@@ -17,187 +23,350 @@ document.addEventListener("DOMContentLoaded", () => {
       if (storeData) {
         storeWhats = storeData.whatsapp || "";
       }
-    })
-    .catch(err => {
-      console.error("Error cargando datos del chatbot:", err);
+
     });
+
 });
 
-function toggleBot() {
-  const box = document.getElementById("chatbot-box");
-  if (!box) return;
 
-  if (box.style.display === "block") {
+/* ================================
+   ABRIR / CERRAR CHATBOT
+================================ */
+
+function toggleBot(){
+
+  const box = document.getElementById("chatbot-box");
+
+  if(!box) return;
+
+  if(box.style.display === "block"){
     box.style.display = "none";
     return;
   }
 
   box.style.display = "block";
 
-  if (botStep === 0) {
+  if(botStep === 0){
     botStart();
   }
+
 }
 
-function botStart() {
+
+/* ================================
+   PANTALLA INICIAL
+================================ */
+
+function botStart(){
+
   botStep = 1;
+  botCart = [];
 
   const box = document.getElementById("chatbot-box");
-  if (!box) return;
 
   box.innerHTML = `
-    <p>👋 Hola, ¿quieres ayuda con tu compra?</p>
+  
+  <p>👋 Hola, ¿quieres ayuda con tu compra?</p>
 
-    <button id="bot-ver-productos">
-      Ver productos
-    </button>
+  <button id="bot-ver-productos">
+  Ver productos
+  </button>
 
-    <button id="bot-whatsapp-directo">
-      Hablar por WhatsApp
-    </button>
+  <button id="bot-whatsapp-directo">
+  Hablar por WhatsApp
+  </button>
+
   `;
 
-  const btnProductos = document.getElementById("bot-ver-productos");
-  const btnWhats = document.getElementById("bot-whatsapp-directo");
+  document
+  .getElementById("bot-ver-productos")
+  .addEventListener("click", botCategorias);
 
-  if (btnProductos) {
-    btnProductos.addEventListener("click", botCategorias);
-  }
+  document
+  .getElementById("bot-whatsapp-directo")
+  .addEventListener("click", botWhatsDirect);
 
-  if (btnWhats) {
-    btnWhats.addEventListener("click", botWhatsDirect);
-  }
 }
 
-function botCategorias() {
-  botStep = 2;
+
+/* ================================
+   MOSTRAR CATEGORIAS
+================================ */
+
+function botCategorias(){
 
   const box = document.getElementById("chatbot-box");
-  if (!box) return;
 
-  if (!window.allProducts || window.allProducts.length === 0) {
+  if(!window.allProducts || window.allProducts.length === 0){
+
     box.innerHTML = `
-      <p>No encontré productos por ahora.</p>
-      <button id="bot-volver-inicio">⬅ volver</button>
+    <p>No encontré productos.</p>
+    <button id="bot-volver">Volver</button>
     `;
 
-    const btnVolver = document.getElementById("bot-volver-inicio");
-    if (btnVolver) {
-      btnVolver.addEventListener("click", botStart);
-    }
+    document
+    .getElementById("bot-volver")
+    .addEventListener("click", botStart);
+
     return;
+
   }
 
-  const categories = [...new Set(window.allProducts.map(p => p.category))];
+  const categories = [...new Set(
+    window.allProducts.map(p => p.category)
+  )];
 
   let buttons = "";
 
-  categories.forEach((cat, index) => {
-    buttons += `<button class="bot-cat-btn" data-category="${cat}" id="bot-cat-${index}">${cat}</button>`;
+  categories.forEach(cat => {
+
+    buttons += `
+    <button class="bot-cat-btn" data-category="${cat}">
+    ${cat}
+    </button>
+    `;
+
   });
 
   box.innerHTML = `
-    <p>¿Qué tipo de producto buscas?</p>
-    ${buttons}
-    <button id="bot-volver-inicio">⬅ volver</button>
+  
+  <p>¿Qué tipo de producto buscas?</p>
+
+  ${buttons}
+
+  <button id="bot-volver">
+  ⬅ volver
+  </button>
+
   `;
 
-  const catButtons = document.querySelectorAll(".bot-cat-btn");
-  catButtons.forEach(btn => {
+  document
+  .querySelectorAll(".bot-cat-btn")
+  .forEach(btn => {
+
     btn.addEventListener("click", () => {
+
       const category = btn.dataset.category;
       botProductos(category);
+
     });
+
   });
 
-  const btnVolver = document.getElementById("bot-volver-inicio");
-  if (btnVolver) {
-    btnVolver.addEventListener("click", botStart);
-  }
+  document
+  .getElementById("bot-volver")
+  .addEventListener("click", botStart);
+
 }
 
-function botProductos(category) {
-  selectedCategory = category;
+
+/* ================================
+   MOSTRAR PRODUCTOS
+================================ */
+
+function botProductos(category){
 
   const box = document.getElementById("chatbot-box");
-  if (!box) return;
 
   const products = window.allProducts.filter(
     p => p.category === category
   );
 
-  if (products.length === 0) {
-    box.innerHTML = `
-      <p>No encontré productos en esta categoría.</p>
-      <button id="bot-volver-categorias">⬅ volver</button>
-    `;
-
-    const btnVolver = document.getElementById("bot-volver-categorias");
-    if (btnVolver) {
-      btnVolver.addEventListener("click", botCategorias);
-    }
-    return;
-  }
-
   let buttons = "";
 
-  products.forEach((p, index) => {
+  products.forEach(p => {
+
     buttons += `
-      <button class="bot-product-btn" data-id="${p.id}" id="bot-product-${index}">
-        ${p.name} - $${p.price}
-      </button>
+    
+    <button class="bot-product-btn" data-id="${p.id}">
+    ${p.name} - $${p.price}
+    </button>
+
     `;
+
   });
 
   box.innerHTML = `
-    <p>Estos productos encontré:</p>
-    ${buttons}
-    <button id="bot-volver-categorias">⬅ volver</button>
+  
+  <p>Selecciona un producto:</p>
+
+  ${buttons}
+
+  <button id="bot-volver-cat">
+  ⬅ volver
+  </button>
+
   `;
 
-  const productButtons = document.querySelectorAll(".bot-product-btn");
-  productButtons.forEach(btn => {
+  document
+  .querySelectorAll(".bot-product-btn")
+  .forEach(btn => {
+
     btn.addEventListener("click", () => {
+
       const id = btn.dataset.id;
-      botComprar(id);
+      botAgregarProducto(id);
+
     });
+
   });
 
-  const btnVolver = document.getElementById("bot-volver-categorias");
-  if (btnVolver) {
-    btnVolver.addEventListener("click", botCategorias);
-  }
+  document
+  .getElementById("bot-volver-cat")
+  .addEventListener("click", botCategorias);
+
 }
 
-function botComprar(id) {
+
+/* ================================
+   AGREGAR PRODUCTO AL PEDIDO
+================================ */
+
+function botAgregarProducto(id){
+
   const product = window.allProducts.find(
     p => String(p.id) === String(id)
   );
 
-  if (!product || !storeWhats) return;
+  if(!product) return;
 
-  const message = `Hola quiero comprar este producto:\n${product.name}\n$${product.price}`;
+  botCart.push(product);
 
-  window.open(
-    `https://wa.me/${storeWhats}?text=${encodeURIComponent(message)}`,
-    "_blank"
-  );
+  botMostrarPedido();
+
 }
 
-function botWhatsDirect() {
-  if (!storeWhats) return;
+
+/* ================================
+   MOSTRAR PEDIDO ACTUAL
+================================ */
+
+function botMostrarPedido(){
+
+  const box = document.getElementById("chatbot-box");
+
+  let html = `
+  <p><strong>🛒 Pedido actual</strong></p>
+  `;
+
+  let total = 0;
+
+  botCart.forEach(p => {
+
+    html += `
+    <div>
+    • ${p.name} - $${p.price}
+    </div>
+    `;
+
+    total += Number(p.price);
+
+  });
+
+  html += `
+  
+  <p><strong>Total: $${total}</strong></p>
+
+  <button id="bot-agregar-mas">
+  ➕ Agregar más productos
+  </button>
+
+  <button id="bot-comprar">
+  📲 Comprar por WhatsApp
+  </button>
+
+  <button id="bot-vaciar">
+  🗑 Vaciar pedido
+  </button>
+
+  `;
+
+  box.innerHTML = html;
+
+  document
+  .getElementById("bot-agregar-mas")
+  .addEventListener("click", botCategorias);
+
+  document
+  .getElementById("bot-comprar")
+  .addEventListener("click", botEnviarPedido);
+
+  document
+  .getElementById("bot-vaciar")
+  .addEventListener("click", botVaciar);
+
+}
+
+
+/* ================================
+   ENVIAR PEDIDO A WHATSAPP
+================================ */
+
+function botEnviarPedido(){
+
+  if(!storeWhats) return;
+
+  let message = "Hola quiero comprar:%0A%0A";
+
+  let total = 0;
+
+  botCart.forEach(p => {
+
+    message += `• ${p.name} - $${p.price}%0A`;
+    total += Number(p.price);
+
+  });
+
+  message += `%0ATotal: $${total}`;
+
+  window.open(
+    `https://wa.me/${storeWhats}?text=${message}`,
+    "_blank"
+  );
+
+}
+
+
+/* ================================
+   VACIAR PEDIDO
+================================ */
+
+function botVaciar(){
+
+  botCart = [];
+  botCategorias();
+
+}
+
+
+/* ================================
+   WHATSAPP DIRECTO
+================================ */
+
+function botWhatsDirect(){
+
+  if(!storeWhats) return;
 
   window.open(
     `https://wa.me/${storeWhats}`,
     "_blank"
   );
+
 }
+
+
+/* ================================
+   ACTIVAR BOTON
+================================ */
 
 window.toggleBot = toggleBot;
 
 document.addEventListener("DOMContentLoaded", () => {
+
   const botButton = document.getElementById("chatbot-button");
-  if (botButton) {
+
+  if(botButton){
     botButton.addEventListener("click", toggleBot);
   }
+
 });
