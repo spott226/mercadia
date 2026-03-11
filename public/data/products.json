@@ -29,6 +29,8 @@
       "name": "Cheli Spa",
       "whatsapp": "524491234570",
       "currency": "MXN",
+      "hero": "/assets/heroes/cheli.jpg",
+      "plan": "pro",
       "logo": "/assets/logos/chelispa.png",
       "active": true
     },
@@ -135,19 +137,6 @@
       "image": "/assets/products/chelispa/kitfacial.jpg",
       "description": "Kit facial hidratante cuidado profesional",
       "featured": true,
-      "active": true
-    },
-
-    {
-      "id": 8,
-      "store": "chelispa",
-      "name": "Aceite Relajante Aromaterapia",
-      "price": 290,
-      "category": "spa",
-      "stock": 25,
-      "image": "/assets/products/chelispa/aceite.jpg",
-      "description": "Aceite corporal relajante aromaterapia",
-      "featured": false,
       "active": true
     }
 
