@@ -161,3 +161,25 @@ window.addToCart = addToCart;
 window.removeFromCart = removeFromCart;
 window.checkoutWhatsApp = checkoutWhatsApp;
 window.updateCartUI = updateCartUI;
+
+// =========================
+// ACTIVAR BOTON WHATSAPP
+// =========================
+
+document.addEventListener("DOMContentLoaded", ()=>{
+
+const checkoutBtn = document.getElementById("checkout-btn");
+
+if(checkoutBtn){
+
+checkoutBtn.addEventListener("click", ()=>{
+
+if(typeof checkoutWhatsApp === "function"){
+checkoutWhatsApp();
+}
+
+});
+
+}
+
+});
