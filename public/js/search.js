@@ -1,19 +1,11 @@
-/* ===============================
-BUSCADOR DE PRODUCTOS
-================================ */
-
-function searchProducts(){
+function searchProducts(scroll = false){
 
 const input = document
 .getElementById("search-input")
 .value
 .toLowerCase();
 
-/* si aún no cargan productos */
-
 if(!window.allProducts || window.allProducts.length === 0) return;
-
-/* filtrar productos */
 
 const filtered = window.allProducts.filter(product =>
 
@@ -23,53 +15,60 @@ const filtered = window.allProducts.filter(product =>
 
 );
 
-/* renderizar resultados */
-
 renderProducts(filtered);
 
-/* bajar a la sección de productos */
+/* solo bajar si se pide */
 
-const productsSection = document.getElementById("products");
+if(scroll){
 
-if(productsSection){
+const products = document.getElementById("products");
 
-productsSection.scrollIntoView({
-behavior:"smooth",
-block:"start"
+if(products){
+
+products.scrollIntoView({
+behavior:"smooth"
 });
 
 }
 
 }
 
+}
 
-/* ===============================
-CONECTAR BUSCADOR
-================================ */
+
+/* conectar buscador */
 
 document.addEventListener("DOMContentLoaded", () => {
 
 const input = document.getElementById("search-input");
 const button = document.getElementById("search-btn");
 
-if(button){
-button.addEventListener("click", searchProducts);
-}
-
 if(!input) return;
 
-/* buscar mientras escribe */
+/* buscar mientras escribe (sin bajar) */
 
-input.addEventListener("input", searchProducts);
+input.addEventListener("input", () => {
+searchProducts(false);
+});
 
-/* buscar al presionar ENTER */
+/* ENTER */
 
-input.addEventListener("keypress", (e)=>{
+input.addEventListener("keypress",(e)=>{
 
 if(e.key === "Enter"){
-searchProducts();
+searchProducts(true);
 }
 
 });
+
+/* botón */
+
+if(button){
+
+button.addEventListener("click", ()=>{
+searchProducts(true);
+});
+
+}
 
 });
