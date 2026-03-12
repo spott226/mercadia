@@ -1,0 +1,26 @@
+{
+  "stores": [
+    {
+      "id": "chelispa",
+      "name": "Cheli Spa",
+      "whatsapp": "524494904451",
+      "currency": "MXN",
+      "hero": "/assets/heroes/cheli.jpg",
+      "plan": "pro",
+      "theme": "spa",
+      "logo": "/assets/logos/chelispa.png",
+      "active": true
+    },
+    {
+      "id": "hernandez-sneakers",
+      "name": "Hernandez Sneakers",
+      "whatsapp": "3312436092",
+      "currency": "MXN",
+      "hero": "/assets/heroes/sneakers.jpg",
+      "plan": "pro",
+      "theme": "street",
+      "logo": "/assets/logos/hdz.jpeg",
+      "active": true
+    }
+  ]
+}
