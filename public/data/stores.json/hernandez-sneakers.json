@@ -1,11 +1,11 @@
     {
   "stores": [
     {
-      "id": "hernandez-snickers",
+      "id": "hernandez-sneakers",
       "name": "Hernandez Snickers",
       "whatsapp": "3312436092",
       "currency": "MXN",
-      "hero": "/assets/heroes/senakers.jpg",
+      "hero": "/assets/heroes/sneakers.jpg",
       "plan": "pro",
       "theme": "street",
       "logo": "/assets/logos/hdz.jpeg",
