@@ -1,17 +1,56 @@
 {
   "products": [
-    {
-      "id": 7,
-      "store": "chelispa",
-      "name": "Kit Facial Hidratante",
-      "price": 520,
-      "category": "spa",
-      "stock": 20,
-      "image": "/assets/products/chelispa/facial.jpg",
-      "description": "Kit facial hidratante cuidado profesional",
-      "featured": true,
-      "active": true
-    }
+    {"id":1,"store":"hernandez-sneakers","name":"Tenis Adidas Street Classic","price":1250,"category":"adidas","image":"/assets/products/hdz-sneakers/adidas1.jpeg","description":"Tenis Adidas de estilo urbano cómodos para uso diario.","featured":true,"active":true},
+    {"id":2,"store":"hernandez-sneakers","name":"Tenis Adidas Urban Runner","price":1250,"category":"adidas","image":"/assets/products/hdz-sneakers/adidas2.jpeg","description":"Modelo Adidas moderno con diseño casual.","featured":false,"active":true},
+    {"id":3,"store":"hernandez-sneakers","name":"Tenis Adidas Street Flow","price":1250,"category":"adidas","image":"/assets/products/hdz-sneakers/adidas3.jpeg","description":"Tenis Adidas cómodos para outfit urbano.","featured":false,"active":true},
+    {"id":4,"store":"hernandez-sneakers","name":"Tenis Adidas City Walk","price":1250,"category":"adidas","image":"/assets/products/hdz-sneakers/adidas4.jpeg","description":"Diseño Adidas casual con gran comodidad.","featured":false,"active":true},
+    {"id":5,"store":"hernandez-sneakers","name":"Tenis Adidas Street Motion","price":1250,"category":"adidas","image":"/assets/products/hdz-sneakers/adidas5.jpeg","description":"Tenis Adidas con estilo urbano moderno.","featured":false,"active":true},
+    {"id":6,"store":"hernandez-sneakers","name":"Tenis Adidas Urban Comfort","price":1250,"category":"adidas","image":"/assets/products/hdz-sneakers/adidas6.jpeg","description":"Tenis Adidas ideales para uso diario.","featured":false,"active":true},
+    {"id":7,"store":"hernandez-sneakers","name":"Tenis Adidas Street Comfort","price":1250,"category":"adidas","image":"/assets/products/hdz-sneakers/adidas7.jpeg","description":"Modelo Adidas ligero y moderno.","featured":false,"active":true},
+    {"id":8,"store":"hernandez-sneakers","name":"Tenis Adidas Casual Runner","price":1250,"category":"adidas","image":"/assets/products/hdz-sneakers/adidas8.jpeg","description":"Tenis Adidas casuales con gran estilo.","featured":false,"active":true},
+    {"id":9,"store":"hernandez-sneakers","name":"Tenis Adidas Urban Classic","price":1250,"category":"adidas","image":"/assets/products/hdz-sneakers/adidas9.jpeg","description":"Tenis Adidas clásicos para uso urbano.","featured":false,"active":true},
+    {"id":10,"store":"hernandez-sneakers","name":"Tenis Adidas Daily Style","price":1250,"category":"adidas","image":"/assets/products/hdz-sneakers/adidas10.jpeg","description":"Modelo Adidas cómodo y versátil.","featured":false,"active":true},
+    {"id":11,"store":"hernandez-sneakers","name":"Tenis Adidas Street Edition","price":1250,"category":"adidas","image":"/assets/products/hdz-sneakers/adidas11.jpeg","description":"Tenis Adidas con diseño urbano moderno.","featured":false,"active":true},
 
+    {"id":12,"store":"hernandez-sneakers","name":"Tenis Alexander Urban Style","price":1250,"category":"alexander","image":"/assets/products/hdz-sneakers/alexander1.jpeg","description":"Tenis Alexander estilo elegante y moderno.","featured":false,"active":true},
+    {"id":13,"store":"hernandez-sneakers","name":"Tenis Alexander Premium Street","price":1250,"category":"alexander","image":"/assets/products/hdz-sneakers/alexander2.jpeg","description":"Calzado Alexander con diseño moderno.","featured":false,"active":true},
+    {"id":14,"store":"hernandez-sneakers","name":"Tenis Alexander Classic Street","price":1250,"category":"alexander","image":"/assets/products/hdz-sneakers/alexander3.jpeg","description":"Tenis Alexander cómodos para uso diario.","featured":false,"active":true},
+    {"id":15,"store":"hernandez-sneakers","name":"Tenis Alexander Street Motion","price":1250,"category":"alexander","image":"/assets/products/hdz-sneakers/alexander4.jpeg","description":"Modelo Alexander urbano elegante.","featured":false,"active":true},
+    {"id":16,"store":"hernandez-sneakers","name":"Tenis Alexander Urban Runner","price":1250,"category":"alexander","image":"/assets/products/hdz-sneakers/alexander5.jpeg","description":"Tenis Alexander con diseño moderno.","featured":false,"active":true},
+
+    {"id":17,"store":"hernandez-sneakers","name":"Playera Amiri Streetwear","price":150,"category":"amiri","image":"/assets/products/hdz-sneakers/amiri1.jpeg","description":"Playera Amiri cómoda con estilo urbano.","featured":false,"active":true},
+    {"id":18,"store":"hernandez-sneakers","name":"Playera Amiri Logo Style","price":150,"category":"amiri","image":"/assets/products/hdz-sneakers/amiri2.jpeg","description":"Playera Amiri moderna y ligera.","featured":false,"active":true},
+
+    {"id":19,"store":"hernandez-sneakers","name":"Playera Armani Exchange Classic","price":150,"category":"armani","image":"/assets/products/hdz-sneakers/armani1.jpeg","description":"Playera Armani Exchange con diseño moderno.","featured":false,"active":true},
+
+    {"id":20,"store":"hernandez-sneakers","name":"Tenis Balenciaga Street Luxury","price":1250,"category":"balenciaga","image":"/assets/products/hdz-sneakers/balenciaga1.jpeg","description":"Tenis Balenciaga estilo lujo urbano.","featured":true,"active":true},
+    {"id":21,"store":"hernandez-sneakers","name":"Tenis Balenciaga Urban Style","price":1250,"category":"balenciaga","image":"/assets/products/hdz-sneakers/balenciaga2.jpeg","description":"Modelo Balenciaga moderno.","featured":false,"active":true},
+    {"id":22,"store":"hernandez-sneakers","name":"Tenis Balenciaga Street Comfort","price":1250,"category":"balenciaga","image":"/assets/products/hdz-sneakers/balenciaga3.jpeg","description":"Tenis Balenciaga cómodos para uso diario.","featured":false,"active":true},
+    {"id":23,"store":"hernandez-sneakers","name":"Tenis Balenciaga Premium Runner","price":1250,"category":"balenciaga","image":"/assets/products/hdz-sneakers/balenciaga4.jpeg","description":"Diseño Balenciaga elegante.","featured":false,"active":true},
+    {"id":24,"store":"hernandez-sneakers","name":"Tenis Balenciaga Urban Motion","price":1250,"category":"balenciaga","image":"/assets/products/hdz-sneakers/balenciaga5.jpeg","description":"Tenis Balenciaga estilo moderno.","featured":false,"active":true},
+    {"id":25,"store":"hernandez-sneakers","name":"Tenis Balenciaga City Walk","price":1250,"category":"balenciaga","image":"/assets/products/hdz-sneakers/balenciaga6.jpeg","description":"Modelo Balenciaga urbano cómodo.","featured":false,"active":true},
+
+    {"id":26,"store":"hernandez-sneakers","name":"Tenis Boss Urban Style","price":1250,"category":"boss","image":"/assets/products/hdz-sneakers/boss1.jpeg","description":"Tenis Boss con diseño elegante.","featured":false,"active":true},
+
+    {"id":27,"store":"hernandez-sneakers","name":"Playera Bonnie Casual Style","price":150,"category":"bonnie","image":"/assets/products/hdz-sneakers/bunny1.jpeg","description":"Playera casual cómoda para outfit urbano.","featured":false,"active":true},
+
+    {"id":28,"store":"hernandez-sneakers","name":"Tenis DC Skate Style","price":1250,"category":"dc","image":"/assets/products/hdz-sneakers/dc.jpeg","description":"Tenis DC estilo skate urbano.","featured":false,"active":true},
+
+    {"id":29,"store":"hernandez-sneakers","name":"Playera Dolce Gabbana Urban","price":150,"category":"dg","image":"/assets/products/hdz-sneakers/dg1.jpeg","description":"Playera Dolce & Gabbana moderna.","featured":false,"active":true},
+    {"id":30,"store":"hernandez-sneakers","name":"Playera Dolce Gabbana Classic","price":150,"category":"dg","image":"/assets/products/hdz-sneakers/dg2.jpeg","description":"Playera Dolce & Gabbana casual.","featured":false,"active":true},
+
+    {"id":31,"store":"hernandez-sneakers","name":"Tenis Dior Luxury Street","price":1250,"category":"dior","image":"/assets/products/hdz-sneakers/dior1.jpeg","description":"Tenis Dior con estilo elegante.","featured":false,"active":true},
+
+    {"id":32,"store":"hernandez-sneakers","name":"Playera Hugo Boss Casual","price":150,"category":"hugo","image":"/assets/products/hdz-sneakers/hugo1.jpeg","description":"Playera Hugo Boss cómoda.","featured":false,"active":true},
+
+    {"id":33,"store":"hernandez-sneakers","name":"Tenis Jordan Air Street","price":1250,"category":"jordan","image":"/assets/products/hdz-sneakers/jordan1.jpeg","description":"Tenis Jordan estilo urbano clásico.","featured":true,"active":true},
+    {"id":34,"store":"hernandez-sneakers","name":"Tenis Jordan Street Runner","price":1250,"category":"jordan","image":"/assets/products/hdz-sneakers/jordan2.jpeg","description":"Tenis Jordan modernos para outfit urbano.","featured":false,"active":true},
+
+    {"id":60,"store":"hernandez-sneakers","name":"Tenis Nike Urban Runner","price":1250,"category":"nike","image":"/assets/products/hdz-sneakers/nike1.jpeg","description":"Tenis Nike cómodos para estilo urbano.","featured":true,"active":true},
+    {"id":61,"store":"hernandez-sneakers","name":"Tenis Nike Street Motion","price":1250,"category":"nike","image":"/assets/products/hdz-sneakers/nike2.jpeg","description":"Modelo Nike moderno para uso diario.","featured":false,"active":true},
+
+    {"id":85,"store":"hernandez-sneakers","name":"Tenis Puma Urban Style","price":1250,"category":"puma","image":"/assets/products/hdz-sneakers/puma1.jpeg","description":"Tenis Puma con diseño moderno.","featured":false,"active":true},
+
+    {"id":86,"store":"hernandez-sneakers","name":"Tenis Vans Skate Classic","price":1250,"category":"vans","image":"/assets/products/hdz-sneakers/vans1.jpeg","description":"Tenis Vans estilo skate urbano.","featured":false,"active":true}
   ]
 }
