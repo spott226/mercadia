@@ -221,6 +221,9 @@ bottom:90px;
 right:20px;
 
 width:260px;
+max-height:420px;
+
+overflow-y:auto;
 
 background:white;
 padding:20px;
@@ -230,20 +233,16 @@ border-radius:12px;
 box-shadow:0 10px 30px rgba(0,0,0,.2);
 
 display:none;
+z-index:9999;
 
 }
 
-.chatbot-box button{
+.product-card h3{
+color:var(--text);
+font-weight:600;
+}
 
-width:100%;
-margin-top:10px;
-padding:10px;
-
-border:none;
-border-radius:8px;
-
-background:var(--primary);
-color:white;
-cursor:pointer;
-
+.product-card p{
+color:var(--accent);
+font-weight:700;
 }
