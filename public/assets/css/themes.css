@@ -5,54 +5,69 @@ document.body.classList.add("theme-xxx")
 ================================ */
 
 
-/* -------------------------------
-TEMA URBAN / STREETWEAR PREMIUM
+/* --------------------------------
+TEMA STREETWEAR / SNEAKERS
+Estilo tipo StockX / Nike / Urban
 -------------------------------- */
 
 .theme-urban{
 
---primary:#22c55e;      /* verde acción */
---background:#020617;   /* fondo oscuro */
---card:#0f172a;         /* tarjetas */
---text:#f8fafc;         /* texto claro */
---accent:#38bdf8;       /* azul secundario */
+--primary:#22c55e;      /* verde sneaker */
+--background:#020617;   /* fondo oscuro profundo */
+--card:#0f172a;         /* tarjetas dark */
+--text:#f8fafc;         /* texto blanco fuerte */
+--accent:#38bdf8;       /* azul moderno */
 
 }
 
-/* cards producto */
+/* tarjetas productos */
 
 .theme-urban .product-card{
-border:1px solid rgba(255,255,255,.06);
+
+background:#0f172a;
+color:#f8fafc;
+border:1px solid rgba(255,255,255,.05);
+
 }
 
-.theme-urban .product-card:hover{
-border-color:rgba(34,197,94,.35);
-}
+/* categorias */
 
-/* categorías visibles */
-
-.theme-urban .categories button{
+.theme-urban .category-card{
 
 background:#111827;
 color:#f8fafc;
-
-border:1px solid rgba(255,255,255,.15);
-
-font-weight:600;
+border:1px solid rgba(255,255,255,.08);
 
 }
 
-.theme-urban .categories button:hover{
-
-background:#22c55e;
-color:#020617;
+.theme-urban .category-card:hover{
 
 border-color:#22c55e;
+color:#22c55e;
+
+}
+
+/* buscador */
+
+.theme-urban #search-input{
+
+background:#111827;
+color:#f8fafc;
+border:1px solid rgba(255,255,255,.1);
+
+}
+
+/* chatbot */
+
+.theme-urban .chatbot-box{
+
+background:#0f172a;
+color:#f8fafc;
 
 }
 
 
-/* -------------------------------
+/* --------------------------------
 TEMA SPA / BELLEZA
 -------------------------------- */
 
@@ -66,24 +81,25 @@ TEMA SPA / BELLEZA
 
 }
 
-.theme-spa .categories button{
+/* categorias */
+
+.theme-spa .category-card{
 
 background:#ffffff;
+border:1px solid rgba(0,0,0,.08);
 color:#3a2e27;
 
-border:1px solid #e6ded7;
+}
+
+.theme-spa .category-card:hover{
+
+border-color:#8b6f5a;
+color:#8b6f5a;
 
 }
 
-.theme-spa .categories button:hover{
 
-background:#8b6f5a;
-color:white;
-
-}
-
-
-/* -------------------------------
+/* --------------------------------
 TEMA PERFUMERIA
 -------------------------------- */
 
@@ -97,26 +113,23 @@ TEMA PERFUMERIA
 
 }
 
-.theme-perfume .product-card{
-border:1px solid rgba(255,255,255,.08);
-}
-
-.theme-perfume .categories button{
+.theme-perfume .category-card{
 
 background:#312e81;
-border:1px solid rgba(255,255,255,.12);
 color:#f5f3ff;
+border:1px solid rgba(255,255,255,.1);
 
 }
 
-.theme-perfume .categories button:hover{
+.theme-perfume .category-card:hover{
 
-background:#7c3aed;
+border-color:#a78bfa;
+color:#a78bfa;
 
 }
 
 
-/* -------------------------------
+/* --------------------------------
 TEMA MINIMAL / GENERAL
 -------------------------------- */
 
@@ -130,42 +143,41 @@ TEMA MINIMAL / GENERAL
 
 }
 
-.theme-minimal .categories button{
+.theme-minimal .category-card{
 
-background:#f3f4f6;
+background:#f9fafb;
+border:1px solid rgba(0,0,0,.08);
 color:#111827;
 
-border:1px solid #e5e7eb;
+}
+
+.theme-minimal .category-card:hover{
+
+border-color:#111827;
+color:#111827;
 
 }
 
-.theme-minimal .categories button:hover{
-
-background:#111827;
-color:white;
-
-}
 
 
 /* ===============================
-ELEMENTOS UI (GLOBAL)
+ELEMENTOS UI (globales)
 ================================ */
 
 button{
 
 background:var(--primary);
 color:white;
-
 padding:10px 14px;
-
 border:none;
-
 cursor:pointer;
-
 border-radius:6px;
+font-weight:600;
 
 }
 
 button:hover{
-opacity:0.9;
+
+opacity:.9;
+
 }
