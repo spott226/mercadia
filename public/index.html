@@ -116,6 +116,29 @@ outline:none;
 color:#444;
 }
 
+.search-box{
+display:flex;
+gap:10px;
+}
+
+.search-box input{
+flex:1;
+}
+
+.search-box button{
+
+padding:14px 18px;
+
+border:none;
+border-radius:8px;
+
+background:var(--primary);
+color:white;
+
+font-weight:600;
+cursor:pointer;
+
+}
 
 /* CATEGORIAS */
 
@@ -204,11 +227,19 @@ Tienda
 
 <div class="search-container">
 
+<div class="search-box">
+
 <input
 type="text"
 id="search-input"
 placeholder="Buscar productos..."
-/>
+>
+
+<button id="search-btn">
+Buscar
+</button>
+
+</div>
 
 </div>
 

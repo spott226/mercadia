@@ -79,7 +79,10 @@ window.allProducts = storeProducts;
 
 generateCategories(storeProducts);
 renderFeatured(storeProducts);
-renderProducts(storeProducts);
+
+/* NO mostrar todos los productos al inicio */
+
+productsContainer.innerHTML = "";
 
 }
 
