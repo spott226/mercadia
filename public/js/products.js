@@ -1,4 +1,7 @@
-// productos globales
+// ===============================
+// PRODUCTOS GLOBALES
+// ===============================
+
 window.allProducts = [];
 window.storeWhats = "";
 
@@ -6,19 +9,52 @@ const productsContainer = document.getElementById("products");
 const featuredContainer = document.getElementById("featured-products");
 const categoriesContainer = document.getElementById("categories");
 
-// detectar tienda desde subdominio
+
+// ===============================
+// DETECTAR TIENDA DESDE SUBDOMINIO
+// ===============================
+
 function getStoreFromDomain(){
+
 const host = window.location.hostname;
 const subdomain = host.split('.')[0];
+
 return subdomain.toLowerCase();
+
 }
 
 const store = getStoreFromDomain();
 
 
+// ===============================
+// EVENTO GLOBAL PARA BOTON CARRITO
+// (SOLUCIÓN ESTABLE)
+// ===============================
+
+document.addEventListener("click",function(e){
+
+if(e.target.classList.contains("add-cart")){
+
+const id = parseInt(e.target.dataset.id);
+
+if(typeof addToCart === "function"){
+addToCart(id);
+}else{
+console.error("addToCart no está cargado");
+}
+
+}
+
+});
+
+
+// ===============================
+// CARGAR PRODUCTOS
+// ===============================
+
 async function loadProducts(){
 
-// cargar datos de la tienda
+// cargar info tienda
 const storeRes = await fetch("data/stores.json");
 const storeData = await storeRes.json();
 
@@ -26,15 +62,22 @@ const storeInfo = storeData.stores.find(
 s => s.id.toLowerCase() === store
 );
 
-// si no encuentra tienda
+// si no existe tienda
 if(!storeInfo){
+
 console.error("No se encontró la tienda:", store);
 return;
+
 }
 
 window.storeWhats = storeInfo.whatsapp || "";
 
 document.body.classList.add("theme-" + storeInfo.theme);
+
+
+// ===============================
+// DATOS VISUALES TIENDA
+// ===============================
 
 const logo = document.getElementById("store-logo");
 const name = document.getElementById("store-name");
@@ -43,6 +86,11 @@ const bot = document.getElementById("chatbot-button");
 
 if(logo) logo.src = storeInfo.logo;
 if(name) name.textContent = storeInfo.name;
+
+
+// ===============================
+// HERO
+// ===============================
 
 if(hero && storeInfo.hero){
 
@@ -59,9 +107,19 @@ hero.style.backgroundPosition = "center";
 
 }
 
+
+// ===============================
+// CHATBOT SEGUN PLAN
+// ===============================
+
 if(bot && storeInfo.plan !== "pro"){
 bot.style.display = "none";
 }
+
+
+// ===============================
+// PLAN X (SIN BUSCADOR NI CATEGORIAS)
+// ===============================
 
 if(storeInfo.plan === "x"){
 
@@ -73,39 +131,57 @@ if(categoriesSection) categoriesSection.style.display = "none";
 
 }
 
-// cargar productos de esa tienda
+
+// ===============================
+// CARGAR PRODUCTOS
+// ===============================
+
 const productsRes = await fetch(`data/products/${store}.json`);
 const productsData = await productsRes.json();
 
 if(!productsData.products){
+
 console.error("No hay productos en:", store);
 return;
+
 }
 
 const storeProducts = productsData.products.filter(p => p.active);
 
 window.allProducts = storeProducts;
 
-/* generar categorias solo si el plan lo permite */
+
+// ===============================
+// GENERAR CATEGORIAS
+// ===============================
+
 if(storeInfo.plan !== "x"){
 generateCategories(storeProducts);
 }
 
-/* mostrar destacados */
+
+// ===============================
+// MOSTRAR DESTACADOS
+// ===============================
+
 renderFeatured(storeProducts);
 
-/* no mostrar todos los productos al inicio */
+
+// no mostrar todos los productos al inicio
 productsContainer.innerHTML = "";
 
 }
 
 
-// generar categorias
+// ===============================
+// GENERAR CATEGORIAS
+// ===============================
+
 function generateCategories(products){
 
 const cats = [...new Set(products.map(p => p.category))];
 
-categoriesContainer.innerHTML="";
+categoriesContainer.innerHTML = "";
 
 cats.forEach(cat=>{
 
@@ -115,7 +191,9 @@ div.className = "category-card";
 div.innerHTML = `<h3>${cat}</h3>`;
 
 div.addEventListener("click",()=>{
+
 filterCategory(cat);
+
 });
 
 categoriesContainer.appendChild(div);
@@ -125,18 +203,22 @@ categoriesContainer.appendChild(div);
 }
 
 
+// ===============================
 // PRODUCTOS DESTACADOS
+// ===============================
+
 function renderFeatured(products){
 
 if(!featuredContainer) return;
 
 const featured = products.filter(p => p.featured);
 
-featuredContainer.innerHTML="";
+featuredContainer.innerHTML = "";
 
 featured.forEach(p=>{
 
 featuredContainer.innerHTML += `
+
 <div class="product-card">
 
 <img src="${p.image}" alt="${p.name}">
@@ -150,23 +232,26 @@ Agregar al carrito
 </button>
 
 </div>
+
 `;
 
 });
 
-activateCartButtons();
-
 }
 
 
+// ===============================
 // TODOS LOS PRODUCTOS
+// ===============================
+
 function renderProducts(products){
 
-productsContainer.innerHTML="";
+productsContainer.innerHTML = "";
 
 products.forEach(p=>{
 
 productsContainer.innerHTML += `
+
 <div class="product-card">
 
 <img src="${p.image}" alt="${p.name}">
@@ -180,38 +265,18 @@ Agregar al carrito
 </button>
 
 </div>
+
 `;
 
 });
 
-activateCartButtons();
-
 }
 
 
-// activar botones del carrito
-function activateCartButtons(){
+// ===============================
+// FILTRAR POR CATEGORIA
+// ===============================
 
-document.querySelectorAll(".add-cart").forEach(btn=>{
-
-btn.onclick = null;
-
-btn.addEventListener("click",()=>{
-
-const id = parseInt(btn.dataset.id);
-
-if(typeof addToCart === "function"){
-addToCart(id);
-}
-
-});
-
-});
-
-}
-
-
-// filtrar por categoria
 function filterCategory(cat){
 
 const filtered = window.allProducts.filter(
@@ -227,7 +292,10 @@ behavior:"smooth"
 }
 
 
-// buscador
+// ===============================
+// BUSCADOR
+// ===============================
+
 function searchProducts(){
 
 const input = document
@@ -237,9 +305,9 @@ const input = document
 
 const filtered = window.allProducts.filter(product =>
 
-product.name.toLowerCase().includes(input) ||
-product.description.toLowerCase().includes(input) ||
-product.category.toLowerCase().includes(input)
+(product.name || "").toLowerCase().includes(input) ||
+(product.description || "").toLowerCase().includes(input) ||
+(product.category || "").toLowerCase().includes(input)
 
 );
 
@@ -248,5 +316,8 @@ renderProducts(filtered);
 }
 
 
-// iniciar
+// ===============================
+// INICIAR
+// ===============================
+
 loadProducts();
