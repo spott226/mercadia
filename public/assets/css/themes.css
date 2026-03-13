@@ -256,95 +256,193 @@ opacity:.9;
 }
 
 /* ===============================
-TEMA GALAXY / NEON
-para servicios digitales
+TEMA GALAXY / LUNAR NEON
 ================================ */
 
 .theme-galaxy{
 
---primary:#7c3aed;      /* neon violeta */
---background:#020617;   /* negro profundo */
---card:#0f172a;         /* azul oscuro */
---text:#e2e8f0;         /* blanco suave */
---accent:#22d3ee;       /* neon cyan */
+--primary:#9ca3af;      /* gris lunar */
+--background:#020617;   
+--card:#0b1220;
+--text:#e5e7eb;
+--accent:#cbd5f5;       /* glow frio */
 
 }
 
-/* tarjetas */
+
+/* ===============================
+HEADER
+================================ */
+
+.theme-galaxy header{
+
+background:#020617;
+border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+
+/* ===============================
+TIPOGRAFIA LUNAR NEON
+================================ */
+
+.theme-galaxy #store-name{
+
+color:#e5e7eb;
+
+letter-spacing:2px;
+
+text-shadow:
+0 0 6px rgba(255,255,255,.4),
+0 0 18px rgba(148,163,184,.35),
+0 0 35px rgba(148,163,184,.25);
+
+font-weight:800;
+
+}
+
+.theme-galaxy #hero-title{
+
+color:#f1f5f9;
+
+text-shadow:
+0 0 10px rgba(255,255,255,.45),
+0 0 25px rgba(148,163,184,.35),
+0 0 45px rgba(148,163,184,.25);
+
+}
+
+.theme-galaxy #hero-subtitle{
+
+color:#cbd5f5;
+
+text-shadow:
+0 0 8px rgba(255,255,255,.35),
+0 0 20px rgba(148,163,184,.25);
+
+}
+
+
+/* ===============================
+CARDS
+================================ */
 
 .theme-galaxy .product-card{
-background:#0f172a;
-border:1px solid rgba(124,58,237,.3);
-color:#e2e8f0;
-box-shadow:0 0 20px rgba(124,58,237,.15);
+
+background:#0b1220;
+
+border:1px solid rgba(255,255,255,.06);
+
+color:#e5e7eb;
+
+box-shadow:
+0 8px 30px rgba(0,0,0,.6);
+
 }
 
 .theme-galaxy .product-card:hover{
-border-color:#22d3ee;
-box-shadow:0 0 25px rgba(34,211,238,.35);
+
+border-color:#cbd5f5;
+
+box-shadow:
+0 0 15px rgba(203,213,245,.4),
+0 0 40px rgba(203,213,245,.2);
+
 }
 
-/* categorias */
+
+/* ===============================
+CATEGORIAS
+================================ */
 
 .theme-galaxy .category-card{
-background:#0f172a;
-border:1px solid rgba(124,58,237,.25);
-color:#e2e8f0;
+
+background:#0b1220;
+
+border:1px solid rgba(255,255,255,.06);
+
+color:#e5e7eb;
+
 }
 
 .theme-galaxy .category-card:hover{
-border-color:#22d3ee;
-color:#22d3ee;
+
+border-color:#cbd5f5;
+
+color:#f1f5f9;
+
 }
 
-/* buscador */
 
-.theme-galaxy #search-input{
-background:#020617;
-color:#fff;
-border:1px solid rgba(124,58,237,.35);
-}
-
-/* header */
-
-.theme-galaxy header{
-background:#020617;
-border-bottom:1px solid rgba(124,58,237,.25);
-}
-
-/* chatbot */
-
-.theme-galaxy .chatbot{
-background:#7c3aed;
-box-shadow:0 0 20px rgba(124,58,237,.6);
-}
-
-.theme-galaxy .chatbot-box{
-background:#0f172a;
-color:#fff;
-}
-
-/* botones neon */
+/* ===============================
+BOTONES
+================================ */
 
 .theme-galaxy button{
-background:linear-gradient(90deg,#7c3aed,#22d3ee);
-color:#fff;
+
+background:linear-gradient(90deg,#9ca3af,#cbd5f5);
+
+color:#020617;
+
 font-weight:700;
+
 }
 
 .theme-galaxy button:hover{
-box-shadow:0 0 12px rgba(34,211,238,.7);
+
+box-shadow:
+0 0 12px rgba(203,213,245,.7),
+0 0 30px rgba(203,213,245,.4);
+
 }
 
+
 /* ===============================
-ESTRELLAS GALAXY
+BUSCADOR GALAXY GLASS
 ================================ */
+
+.theme-galaxy .search-container{
+
+background:rgba(10,15,25,.55);
+
+backdrop-filter:blur(14px);
+
+border:1px solid rgba(255,255,255,.08);
+
+box-shadow:
+0 0 25px rgba(148,163,184,.25),
+inset 0 0 12px rgba(148,163,184,.2);
+
+}
+
+.theme-galaxy #search-input{
+
+background:#020617;
+
+color:#fff;
+
+border:1px solid rgba(255,255,255,.15);
+
+box-shadow:
+0 0 12px rgba(148,163,184,.35);
+
+}
+
+
+/* ===============================
+ESTRELLAS GALAXY PRO
+DOS CAPAS
+================================ */
+
+
+/* capa estrellas pequeñas */
 
 .theme-galaxy::before{
 
 content:"";
 
 position:fixed;
+
 top:0;
 left:0;
 
@@ -354,21 +452,65 @@ height:100%;
 pointer-events:none;
 
 background-image:
-radial-gradient(2px 2px at 20px 30px,#fff,transparent),
-radial-gradient(1px 1px at 40px 70px,#fff,transparent),
-radial-gradient(2px 2px at 90px 40px,#fff,transparent),
-radial-gradient(1px 1px at 130px 80px,#fff,transparent),
-radial-gradient(2px 2px at 160px 20px,#fff,transparent);
 
-background-size:200px 200px;
+radial-gradient(1px 1px at 40px 60px,#fff,transparent),
+radial-gradient(1px 1px at 120px 160px,#fff,transparent),
+radial-gradient(1px 1px at 220px 80px,#fff,transparent),
+radial-gradient(1px 1px at 340px 220px,#fff,transparent),
+radial-gradient(1px 1px at 440px 120px,#fff,transparent),
+radial-gradient(1px 1px at 540px 200px,#fff,transparent),
+radial-gradient(1px 1px at 640px 150px,#fff,transparent),
+radial-gradient(1px 1px at 740px 100px,#fff,transparent);
 
-animation:starsMove 60s linear infinite;
+background-size:800px 800px;
 
-opacity:.4;
+animation:starsMove 180s linear infinite;
+
+opacity:.6;
+
+z-index:-2;
+
+}
+
+
+/* capa estrellas grandes */
+
+.theme-galaxy::after{
+
+content:"";
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+pointer-events:none;
+
+background-image:
+
+radial-gradient(3px 3px at 100px 120px,#ffffff,transparent),
+radial-gradient(3px 3px at 300px 220px,#cbd5f5,transparent),
+radial-gradient(2px 2px at 500px 100px,#ffffff,transparent),
+radial-gradient(3px 3px at 700px 260px,#cbd5f5,transparent),
+radial-gradient(2px 2px at 900px 200px,#ffffff,transparent);
+
+background-size:1200px 1200px;
+
+animation:
+starsMove 140s linear infinite,
+starsBlink 6s ease-in-out infinite;
+
+opacity:.9;
 
 z-index:-1;
 
 }
+
+
+/* movimiento */
 
 @keyframes starsMove{
 
@@ -377,98 +519,18 @@ transform:translateY(0);
 }
 
 to{
-transform:translateY(-200px);
+transform:translateY(-800px);
 }
 
 }
 
-/* ===============================
-GALAXY STARS
-================================ */
 
-.theme-galaxy::before{
-
-content:"";
-
-position:fixed;
-
-top:0;
-left:0;
-
-width:100%;
-height:100%;
-
-pointer-events:none;
-
-background-image:
-radial-gradient(2px 2px at 20px 30px,#fff,transparent),
-radial-gradient(2px 2px at 100px 120px,#fff,transparent),
-radial-gradient(1px 1px at 200px 80px,#fff,transparent),
-radial-gradient(2px 2px at 300px 200px,#fff,transparent),
-radial-gradient(1px 1px at 400px 150px,#fff,transparent);
-
-background-size:500px 500px;
-
-animation:starsMove 120s linear infinite,
-starsBlink 4s ease-in-out infinite;
-
-opacity:.6;
-
-z-index:-1;
-
-}
-
-@keyframes starsMove{
-
-from{transform:translateY(0);}
-to{transform:translateY(-500px);}
-
-}
+/* destello */
 
 @keyframes starsBlink{
 
-0%{opacity:.2}
-50%{opacity:.8}
-100%{opacity:.2}
-
-}
-
-/* ===============================
-NEON SEARCH BOX
-================================ */
-
-.theme-galaxy .search-container{
-
-background:rgba(10,10,30,.45);
-
-backdrop-filter:blur(14px);
-
-border:1px solid rgba(124,58,237,.35);
-
-box-shadow:
-0 0 15px rgba(124,58,237,.25),
-inset 0 0 10px rgba(124,58,237,.2);
-
-}
-
-.theme-galaxy #search-input{
-
-background:#020617;
-
-color:#fff;
-
-border:1px solid rgba(124,58,237,.5);
-
-box-shadow:0 0 10px rgba(124,58,237,.4);
-
-}
-
-.theme-galaxy #search-btn{
-
-background:linear-gradient(90deg,#7c3aed,#22d3ee);
-
-box-shadow:
-0 0 8px #7c3aed,
-0 0 15px #22d3ee;
+0%{opacity:.5}
+50%{opacity:1}
+100%{opacity:.5}
 
 }
