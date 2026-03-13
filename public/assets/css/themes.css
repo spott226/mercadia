@@ -133,6 +133,83 @@ border-color:#374151;
 color:#374151;
 }
 
+/* ===============================
+TEMA STREET LUXURY
+gorras premium / streetwear
+================================ */
+
+.theme-streetluxury{
+
+--primary:#e5e5e5;
+--background:#070707;
+--card:#121212;
+--text:#f5f5f5;
+--accent:#9ca3af;
+
+}
+
+/* PRODUCTOS */
+
+.theme-streetluxury .product-card{
+background:#121212;
+border:1px solid rgba(255,255,255,.06);
+color:#f5f5f5;
+box-shadow:0 8px 20px rgba(0,0,0,.45);
+}
+
+.theme-streetluxury .product-card:hover{
+border-color:#e5e5e5;
+transform:translateY(-4px);
+box-shadow:0 15px 40px rgba(0,0,0,.6);
+}
+
+/* CATEGORIAS */
+
+.theme-streetluxury .category-card{
+background:#121212;
+border:1px solid rgba(255,255,255,.06);
+color:#f5f5f5;
+}
+
+.theme-streetluxury .category-card:hover
+
+/* BUSCADOR */
+
+.theme-streetluxury #search-input{
+background:#0e0e0e;
+color:#ffffff;
+border:1px solid rgba(255,255,255,.08);
+}
+
+/* HEADER */
+
+.theme-streetluxury header{
+background:#0b0b0b;
+color:#ffffff;
+border-bottom:1px solid rgba(255,255,255,.05);
+}
+
+/* CHATBOT */
+
+.theme-streetluxury .chatbot{
+background:#e5e5e5;
+color:#000;
+}
+
+.theme-streetluxury .chatbot-box{
+background:#121212;
+color:#ffffff;
+}
+
+/* BOTONES */
+
+.theme-streetluxury button{
+background:#e5e5e5;
+color:#000;
+font-weight:700;
+}
+
+.theme-streetluxury button:hover
 
 /* ===============================
 TEMA MINIMAL
