@@ -63,6 +63,15 @@ if(bot && storeInfo.plan === "basic"){
 bot.style.display = "none";
 }
 
+if(storeInfo.plan === "x"){
+
+const searchBox = document.querySelector(".search-box");
+const categoriesSection = document.getElementById("categories");
+
+if(searchBox) searchBox.style.display = "none";
+if(categoriesSection) categoriesSection.style.display = "none";
+
+}
 
 // cargar productos de esa tienda
 const productsRes = await fetch(`data/products/${store}.json`);
@@ -77,8 +86,10 @@ const storeProducts = productsData.products.filter(p => p.active);
 
 window.allProducts = storeProducts;
 
+if(storeInfo.plan !== "x"){
 generateCategories(storeProducts);
-renderFeatured(storeProducts);
+}
+
 
 /* NO mostrar todos los productos al inicio */
 
