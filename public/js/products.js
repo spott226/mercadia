@@ -28,7 +28,6 @@ const store = getStoreFromDomain();
 
 // ===============================
 // EVENTO GLOBAL PARA BOTON CARRITO
-// (SOLUCIÓN ESTABLE)
 // ===============================
 
 document.addEventListener("click",function(e){
@@ -54,7 +53,6 @@ console.error("addToCart no está cargado");
 
 async function loadProducts(){
 
-// cargar info tienda
 const storeRes = await fetch("data/stores.json");
 const storeData = await storeRes.json();
 
@@ -62,12 +60,9 @@ const storeInfo = storeData.stores.find(
 s => s.id.toLowerCase() === store
 );
 
-// si no existe tienda
 if(!storeInfo){
-
 console.error("No se encontró la tienda:", store);
 return;
-
 }
 
 window.storeWhats = storeInfo.whatsapp || "";
@@ -90,8 +85,6 @@ const heroSubtitle = document.getElementById("hero-subtitle");
 if(logo) logo.src = storeInfo.logo;
 if(name) name.textContent = storeInfo.name;
 
-/* HERO TEXTO PERSONALIZADO */
-
 if(heroTitle && storeInfo.heroTitle){
 heroTitle.textContent = storeInfo.heroTitle;
 }
@@ -99,6 +92,8 @@ heroTitle.textContent = storeInfo.heroTitle;
 if(heroSubtitle && storeInfo.heroSubtitle){
 heroSubtitle.textContent = storeInfo.heroSubtitle;
 }
+
+
 // ===============================
 // HERO
 // ===============================
@@ -118,11 +113,14 @@ hero.style.backgroundPosition = "center";
 
 }
 
-/* ===============================
-SECCIONES DINÁMICAS DE LA TIENDA
-=============================== */
+
+// ===============================
+// SECCIONES DINÁMICAS
+// ===============================
 
 renderStoreSections(storeInfo);
+renderStoreReferences(storeInfo);
+
 
 // ===============================
 // CHATBOT SEGUN PLAN
@@ -134,7 +132,7 @@ bot.style.display = "none";
 
 
 // ===============================
-// PLAN X (SIN BUSCADOR NI CATEGORIAS)
+// PLAN X
 // ===============================
 
 if(storeInfo.plan === "x"){
@@ -177,13 +175,11 @@ generateCategories(storeProducts);
 
 
 // ===============================
-// MOSTRAR DESTACADOS
+// DESTACADOS
 // ===============================
 
 renderFeatured(storeProducts);
 
-
-// no mostrar todos los productos al inicio
 productsContainer.innerHTML = "";
 
 }
@@ -220,7 +216,7 @@ categoriesContainer.appendChild(div);
 
 
 // ===============================
-// PRODUCTOS DESTACADOS
+// DESTACADOS
 // ===============================
 
 function renderFeatured(products){
@@ -290,7 +286,7 @@ Agregar al carrito
 
 
 // ===============================
-// FILTRAR POR CATEGORIA
+// FILTRAR CATEGORIA
 // ===============================
 
 function filterCategory(cat){
@@ -331,12 +327,16 @@ renderProducts(filtered);
 
 }
 
+
+// ===============================
+// SECCIONES DE TIENDA
+// ===============================
+
 function renderStoreSections(storeInfo){
 
 const container = document.getElementById("store-sections");
 
 if(!container) return;
-
 if(!storeInfo.sections) return;
 
 let html = "";
@@ -380,22 +380,46 @@ ${storeInfo.sections.trust.items.map(i=>`<li>${i}</li>`).join("")}
 
 }
 
-if(storeInfo.sections.references){
-
-html += `
-<div class="store-section">
-<h3>${storeInfo.sections.references.title}</h3>
-<a href="${storeInfo.sections.references.instagram}" target="_blank">
-Ver referencias en Instagram
-</a>
-</div>
-`;
+container.innerHTML = html;
 
 }
+
+
+// ===============================
+// REFERENCIAS (FOTOS)
+// ===============================
+
+function renderStoreReferences(storeInfo){
+
+const container = document.getElementById("store-references");
+
+if(!container) return;
+
+if(!storeInfo.references || storeInfo.references.length === 0){
+container.style.display = "none";
+return;
+}
+
+let html = `
+<h2 style="text-align:center;margin:30px 0;">
+Referencias reales
+</h2>
+
+<div class="references-grid">
+`;
+
+storeInfo.references.forEach(img => {
+
+html += `<img src="${img}" alt="referencia">`;
+
+});
+
+html += "</div>";
 
 container.innerHTML = html;
 
 }
+
 
 // ===============================
 // INICIAR
