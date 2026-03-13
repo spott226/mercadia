@@ -32,7 +32,7 @@
   "hero": "/assets/heroes/shippz.jpg",
 
   "plan": "pro",
-  "theme": "modern",
+  "theme": "galaxy",
 
   "heroTitle": "Impulsa tu Instagram",
   "heroSubtitle": "Seguidores, likes y crecimiento para tu cuenta",
@@ -68,7 +68,15 @@
       ]
     }
 
-  }
+  },
+
+  "references": [
+    "/assets/references/referencia1.jpeg",
+    "/assets/references/referencia2.jpeg",
+    "/assets/references/referencia3.jpeg",
+    "/assets/references/referencia4.jpeg",
+    "/assets/references/referencia5.jpeg"
+  ]
 
 },
     {
