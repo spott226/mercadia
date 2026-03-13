@@ -1,0 +1,174 @@
+{
+  "products":[
+
+    {
+      "id":1,
+      "store":"shippz",
+      "name":"1,300 Seguidores Instagram",
+      "price":150,
+      "category":"Seguidores Instagram",
+      "stock":999,
+      "image":"/assets/products/shippz/followers1.jpg",
+      "description":"Seguidores para impulsar tu cuenta de Instagram.",
+      "featured":true,
+      "active":true
+    },
+
+    {
+      "id":2,
+      "store":"shippz",
+      "name":"2,200 Seguidores Instagram",
+      "price":200,
+      "category":"Seguidores Instagram",
+      "stock":999,
+      "image":"/assets/products/shippz/followers2.jpg",
+      "description":"Paquete de crecimiento para Instagram.",
+      "featured":false,
+      "active":true
+    },
+
+    {
+      "id":3,
+      "store":"shippz",
+      "name":"2,600 Seguidores Instagram",
+      "price":250,
+      "category":"Seguidores Instagram",
+      "stock":999,
+      "image":"/assets/products/shippz/followers3.jpg",
+      "description":"Aumenta la visibilidad de tu cuenta.",
+      "featured":false,
+      "active":true
+    },
+
+    {
+      "id":4,
+      "store":"shippz",
+      "name":"3,400 Seguidores Instagram",
+      "price":300,
+      "category":"Seguidores Instagram",
+      "stock":999,
+      "image":"/assets/products/shippz/followers4.jpg",
+      "description":"Paquete popular para crecimiento rápido.",
+      "featured":false,
+      "active":true
+    },
+
+    {
+      "id":5,
+      "store":"shippz",
+      "name":"5,000 Seguidores Instagram",
+      "price":450,
+      "category":"Seguidores Instagram",
+      "stock":999,
+      "image":"/assets/products/shippz/followers5.jpg",
+      "description":"Uno de los paquetes más comprados.",
+      "featured":true,
+      "active":true
+    },
+
+    {
+      "id":6,
+      "store":"shippz",
+      "name":"5,300 Seguidores Instagram",
+      "price":500,
+      "category":"Seguidores Instagram",
+      "stock":999,
+      "image":"/assets/products/shippz/followers6.jpg",
+      "description":"Impulsa tu perfil con más seguidores.",
+      "featured":false,
+      "active":true
+    },
+
+    {
+      "id":7,
+      "store":"shippz",
+      "name":"5,600 Seguidores Instagram",
+      "price":550,
+      "category":"Seguidores Instagram",
+      "stock":999,
+      "image":"/assets/products/shippz/followers7.jpg",
+      "description":"Crecimiento continuo para tu cuenta.",
+      "featured":false,
+      "active":true
+    },
+
+    {
+      "id":8,
+      "store":"shippz",
+      "name":"8,000 Seguidores Instagram",
+      "price":750,
+      "category":"Seguidores Instagram",
+      "stock":999,
+      "image":"/assets/products/shippz/followers8.jpg",
+      "description":"El paquete grande para crecimiento rápido.",
+      "featured":true,
+      "active":true
+    },
+
+    {
+      "id":9,
+      "store":"shippz",
+      "name":"1,000 Likes Instagram",
+      "price":20,
+      "category":"Likes Instagram",
+      "stock":999,
+      "image":"/assets/products/shippz/likes1.jpg",
+      "description":"Likes para tus publicaciones de Instagram.",
+      "featured":false,
+      "active":true
+    },
+
+    {
+      "id":10,
+      "store":"shippz",
+      "name":"2,000 Likes Instagram",
+      "price":35,
+      "category":"Likes Instagram",
+      "stock":999,
+      "image":"/assets/products/shippz/likes2.jpg",
+      "description":"Incrementa la interacción en tus posts.",
+      "featured":false,
+      "active":true
+    },
+
+    {
+      "id":11,
+      "store":"shippz",
+      "name":"3,000 Likes Instagram",
+      "price":70,
+      "category":"Likes Instagram",
+      "stock":999,
+      "image":"/assets/products/shippz/likes3.jpg",
+      "description":"Más interacción para tu contenido.",
+      "featured":false,
+      "active":true
+    },
+
+    {
+      "id":12,
+      "store":"shippz",
+      "name":"4,000 Likes Instagram",
+      "price":80,
+      "category":"Likes Instagram",
+      "stock":999,
+      "image":"/assets/products/shippz/likes4.jpg",
+      "description":"Impulsa el alcance de tus publicaciones.",
+      "featured":false,
+      "active":true
+    },
+
+    {
+      "id":13,
+      "store":"shippz",
+      "name":"5,000 Likes Instagram",
+      "price":100,
+      "category":"Likes Instagram",
+      "stock":999,
+      "image":"/assets/products/shippz/likes5.jpg",
+      "description":"El paquete más grande de likes.",
+      "featured":true,
+      "active":true
+    }
+
+  ]
+}

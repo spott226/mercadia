@@ -23,6 +23,18 @@
       "heroSubtitle":"Gorras premium streetwear",
       "active": true
     },
+{
+  "id": "shippz",
+  "name": "SHIPPZ Shop",
+  "whatsapp": "525583088039",
+  "currency": "MXN",
+  "hero": "/assets/heroes/shippz.jpg",
+  "plan": "pro",
+  "theme": "modern",
+  "heroTitle": "Impulsa tu Instagram",
+  "heroSubtitle": "Seguidores, likes y crecimiento para tu cuenta",
+  "active": true
+},
     {
       "id": "hernandez-sneakers",
       "name": "Hernandez Sneakers",
