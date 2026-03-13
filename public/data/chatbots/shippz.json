@@ -1,0 +1,27 @@
+{
+"welcome": "Bienvenido a SHIPPZ 🚀",
+
+"menu":[
+
+{
+"title":"⚡ Prueba gratis",
+"text":"Para obtener tu prueba gratis debes cumplir:\n\n• Tener tu cuenta en público\n• Subir una publicación en tu perfil (NO historias)\n• Las historias no cuentan\n\nDespués envíanos el link o una captura.\n\nActivamos tu prueba gratis."
+},
+
+{
+"title":"🔒 Seguridad",
+"text":"Para realizar tu pedido NO necesitamos tu contraseña.\n\nSolo necesitamos tu usuario de Instagram.\n\nTu cuenta debe estar en público durante el proceso."
+},
+
+{
+"title":"🚀 Entrega del servicio",
+"text":"La entrega comienza después de confirmar el pago.\n\nEl tiempo puede variar dependiendo del paquete solicitado."
+},
+
+{
+"title":"💳 Confirmación de pago",
+"text":"Después de realizar tu pago envía la captura del comprobante.\n\nSin comprobante no se podrá confirmar tu pedido."
+}
+
+]
+}

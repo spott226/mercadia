@@ -28,12 +28,53 @@
   "name": "SHIPPZ Shop",
   "whatsapp": "525583088039",
   "currency": "MXN",
+
   "hero": "/assets/heroes/shippz.jpg",
+
   "plan": "pro",
   "theme": "modern",
+
   "heroTitle": "Impulsa tu Instagram",
   "heroSubtitle": "Seguidores, likes y crecimiento para tu cuenta",
-  "active": true
+
+  "active": true,
+
+  "sections": {
+
+    "warning": {
+      "title": "⚠ Aviso importante",
+      "items": [
+        "Tu cuenta debe estar en público",
+        "No debe estar en modo privado",
+        "No pedimos contraseñas"
+      ]
+    },
+
+    "freeTest": {
+      "title": "⚡ Prueba gratis",
+      "items": [
+        "Tener tu cuenta en público",
+        "Subir una publicación en tu perfil (NO historias)",
+        "Enviar el link o captura de la publicación"
+      ]
+    },
+
+    "trust": {
+      "title": "✔ Compra segura",
+      "items": [
+        "No pedimos contraseñas",
+        "Solo necesitamos tu usuario de Instagram",
+        "Entrega después del pago"
+      ]
+    },
+
+    "references": {
+      "title": "Referencias",
+      "instagram": "https://instagram.com/shippz_6"
+    }
+
+  }
+
 },
     {
       "id": "hernandez-sneakers",

@@ -118,6 +118,11 @@ hero.style.backgroundPosition = "center";
 
 }
 
+/* ===============================
+SECCIONES DINÁMICAS DE LA TIENDA
+=============================== */
+
+renderStoreSections(storeInfo);
 
 // ===============================
 // CHATBOT SEGUN PLAN
@@ -326,6 +331,71 @@ renderProducts(filtered);
 
 }
 
+function renderStoreSections(storeInfo){
+
+const container = document.getElementById("store-sections");
+
+if(!container) return;
+
+if(!storeInfo.sections) return;
+
+let html = "";
+
+if(storeInfo.sections.warning){
+
+html += `
+<div class="store-section">
+<h3>${storeInfo.sections.warning.title}</h3>
+<ul>
+${storeInfo.sections.warning.items.map(i=>`<li>${i}</li>`).join("")}
+</ul>
+</div>
+`;
+
+}
+
+if(storeInfo.sections.freeTest){
+
+html += `
+<div class="store-section">
+<h3>${storeInfo.sections.freeTest.title}</h3>
+<ul>
+${storeInfo.sections.freeTest.items.map(i=>`<li>${i}</li>`).join("")}
+</ul>
+</div>
+`;
+
+}
+
+if(storeInfo.sections.trust){
+
+html += `
+<div class="store-section">
+<h3>${storeInfo.sections.trust.title}</h3>
+<ul>
+${storeInfo.sections.trust.items.map(i=>`<li>${i}</li>`).join("")}
+</ul>
+</div>
+`;
+
+}
+
+if(storeInfo.sections.references){
+
+html += `
+<div class="store-section">
+<h3>${storeInfo.sections.references.title}</h3>
+<a href="${storeInfo.sections.references.instagram}" target="_blank">
+Ver referencias en Instagram
+</a>
+</div>
+`;
+
+}
+
+container.innerHTML = html;
+
+}
 
 // ===============================
 // INICIAR

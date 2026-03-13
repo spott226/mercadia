@@ -1,372 +1,437 @@
 let botStep = 0;
-let selectedCategory = null;
-let storeWhats = "";
 let botCart = [];
+let storeWhats = "";
+let storeId = "";
+let chatbotConfig = null;
 
-/* ================================
-   OBTENER WHATSAPP DE LA TIENDA
+/* =================================
+OBTENER TIENDA DESDE SUBDOMINIO
 ================================ */
 
-document.addEventListener("DOMContentLoaded", () => {
+function getStore(){
 
-  fetch("data/products.json")
-    .then(res => res.json())
-    .then(data => {
+const host = window.location.hostname;
+const subdomain = host.split(".")[0].toLowerCase();
+return subdomain;
 
-      const host = window.location.hostname;
-      const subdomain = host.split(".")[0].toLowerCase();
+}
 
-      const storeData = data.stores.find(
-        s => s.id.toLowerCase() === subdomain
-      );
+/* =================================
+CARGAR CONFIGURACIÓN
+================================ */
 
-      if (storeData) {
-        storeWhats = storeData.whatsapp || "";
-      }
+document.addEventListener("DOMContentLoaded", async () => {
 
-    });
+storeId = getStore();
+
+/* cargar stores */
+
+const storeRes = await fetch("data/stores.json");
+const storeData = await storeRes.json();
+
+const storeInfo = storeData.stores.find(
+s => s.id.toLowerCase() === storeId
+);
+
+if(storeInfo){
+storeWhats = storeInfo.whatsapp || "";
+}
+
+/* cargar chatbot de la tienda */
+
+try{
+
+const botRes = await fetch(`data/chatbots/${storeId}.json`);
+chatbotConfig = await botRes.json();
+
+}catch(e){
+
+chatbotConfig = null;
+
+}
+
+/* activar botón */
+
+const botButton = document.getElementById("chatbot-button");
+
+if(botButton){
+botButton.addEventListener("click", toggleBot);
+}
 
 });
 
 
-/* ================================
-   ABRIR / CERRAR CHATBOT
+/* =================================
+ABRIR / CERRAR CHATBOT
 ================================ */
 
 function toggleBot(){
 
-  const box = document.getElementById("chatbot-box");
+const box = document.getElementById("chatbot-box");
 
-  if(!box) return;
+if(!box) return;
 
-  if(box.style.display === "block"){
-    box.style.display = "none";
-    return;
-  }
+if(box.style.display === "block"){
+box.style.display = "none";
+return;
+}
 
-  box.style.display = "block";
+box.style.display = "block";
 
-  if(botStep === 0){
-    botStart();
-  }
+if(botStep === 0){
+botStart();
+}
 
 }
 
 
-/* ================================
-   PANTALLA INICIAL
+/* =================================
+PANTALLA INICIAL
 ================================ */
 
 function botStart(){
 
-  botStep = 1;
-  botCart = [];
+botStep = 1;
+botCart = [];
 
-  const box = document.getElementById("chatbot-box");
+const box = document.getElementById("chatbot-box");
 
-  box.innerHTML = `
-  
-  <p>👋 Hola, ¿quieres ayuda con tu compra?</p>
+/* si la tienda tiene configuración */
 
-  <button id="bot-ver-productos">
-  Ver productos
-  </button>
+if(chatbotConfig && chatbotConfig.menu){
 
-  <button id="bot-whatsapp-directo">
-  Hablar por WhatsApp
-  </button>
+let buttons = "";
 
-  `;
+chatbotConfig.menu.forEach((item,i)=>{
 
-  document
-  .getElementById("bot-ver-productos")
-  .addEventListener("click", botCategorias);
+buttons += `
+<button class="bot-info-btn" data-index="${i}">
+${item.title}
+</button>
+`;
 
-  document
-  .getElementById("bot-whatsapp-directo")
-  .addEventListener("click", botWhatsDirect);
+});
+
+box.innerHTML = `
+
+<p>👋 ${chatbotConfig.welcome || "¿En qué te puedo ayudar?"}</p>
+
+${buttons}
+
+<button id="bot-ver-productos">
+🛒 Ver productos
+</button>
+
+<button id="bot-whatsapp-directo">
+📲 Hablar por WhatsApp
+</button>
+
+`;
+
+document.querySelectorAll(".bot-info-btn")
+.forEach(btn => {
+
+btn.addEventListener("click", ()=>{
+
+const index = btn.dataset.index;
+botShowInfo(index);
+
+});
+
+});
+
+}else{
+
+/* fallback si no existe chatbot */
+
+box.innerHTML = `
+
+<p>👋 Hola ¿quieres ayuda con tu compra?</p>
+
+<button id="bot-ver-productos">
+Ver productos
+</button>
+
+<button id="bot-whatsapp-directo">
+Hablar por WhatsApp
+</button>
+
+`;
+
+}
+
+document
+.getElementById("bot-ver-productos")
+.addEventListener("click", botCategorias);
+
+document
+.getElementById("bot-whatsapp-directo")
+.addEventListener("click", botWhatsDirect);
 
 }
 
 
-/* ================================
-   MOSTRAR CATEGORIAS
+/* =================================
+MOSTRAR INFORMACIÓN
+================================ */
+
+function botShowInfo(index){
+
+const box = document.getElementById("chatbot-box");
+
+const info = chatbotConfig.menu[index];
+
+box.innerHTML = `
+
+<p>${info.text}</p>
+
+<button onclick="botStart()">
+⬅ volver
+</button>
+
+`;
+
+}
+
+
+/* =================================
+CATEGORIAS
 ================================ */
 
 function botCategorias(){
 
-  const box = document.getElementById("chatbot-box");
+const box = document.getElementById("chatbot-box");
 
-  if(!window.allProducts || window.allProducts.length === 0){
+if(!window.allProducts || window.allProducts.length === 0){
 
-    box.innerHTML = `
-    <p>No encontré productos.</p>
-    <button id="bot-volver">Volver</button>
-    `;
+box.innerHTML = `
+<p>No encontré productos.</p>
+<button onclick="botStart()">Volver</button>
+`;
 
-    document
-    .getElementById("bot-volver")
-    .addEventListener("click", botStart);
+return;
 
-    return;
+}
 
-  }
+const categories = [...new Set(
+window.allProducts.map(p => p.category)
+)];
 
-  const categories = [...new Set(
-    window.allProducts.map(p => p.category)
-  )];
+let buttons = "";
 
-  let buttons = "";
+categories.forEach(cat => {
 
-  categories.forEach(cat => {
+buttons += `
+<button class="bot-cat-btn" data-category="${cat}">
+${cat}
+</button>
+`;
 
-    buttons += `
-    <button class="bot-cat-btn" data-category="${cat}">
-    ${cat}
-    </button>
-    `;
+});
 
-  });
+box.innerHTML = `
 
-  box.innerHTML = `
-  
-  <p>¿Qué tipo de producto buscas?</p>
+<p>¿Qué tipo de producto buscas?</p>
 
-  ${buttons}
+${buttons}
 
-  <button id="bot-volver">
-  ⬅ volver
-  </button>
+<button onclick="botStart()">
+⬅ volver
+</button>
 
-  `;
+`;
 
-  document
-  .querySelectorAll(".bot-cat-btn")
-  .forEach(btn => {
+document.querySelectorAll(".bot-cat-btn")
+.forEach(btn => {
 
-    btn.addEventListener("click", () => {
+btn.addEventListener("click", ()=>{
 
-      const category = btn.dataset.category;
-      botProductos(category);
+const category = btn.dataset.category;
+botProductos(category);
 
-    });
+});
 
-  });
-
-  document
-  .getElementById("bot-volver")
-  .addEventListener("click", botStart);
+});
 
 }
 
 
-/* ================================
-   MOSTRAR PRODUCTOS
+/* =================================
+PRODUCTOS
 ================================ */
 
 function botProductos(category){
 
-  const box = document.getElementById("chatbot-box");
+const box = document.getElementById("chatbot-box");
 
-  const products = window.allProducts.filter(
-    p => p.category === category
-  );
+const products = window.allProducts.filter(
+p => p.category === category
+);
 
-  let buttons = "";
+let buttons = "";
 
-  products.forEach(p => {
+products.forEach(p => {
 
-    buttons += `
-    
-    <button class="bot-product-btn" data-id="${p.id}">
-    ${p.name} - $${p.price}
-    </button>
+buttons += `
+<button class="bot-product-btn" data-id="${p.id}">
+${p.name} - $${p.price}
+</button>
+`;
 
-    `;
+});
 
-  });
+box.innerHTML = `
 
-  box.innerHTML = `
-  
-  <p>Selecciona un producto:</p>
+<p>Selecciona un producto:</p>
 
-  ${buttons}
+${buttons}
 
-  <button id="bot-volver-cat">
-  ⬅ volver
-  </button>
+<button onclick="botCategorias()">
+⬅ volver
+</button>
 
-  `;
+`;
 
-  document
-  .querySelectorAll(".bot-product-btn")
-  .forEach(btn => {
+document.querySelectorAll(".bot-product-btn")
+.forEach(btn => {
 
-    btn.addEventListener("click", () => {
+btn.addEventListener("click", ()=>{
 
-      const id = btn.dataset.id;
-      botAgregarProducto(id);
+const id = btn.dataset.id;
+botAgregarProducto(id);
 
-    });
+});
 
-  });
-
-  document
-  .getElementById("bot-volver-cat")
-  .addEventListener("click", botCategorias);
+});
 
 }
 
 
-/* ================================
-   AGREGAR PRODUCTO AL PEDIDO
+/* =================================
+AGREGAR AL PEDIDO
 ================================ */
 
 function botAgregarProducto(id){
 
-  const product = window.allProducts.find(
-    p => String(p.id) === String(id)
-  );
+const product = window.allProducts.find(
+p => String(p.id) === String(id)
+);
 
-  if(!product) return;
+if(!product) return;
 
-  botCart.push(product);
+botCart.push(product);
 
-  botMostrarPedido();
+botMostrarPedido();
 
 }
 
 
-/* ================================
-   MOSTRAR PEDIDO ACTUAL
+/* =================================
+MOSTRAR PEDIDO
 ================================ */
 
 function botMostrarPedido(){
 
-  const box = document.getElementById("chatbot-box");
+const box = document.getElementById("chatbot-box");
 
-  let html = `
-  <p><strong>🛒 Pedido actual</strong></p>
-  `;
+let html = `<p><strong>🛒 Pedido actual</strong></p>`;
 
-  let total = 0;
+let total = 0;
 
-  botCart.forEach(p => {
+botCart.forEach(p => {
 
-    html += `
-    <div>
-    • ${p.name} - $${p.price}
-    </div>
-    `;
+html += `<div>• ${p.name} - $${p.price}</div>`;
+total += Number(p.price);
 
-    total += Number(p.price);
+});
 
-  });
+html += `
 
-  html += `
-  
-  <p><strong>Total: $${total}</strong></p>
+<p><strong>Total: $${total}</strong></p>
 
-  <button id="bot-agregar-mas">
-  ➕ Agregar más productos
-  </button>
+<button id="bot-agregar-mas">
+➕ Agregar más
+</button>
 
-  <button id="bot-comprar">
-  📲 Comprar por WhatsApp
-  </button>
+<button id="bot-comprar">
+📲 Comprar por WhatsApp
+</button>
 
-  <button id="bot-vaciar">
-  🗑 Vaciar pedido
-  </button>
+<button id="bot-vaciar">
+🗑 Vaciar pedido
+</button>
 
-  `;
+`;
 
-  box.innerHTML = html;
+box.innerHTML = html;
 
-  document
-  .getElementById("bot-agregar-mas")
-  .addEventListener("click", botCategorias);
+document
+.getElementById("bot-agregar-mas")
+.addEventListener("click", botCategorias);
 
-  document
-  .getElementById("bot-comprar")
-  .addEventListener("click", botEnviarPedido);
+document
+.getElementById("bot-comprar")
+.addEventListener("click", botEnviarPedido);
 
-  document
-  .getElementById("bot-vaciar")
-  .addEventListener("click", botVaciar);
+document
+.getElementById("bot-vaciar")
+.addEventListener("click", botVaciar);
 
 }
 
 
-/* ================================
-   ENVIAR PEDIDO A WHATSAPP
+/* =================================
+ENVIAR PEDIDO
 ================================ */
 
 function botEnviarPedido(){
 
-  if(!storeWhats) return;
+if(!storeWhats) return;
 
-  let message = "Hola quiero comprar:%0A%0A";
+let message = "Hola quiero comprar:%0A%0A";
 
-  let total = 0;
+let total = 0;
 
-  botCart.forEach(p => {
+botCart.forEach(p => {
 
-    message += `• ${p.name} - $${p.price}%0A`;
-    total += Number(p.price);
+message += `• ${p.name} - $${p.price}%0A`;
+total += Number(p.price);
 
-  });
+});
 
-  message += `%0ATotal: $${total}`;
+message += `%0ATotal: $${total}`;
 
-  window.open(
-    `https://wa.me/${storeWhats}?text=${message}`,
-    "_blank"
-  );
+window.open(
+`https://wa.me/${storeWhats}?text=${message}`,
+"_blank"
+);
 
 }
 
 
-/* ================================
-   VACIAR PEDIDO
+/* =================================
+VACIAR
 ================================ */
 
 function botVaciar(){
 
-  botCart = [];
-  botCategorias();
+botCart = [];
+botCategorias();
 
 }
 
 
-/* ================================
-   WHATSAPP DIRECTO
+/* =================================
+WHATSAPP DIRECTO
 ================================ */
 
 function botWhatsDirect(){
 
-  if(!storeWhats) return;
+if(!storeWhats) return;
 
-  window.open(
-    `https://wa.me/${storeWhats}`,
-    "_blank"
-  );
+window.open(
+`https://wa.me/${storeWhats}`,
+"_blank"
+);
 
 }
-
-
-/* ================================
-   ACTIVAR BOTON
-================================ */
-
-window.toggleBot = toggleBot;
-
-document.addEventListener("DOMContentLoaded", () => {
-
-  const botButton = document.getElementById("chatbot-button");
-
-  if(botButton){
-    botButton.addEventListener("click", toggleBot);
-  }
-
-});
