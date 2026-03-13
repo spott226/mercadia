@@ -142,8 +142,6 @@ botShowInfo(index);
 
 }else{
 
-/* fallback si no existe chatbot */
-
 box.innerHTML = `
 
 <p>👋 Hola ¿quieres ayuda con tu compra?</p>
@@ -185,11 +183,15 @@ box.innerHTML = `
 
 <p>${info.text}</p>
 
-<button onclick="botStart()">
+<button id="bot-back">
 ⬅ volver
 </button>
 
 `;
+
+document
+.getElementById("bot-back")
+.addEventListener("click", botStart);
 
 }
 
@@ -206,8 +208,12 @@ if(!window.allProducts || window.allProducts.length === 0){
 
 box.innerHTML = `
 <p>No encontré productos.</p>
-<button onclick="botStart()">Volver</button>
+<button id="bot-back-start">Volver</button>
 `;
+
+document
+.getElementById("bot-back-start")
+.addEventListener("click", botStart);
 
 return;
 
@@ -235,7 +241,7 @@ box.innerHTML = `
 
 ${buttons}
 
-<button onclick="botStart()">
+<button id="bot-back-start">
 ⬅ volver
 </button>
 
@@ -252,6 +258,10 @@ botProductos(category);
 });
 
 });
+
+document
+.getElementById("bot-back-start")
+.addEventListener("click", botStart);
 
 }
 
@@ -286,7 +296,7 @@ box.innerHTML = `
 
 ${buttons}
 
-<button onclick="botCategorias()">
+<button id="bot-back-cat">
 ⬅ volver
 </button>
 
@@ -303,6 +313,10 @@ botAgregarProducto(id);
 });
 
 });
+
+document
+.getElementById("bot-back-cat")
+.addEventListener("click", botCategorias);
 
 }
 

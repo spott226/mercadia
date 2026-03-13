@@ -549,3 +549,67 @@ grid-template-columns:1fr;
 }
 
 }
+
+/* ===============================
+SECCIONES PERSONALIZADAS TIENDA
+(scroll horizontal)
+================================ */
+
+#store-sections{
+
+display:flex;
+gap:20px;
+
+overflow-x:auto;
+overflow-y:hidden;
+
+padding:25px;
+
+scroll-snap-type:x mandatory;
+
+}
+
+#store-sections::-webkit-scrollbar{
+display:none;
+}
+
+.store-section{
+
+min-width:280px;
+max-width:320px;
+
+background:var(--card);
+
+border-radius:14px;
+
+padding:20px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+
+scroll-snap-align:start;
+
+flex-shrink:0;
+
+}
+
+.store-section h3{
+
+margin-top:0;
+margin-bottom:10px;
+
+font-size:18px;
+
+}
+
+.store-section ul{
+
+padding-left:18px;
+margin:0;
+
+}
+
+.store-section li{
+
+margin-bottom:6px;
+
+}
