@@ -45,7 +45,7 @@
       "stock":10,
       "image":"/assets/products/hats-usa/Barbas%20Hats%20SKATE%20OR%20DIE.jpeg",
       "description":"Street style cap with embroidered Skate or Die design.",
-      "featured":false,
+      "featured":true,
       "active":true
     },
     {
@@ -69,7 +69,7 @@
       "stock":10,
       "image":"/assets/products/hats-usa/Barbas%20Hats%20x%20CT%20THREE%20STARS.jpeg",
       "description":"Black cap with triple star metal decoration.",
-      "featured":false,
+      "featured":true,
       "active":true
     },
     {
@@ -105,7 +105,7 @@
       "stock":10,
       "image":"/assets/products/hats-usa/Gorra%20B%20cross.jpeg",
       "description":"Black cap with gothic B and cross details.",
-      "featured":false,
+      "featured":true,
       "active":true
     },
     {

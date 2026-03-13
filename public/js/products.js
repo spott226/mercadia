@@ -86,14 +86,15 @@ const storeProducts = productsData.products.filter(p => p.active);
 
 window.allProducts = storeProducts;
 
+/* generar categorias solo si el plan lo permite */
 if(storeInfo.plan !== "x"){
 generateCategories(storeProducts);
 }
 
+/* mostrar destacados */
 renderFeatured(storeProducts);
 
-/* NO mostrar todos los productos al inicio */
-
+/* no mostrar todos los productos al inicio */
 productsContainer.innerHTML = "";
 
 }
