@@ -59,7 +59,7 @@ hero.style.backgroundPosition = "center";
 
 }
 
-if(bot && storeInfo.plan === "basic"){
+if(bot && storeInfo.plan !== "pro"){
 bot.style.display = "none";
 }
 
@@ -90,6 +90,7 @@ if(storeInfo.plan !== "x"){
 generateCategories(storeProducts);
 }
 
+renderFeatured(storeProducts);
 
 /* NO mostrar todos los productos al inicio */
 
