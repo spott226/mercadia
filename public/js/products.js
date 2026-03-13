@@ -84,10 +84,21 @@ const name = document.getElementById("store-name");
 const hero = document.getElementById("hero");
 const bot = document.getElementById("chatbot-button");
 
+const heroTitle = document.getElementById("hero-title");
+const heroSubtitle = document.getElementById("hero-subtitle");
+
 if(logo) logo.src = storeInfo.logo;
 if(name) name.textContent = storeInfo.name;
 
+/* HERO TEXTO PERSONALIZADO */
 
+if(heroTitle && storeInfo.heroTitle){
+heroTitle.textContent = storeInfo.heroTitle;
+}
+
+if(heroSubtitle && storeInfo.heroSubtitle){
+heroSubtitle.textContent = storeInfo.heroSubtitle;
+}
 // ===============================
 // HERO
 // ===============================
