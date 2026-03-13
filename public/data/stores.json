@@ -11,6 +11,16 @@
       "logo": "/assets/logos/chelispa.png",
       "active": true
     },
+     {
+      "id": "hats-usa",
+      "name": "HATS USA",
+      "whatsapp": "525625036412",
+      "currency": "MXN",
+      "hero": "/assets/heroes/BSTAR.jpg",
+      "plan": "basic",
+      "theme": "streetlux",
+      "active": true
+    },
     {
       "id": "hernandez-sneakers",
       "name": "Hernandez Sneakers",
