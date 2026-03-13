@@ -7,7 +7,7 @@
       "price": 899,
       "category": "caps",
       "stock": 10,
-      "image": "/assets/products/hats-usa/three-cross.jpg",
+      "image": "/assets/products/hats-usa/three-cross.jpeg",
       "description": "Black luxury cap with triple cross design and crystal finish.",
       "featured": true,
       "active": true
@@ -19,7 +19,7 @@
       "price": 899,
       "category": "caps",
       "stock": 10,
-      "image": "/assets/products/hats-usa/bstar.jpg",
+      "image": "/assets/products/hats-usa/bstar.jpeg",
       "description": "Urban black cap with B emblem and star detail.",
       "featured": true,
       "active": true
@@ -31,7 +31,7 @@
       "price": 899,
       "category": "caps",
       "stock": 10,
-      "image": "/assets/products/hats-usa/rich-forever.jpg",
+      "image": "/assets/products/hats-usa/rich-forever.jpeg",
       "description": "Luxury streetwear cap with Rich Forever lettering.",
       "featured": true,
       "active": true
@@ -43,7 +43,7 @@
       "price": 899,
       "category": "caps",
       "stock": 10,
-      "image": "/assets/products/hats-usa/skate-or-die.jpg",
+      "image": "/assets/products/hats-usa/skate-or-die.jpeg",
       "description": "Street style cap with embroidered Skate or Die design.",
       "featured": false,
       "active": true
@@ -55,7 +55,7 @@
       "price": 899,
       "category": "caps",
       "stock": 10,
-      "image": "/assets/products/hats-usa/galaxy-star.jpg",
+      "image": "/assets/products/hats-usa/galaxy-star.jpeg",
       "description": "Luxury cap with galaxy star crystal emblem.",
       "featured": true,
       "active": true
@@ -67,7 +67,7 @@
       "price": 899,
       "category": "caps",
       "stock": 10,
-      "image": "/assets/products/hats-usa/three-stars.jpg",
+      "image": "/assets/products/hats-usa/three-stars.jpeg",
       "description": "Black cap with triple star metal decoration.",
       "featured": false,
       "active": true
@@ -79,7 +79,7 @@
       "price": 899,
       "category": "caps",
       "stock": 10,
-      "image": "/assets/products/hats-usa/h-pink.jpg",
+      "image": "/assets/products/hats-usa/h-pink.jpeg",
       "description": "Black cap with pink H star embroidery.",
       "featured": true,
       "active": true
@@ -91,7 +91,7 @@
       "price": 899,
       "category": "caps",
       "stock": 10,
-      "image": "/assets/products/hats-usa/magic-m.jpg",
+      "image": "/assets/products/hats-usa/magic-m.jpeg",
       "description": "Red crystal M cap with magician hat design.",
       "featured": true,
       "active": true
@@ -103,7 +103,7 @@
       "price": 899,
       "category": "caps",
       "stock": 10,
-      "image": "/assets/products/hats-usa/b-cross.jpg",
+      "image": "/assets/products/hats-usa/b-cross.jpeg",
       "description": "Black cap with gothic B and cross details.",
       "featured": false,
       "active": true
@@ -115,7 +115,7 @@
       "price": 899,
       "category": "caps",
       "stock": 10,
-      "image": "/assets/products/hats-usa/murakami.jpg",
+      "image": "/assets/products/hats-usa/murakami.jpeg",
       "description": "Black cap with pink flower streetwear design.",
       "featured": true,
       "active": true
