@@ -54,7 +54,11 @@ console.error("addToCart no está cargado");
 async function loadProducts(){
 
 const storeRes = await fetch(`data/stores/${store}.json`);
-const storeInfo = await storeRes.json();
+const storeData = await storeRes.json();
+
+const storeInfo = storeData.stores.find(
+s => s.id.toLowerCase() === store
+);
 
 if(!storeInfo){
 console.error("No se encontró la tienda:", store);
