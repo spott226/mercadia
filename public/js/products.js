@@ -465,7 +465,11 @@ const container = document.getElementById("store-payments");
 if(!container) return;
 if(!storeInfo.payments) return;
 
-let html = `<h2 style="text-align:center;margin:30px 0;">Métodos de pago</h2>`;
+let html = `
+<h2 style="text-align:center;margin:30px 0;">Métodos de pago</h2>
+
+<div class="payments-grid">
+`;
 
 Object.values(storeInfo.payments).forEach(p=>{
 
@@ -488,6 +492,8 @@ html += `
 `;
 
 });
+
+html += `</div>`;
 
 container.innerHTML = html;
 
