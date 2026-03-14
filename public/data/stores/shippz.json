@@ -1,28 +1,5 @@
 {
   "stores": [
-    {
-      "id": "chelispa",
-      "name": "Cheli Spa",
-      "whatsapp": "524494904451",
-      "currency": "MXN",
-      "hero": "/assets/heroes/cheli.jpg",
-      "plan": "pro",
-      "theme": "spa",
-      "logo": "/assets/logos/chelispa.png",
-      "active": true
-    },
-     {
-      "id": "hats-usa",
-      "name": "HATS USA",
-      "whatsapp": "525656154034",
-      "currency": "MXN",
-      "hero": "/assets/heroes/BSTAR.jpeg",
-      "plan": "x",
-      "theme": "streetluxury",
-      "heroTitle":"HATS USA",
-      "heroSubtitle":"Gorras premium streetwear",
-      "active": true
-    },
 {
   "id": "shippz",
   "name": "SHIPPZ Shop",
@@ -110,17 +87,6 @@
     "text": "Sabemos que hoy en día muchas personas han sido estafadas al intentar comprar seguidores o likes para Instagram. Por eso entendemos que tengas dudas. En SHIPPZ Shop queremos hacer las cosas diferente. No solo prometemos un buen servicio, lo demostramos. Ya son más de 100 personas satisfechas que confían en nosotros para impulsar su cuenta."
   }
 
-},
-    {
-      "id": "hernandez-sneakers",
-      "name": "Hernandez Sneakers",
-      "whatsapp": "3312436092",
-      "currency": "MXN",
-      "hero": "/assets/heroes/sneakers.jpg",
-      "plan": "pro",
-      "theme": "luxury",
-      "logo": "/assets/logos/hdz.jpeg",
-      "active": true
-    }
+}
   ]
 }
