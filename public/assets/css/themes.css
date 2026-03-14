@@ -834,3 +834,68 @@ line-height:1.7;
 }
 
 }
+
+/* ===============================
+REFERENCIAS CARRUSEL
+================================ */
+
+.references-carousel{
+
+width:100%;
+overflow:hidden;
+position:relative;
+
+}
+
+.references-track{
+
+display:flex;
+gap:30px;
+
+animation:carouselMove 35s linear infinite;
+
+}
+
+.references-track img{
+
+height:420px;
+
+border-radius:18px;
+
+box-shadow:
+0 10px 35px rgba(0,0,0,.6);
+
+transition:.3s;
+
+}
+
+.references-track img:hover{
+
+transform:scale(1.05);
+
+}
+
+
+/* animación */
+
+@keyframes carouselMove{
+
+0%{
+transform:translateX(0);
+}
+
+100%{
+transform:translateX(-50%);
+}
+
+}
+
+@media(max-width:768px){
+
+.references-track img{
+
+height:280px;
+
+}
+
+}

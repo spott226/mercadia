@@ -408,11 +408,15 @@ return;
 }
 
 let html = `
-<h2 style="text-align:center;margin:30px 0;">
+
+<h2 style="text-align:center;margin:40px 0;">
 Referencias reales
 </h2>
 
-<div class="references-grid">
+<div class="references-carousel">
+
+<div class="references-track">
+
 `;
 
 storeInfo.references.forEach(img => {
@@ -421,12 +425,25 @@ html += `<img src="${img}" alt="referencia">`;
 
 });
 
-html += "</div>";
+/* duplicamos para loop infinito */
+
+storeInfo.references.forEach(img => {
+
+html += `<img src="${img}" alt="referencia">`;
+
+});
+
+html += `
+
+</div>
+
+</div>
+
+`;
 
 container.innerHTML = html;
 
 }
-
 
 // ===============================
 // LEYENDA DE CONFIANZA
