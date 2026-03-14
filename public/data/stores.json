@@ -71,11 +71,16 @@
   },
 
   "references": [
-    "/assets/references/referencia1.jpeg",
-    "/assets/references/referencia2.jpeg",
-    "/assets/references/referencia3.jpeg",
-    "/assets/references/referencia4.jpeg",
-    "/assets/references/referencia5.jpeg"
+    "/assets/references/shippz/refe1.png",
+    "/assets/references/shippz/refe2.png",
+    "/assets/references/shippz/refe3.png",
+    "/assets/references/shippz/refe4.png",
+    "/assets/references/shippz/refe5.png",
+    "/assets/references/shippz/refe6.png",
+    "/assets/references/shippz/refe7.png",
+    "/assets/references/shippz/refe8.png",
+    "/assets/references/shippz/refe9.png",
+    "/assets/references/shippz/refe10.png"
   ],
 
   "payments": {
