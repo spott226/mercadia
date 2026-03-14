@@ -847,6 +847,8 @@ position:relative;
 
 }
 
+/* pista del carrusel */
+
 .references-track{
 
 display:flex;
@@ -854,7 +856,11 @@ gap:30px;
 
 animation:carouselMove 35s linear infinite;
 
+will-change:transform;
+
 }
+
+/* imágenes */
 
 .references-track img{
 
@@ -862,12 +868,15 @@ height:420px;
 
 border-radius:18px;
 
-box-shadow:
-0 10px 35px rgba(0,0,0,.6);
+box-shadow:0 10px 35px rgba(0,0,0,.6);
 
-transition:.3s;
+transition:transform .3s ease;
+
+flex-shrink:0;
 
 }
+
+/* efecto hover */
 
 .references-track img:hover{
 
@@ -875,8 +884,15 @@ transform:scale(1.05);
 
 }
 
+/* pausa carrusel al pasar mouse */
 
-/* animación */
+.references-carousel:hover .references-track{
+
+animation-play-state:paused;
+
+}
+
+/* animación movimiento */
 
 @keyframes carouselMove{
 
@@ -889,6 +905,8 @@ transform:translateX(-50%);
 }
 
 }
+
+/* responsive móvil */
 
 @media(max-width:768px){
 
