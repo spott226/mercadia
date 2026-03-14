@@ -262,10 +262,12 @@ TEMA GALAXY / LUNAR NEON
 .theme-galaxy{
 
 --primary:#9ca3af;
---background:#020617;
+--background:#000000;
 --card:#0b1220;
 --text:#e5e7eb;
 --accent:#cbd5f5;
+
+background:#000;
 
 }
 
@@ -283,7 +285,7 @@ border-bottom:1px solid rgba(255,255,255,.08);
 
 
 /* ===============================
-TIPOGRAFIA LUNAR NEON
+TIPOGRAFIA
 ================================ */
 
 .theme-galaxy #store-name{
@@ -293,9 +295,8 @@ color:#e5e7eb;
 letter-spacing:2px;
 
 text-shadow:
-0 0 6px rgba(255,255,255,.4),
-0 0 18px rgba(148,163,184,.35),
-0 0 35px rgba(148,163,184,.25);
+0 0 8px rgba(255,255,255,.5),
+0 0 18px rgba(148,163,184,.4);
 
 font-weight:800;
 
@@ -306,9 +307,8 @@ font-weight:800;
 color:#f1f5f9;
 
 text-shadow:
-0 0 10px rgba(255,255,255,.45),
-0 0 25px rgba(148,163,184,.35),
-0 0 45px rgba(148,163,184,.25);
+0 0 10px rgba(255,255,255,.6),
+0 0 30px rgba(148,163,184,.35);
 
 }
 
@@ -317,14 +317,13 @@ text-shadow:
 color:#cbd5f5;
 
 text-shadow:
-0 0 8px rgba(255,255,255,.35),
-0 0 20px rgba(148,163,184,.25);
+0 0 8px rgba(255,255,255,.35);
 
 }
 
 
 /* ===============================
-CARDS PRODUCTOS
+PRODUCTOS
 ================================ */
 
 .theme-galaxy .product-card{
@@ -340,6 +339,8 @@ transition:all .25s ease;
 box-shadow:
 0 8px 30px rgba(0,0,0,.6);
 
+position:relative;
+
 }
 
 .theme-galaxy .product-card:hover{
@@ -351,16 +352,6 @@ transform:translateY(-4px);
 box-shadow:
 0 0 15px rgba(203,213,245,.4),
 0 0 40px rgba(203,213,245,.2);
-
-}
-
-.theme-galaxy .product-card:active{
-
-transform:scale(.97);
-
-box-shadow:
-0 0 20px rgba(203,213,245,.6),
-0 0 60px rgba(203,213,245,.4);
 
 }
 
@@ -390,28 +381,7 @@ border-color:#cbd5f5;
 transform:translateY(-4px);
 
 box-shadow:
-0 0 15px rgba(203,213,245,.4),
-0 0 40px rgba(203,213,245,.25);
-
-}
-
-.theme-galaxy .category-card:active{
-
-transform:scale(.97);
-
-box-shadow:
-0 0 20px rgba(203,213,245,.6),
-0 0 60px rgba(203,213,245,.4);
-
-}
-
-.theme-galaxy .category-card:focus{
-
-outline:none;
-
-box-shadow:
-0 0 18px rgba(203,213,245,.5),
-0 0 50px rgba(203,213,245,.3);
+0 0 20px rgba(203,213,245,.35);
 
 }
 
@@ -435,26 +405,14 @@ transition:all .25s ease;
 .theme-galaxy button:hover{
 
 box-shadow:
-0 0 12px rgba(203,213,245,.6),
-0 0 30px rgba(203,213,245,.35);
-
-transform:translateY(-2px);
-
-}
-
-.theme-galaxy button:active{
-
-transform:scale(.96);
-
-box-shadow:
-0 0 20px rgba(203,213,245,.7),
-0 0 60px rgba(203,213,245,.5);
+0 0 15px rgba(203,213,245,.6),
+0 0 40px rgba(203,213,245,.3);
 
 }
 
 
 /* ===============================
-BUSCADOR GALAXY GLASS
+BUSCADOR
 ================================ */
 
 .theme-galaxy .search-container{
@@ -466,8 +424,7 @@ backdrop-filter:blur(14px);
 border:1px solid rgba(255,255,255,.08);
 
 box-shadow:
-0 0 25px rgba(148,163,184,.25),
-inset 0 0 12px rgba(148,163,184,.2);
+0 0 25px rgba(148,163,184,.25);
 
 }
 
@@ -479,243 +436,72 @@ color:#fff;
 
 border:1px solid rgba(255,255,255,.15);
 
-box-shadow:
-0 0 12px rgba(148,163,184,.35);
-
 }
 
 
 /* ===============================
-SECCIONES AVISOS
+MENSAJE CONFIANZA FULL WIDTH
 ================================ */
 
-.theme-galaxy .store-section{
+#trust-message{
 
-background:#0b1220;
+width:100%;
 
-border:1px solid rgba(255,255,255,.08);
+max-width:1200px;
 
-transition:all .25s ease;
+margin:40px auto;
 
-box-shadow:
-0 0 12px rgba(203,213,245,.15),
-inset 0 0 10px rgba(148,163,184,.12);
+padding:0 20px;
 
 }
 
-.theme-galaxy .store-section:hover{
+#trust-message .store-section{
 
-box-shadow:
-0 0 20px rgba(203,213,245,.35),
-0 0 50px rgba(148,163,184,.2);
+width:100%;
 
-}
+padding:30px;
 
-
-/* ===============================
-CHATBOT
-================================ */
-
-.theme-galaxy .chatbot{
-
-background:#9ca3af;
-
-color:#020617;
-
-cursor:pointer;
-
-transition:all .25s ease;
-
-box-shadow:
-0 0 10px rgba(203,213,245,.6),
-0 0 30px rgba(203,213,245,.35);
-
-}
-
-.theme-galaxy .chatbot:hover{
-
-transform:scale(1.1);
-
-box-shadow:
-0 0 15px rgba(203,213,245,.8),
-0 0 45px rgba(203,213,245,.45);
-
-}
-
-.theme-galaxy .chatbot:active{
-
-transform:scale(.92);
-
-box-shadow:
-0 0 25px rgba(203,213,245,.9),
-0 0 60px rgba(203,213,245,.6);
-
-}
-
-.theme-galaxy .chatbot-box{
+border-radius:18px;
 
 background:#0b1220;
 
 border:1px solid rgba(255,255,255,.08);
 
 box-shadow:
-0 0 20px rgba(203,213,245,.25);
+0 0 20px rgba(203,213,245,.2);
 
-color:#e5e7eb;
+}
+
+#trust-message p{
+
+font-size:16px;
+
+line-height:1.7;
 
 }
 
 
 /* ===============================
-ESTRELLAS GALAXY
+METODOS DE PAGO HORIZONTAL
 ================================ */
 
+#store-payments{
 
-/* estrellas pequeñas */
+display:flex;
 
-.theme-galaxy::before{
+gap:20px;
 
-content:"";
+overflow-x:auto;
 
-position:fixed;
+max-width:1200px;
 
-top:0;
-left:0;
+margin:30px auto;
 
-width:100%;
-height:100%;
-
-pointer-events:none;
-
-background-image:
-
-radial-gradient(1px 1px at 40px 60px,#fff,transparent),
-radial-gradient(1px 1px at 120px 160px,#fff,transparent),
-radial-gradient(1px 1px at 220px 80px,#fff,transparent),
-radial-gradient(1px 1px at 340px 220px,#fff,transparent),
-radial-gradient(1px 1px at 440px 120px,#fff,transparent),
-radial-gradient(1px 1px at 540px 200px,#fff,transparent),
-radial-gradient(1px 1px at 640px 150px,#fff,transparent),
-radial-gradient(1px 1px at 740px 100px,#fff,transparent);
-
-background-size:800px 800px;
-
-animation:starsMove 180s linear infinite;
-
-opacity:.6;
-
-z-index:-2;
+padding:0 20px;
 
 }
 
-
-/* estrellas grandes */
-
-.theme-galaxy::after{
-
-content:"";
-
-position:fixed;
-
-top:0;
-left:0;
-
-width:100%;
-height:100%;
-
-pointer-events:none;
-
-background-image:
-
-radial-gradient(3px 3px at 100px 120px,#ffffff,transparent),
-radial-gradient(3px 3px at 300px 220px,#cbd5f5,transparent),
-radial-gradient(2px 2px at 500px 100px,#ffffff,transparent),
-radial-gradient(3px 3px at 700px 260px,#cbd5f5,transparent),
-radial-gradient(2px 2px at 900px 200px,#ffffff,transparent);
-
-background-size:1200px 1200px;
-
-animation:
-starsMove 140s linear infinite,
-starsBlink 6s ease-in-out infinite;
-
-opacity:.9;
-
-z-index:-1;
-
-}
-
-
-/* movimiento estrellas */
-
-@keyframes starsMove{
-
-from{
-transform:translateY(0);
-}
-
-to{
-transform:translateY(-800px);
-}
-
-}
-
-
-/* destello */
-
-@keyframes starsBlink{
-
-0%{opacity:.5}
-50%{opacity:1}
-100%{opacity:.5}
-
-}
-
-/* ===============================
-FONDO GLOBAL GALAXY
-================================ */
-
-.theme-galaxy body{
-background:#000000;
-}
-
-.theme-galaxy{
-background:#000000;
-}
-
-.theme-galaxy section{
-background:transparent;
-}
-
-.theme-galaxy .hero{
-background-color:#000000 !important;
-}
-
-.theme-galaxy .featured{
-background:transparent;
-}
-
-.theme-galaxy .home-categories{
-background:transparent;
-}
-
-.theme-galaxy #products{
-background:transparent;
-}
-
-.theme-galaxy::before{
-opacity:.8;
-}
-
-.theme-galaxy::after{
-opacity:1;
-}
-
-/* ===============================
-METODOS DE PAGO
-================================ */
-
-.theme-galaxy .payment-card{
+.payment-card{
 
 background:#0b1220;
 
@@ -723,106 +509,46 @@ border:1px solid rgba(255,255,255,.08);
 
 padding:20px;
 
-border-radius:14px;
+border-radius:16px;
 
-margin:20px auto;
+min-width:260px;
 
-max-width:420px;
+box-shadow:
+0 0 20px rgba(203,213,245,.25);
 
 transition:all .25s ease;
 
+}
+
+.payment-card:hover{
+
+transform:translateY(-5px);
+
 box-shadow:
-0 0 15px rgba(203,213,245,.15),
-inset 0 0 10px rgba(148,163,184,.12);
+0 0 25px rgba(203,213,245,.4);
 
 }
 
-.theme-galaxy .payment-card:hover{
-
-transform:translateY(-4px);
-
-box-shadow:
-0 0 25px rgba(203,213,245,.35),
-0 0 50px rgba(148,163,184,.2);
-
-}
-
-.theme-galaxy .payment-card h3{
-
-color:#e5e7eb;
-
-text-shadow:
-0 0 6px rgba(255,255,255,.35),
-0 0 15px rgba(203,213,245,.25);
+.payment-card h3{
 
 margin-bottom:10px;
 
+font-size:16px;
+
 }
 
-.theme-galaxy .payment-card p{
-
-color:#cbd5f5;
+.payment-card p{
 
 font-size:14px;
 
-margin:4px 0;
+color:#cbd5f5;
 
 }
+
 
 /* ===============================
-LEYENDA CONFIANZA
+BADGES PRODUCTOS
 ================================ */
-
-.theme-galaxy .trust-message{
-
-max-width:900px;
-
-margin:40px auto;
-
-padding:25px;
-
-background:#0b1220;
-
-border:1px solid rgba(255,255,255,.08);
-
-border-radius:16px;
-
-text-align:center;
-
-box-shadow:
-0 0 20px rgba(203,213,245,.15),
-inset 0 0 12px rgba(148,163,184,.12);
-
-}
-
-.theme-galaxy .trust-message p{
-
-color:#e5e7eb;
-
-line-height:1.6;
-
-font-size:16px;
-
-text-shadow:
-0 0 6px rgba(255,255,255,.25);
-
-}
-
-/* ===============================
-MICROPAQUETES
-================================ */
-
-.theme-galaxy .category-card h3{
-
-text-transform:capitalize;
-
-letter-spacing:1px;
-
-text-shadow:
-0 0 6px rgba(255,255,255,.25),
-0 0 15px rgba(203,213,245,.25);
-
-}
 
 .badge{
 
@@ -833,7 +559,7 @@ left:10px;
 
 font-size:12px;
 
-padding:4px 8px;
+padding:5px 8px;
 
 border-radius:6px;
 
@@ -850,7 +576,7 @@ background:#ff7a00;
 color:#000;
 
 box-shadow:
-0 0 10px rgba(255,120,0,.8);
+0 0 12px rgba(255,120,0,.8);
 
 }
 
@@ -861,12 +587,83 @@ background:#cbd5f5;
 color:#000;
 
 box-shadow:
-0 0 10px rgba(203,213,245,.8);
+0 0 12px rgba(203,213,245,.8);
 
 }
 
-.product-card{
 
-position:relative;
+/* ===============================
+ESTRELLAS GALAXY (ARREGLADO)
+================================ */
+
+/* estrellas grandes fijas */
+
+.theme-galaxy::before{
+
+content:"";
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+pointer-events:none;
+
+background-image:
+
+radial-gradient(3px 3px at 10% 20%, #ffffff, transparent),
+radial-gradient(4px 4px at 30% 70%, #cbd5f5, transparent),
+radial-gradient(3px 3px at 80% 40%, #ffffff, transparent),
+radial-gradient(4px 4px at 60% 10%, #cbd5f5, transparent),
+radial-gradient(3px 3px at 90% 80%, #ffffff, transparent);
+
+z-index:-2;
+
+opacity:.9;
+
+}
+
+
+/* estrellas que parpadean */
+
+.theme-galaxy::after{
+
+content:"";
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+pointer-events:none;
+
+background-image:
+
+radial-gradient(2px 2px at 20% 30%, #ffffff, transparent),
+radial-gradient(2px 2px at 40% 60%, #ffffff, transparent),
+radial-gradient(2px 2px at 70% 50%, #ffffff, transparent),
+radial-gradient(2px 2px at 50% 80%, #ffffff, transparent),
+radial-gradient(2px 2px at 80% 20%, #ffffff, transparent);
+
+animation:starsBlink 4s infinite;
+
+z-index:-1;
+
+}
+
+
+@keyframes starsBlink{
+
+0%{opacity:.2}
+
+50%{opacity:1}
+
+100%{opacity:.2}
 
 }
