@@ -596,7 +596,7 @@ box-shadow:
 
 
 /* ===============================
-TEMA GALAXY / LUNAR NEON
+TEMA GALAXY
 ================================ */
 
 .theme-galaxy{
@@ -632,7 +632,6 @@ TIPOGRAFIA
 .theme-galaxy #store-name{
 
 color:#e5e7eb;
-
 letter-spacing:2px;
 
 text-shadow:
@@ -672,7 +671,7 @@ PRODUCTOS
 background:#0b1220;
 border:1px solid rgba(255,255,255,.06);
 
-padding:20px;
+padding:22px;
 border-radius:16px;
 
 transition:.25s;
@@ -686,12 +685,12 @@ position:relative;
 
 .theme-galaxy .product-card:hover{
 
-transform:translateY(-5px);
+transform:translateY(-6px);
 
 border-color:#cbd5f5;
 
 box-shadow:
-0 0 20px rgba(203,213,245,.4);
+0 0 20px rgba(203,213,245,.45);
 
 }
 
@@ -704,14 +703,14 @@ BADGES PRODUCTOS
 
 position:absolute;
 
-top:-12px;
-left:15px;
+top:-14px;
+left:16px;
 
 font-size:12px;
 
-padding:6px 10px;
+padding:6px 12px;
 
-border-radius:8px;
+border-radius:10px;
 
 font-weight:700;
 
@@ -726,7 +725,7 @@ background:#ff7a00;
 color:#000;
 
 box-shadow:
-0 0 12px rgba(255,120,0,.8);
+0 0 14px rgba(255,120,0,.9);
 
 }
 
@@ -737,13 +736,13 @@ background:#cbd5f5;
 color:#000;
 
 box-shadow:
-0 0 12px rgba(203,213,245,.8);
+0 0 14px rgba(203,213,245,.9);
 
 }
 
 .product-card{
 
-padding-top:28px;
+padding-top:30px;
 
 }
 
@@ -909,39 +908,35 @@ METODOS DE PAGO
 
 #store-payments{
 
-max-width:1100px;
+max-width:1000px;
 
 margin:70px auto;
 
 padding:0 20px;
 
-display:flex;
-
-flex-direction:column;
-
-align-items:center;
-
-gap:35px;
-
 }
 
 #store-payments h2{
 
-font-size:28px;
-
 text-align:center;
+
+margin-bottom:35px;
+
+font-size:28px;
 
 }
 
+/* GRID LADO A LADO */
+
 .payments-grid{
 
-display:flex;
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
 
 gap:30px;
 
-flex-wrap:wrap;
-
-justify-content:center;
+justify-items:center;
 
 }
 
@@ -955,7 +950,9 @@ padding:25px;
 
 border-radius:18px;
 
-width:320px;
+width:100%;
+
+max-width:340px;
 
 box-shadow:
 0 0 20px rgba(203,213,245,.2);
@@ -1012,25 +1009,10 @@ box-shadow:
 
 }
 
-.theme-galaxy .chatbot-box{
-
-background:#0b1220;
-
-border:1px solid rgba(255,255,255,.08);
-
-box-shadow:
-0 0 20px rgba(203,213,245,.25);
-
-color:#e5e7eb;
-
-}
-
 
 /* ===============================
-ESTRELLAS GALAXY
+ESTRELLAS
 ================================ */
-
-/* estrellas grandes */
 
 .theme-galaxy::before{
 
@@ -1059,9 +1041,6 @@ opacity:.9;
 z-index:-2;
 
 }
-
-
-/* estrellas que aparecen y desaparecen */
 
 .theme-galaxy::after{
 
