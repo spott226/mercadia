@@ -261,11 +261,11 @@ TEMA GALAXY / LUNAR NEON
 
 .theme-galaxy{
 
---primary:#9ca3af;      /* gris lunar */
---background:#020617;   
+--primary:#9ca3af;
+--background:#020617;
 --card:#0b1220;
 --text:#e5e7eb;
---accent:#cbd5f5;       /* glow frio */
+--accent:#cbd5f5;
 
 }
 
@@ -324,7 +324,7 @@ text-shadow:
 
 
 /* ===============================
-CARDS
+CARDS PRODUCTOS
 ================================ */
 
 .theme-galaxy .product-card{
@@ -335,6 +335,8 @@ border:1px solid rgba(255,255,255,.06);
 
 color:#e5e7eb;
 
+transition:all .25s ease;
+
 box-shadow:
 0 8px 30px rgba(0,0,0,.6);
 
@@ -344,9 +346,21 @@ box-shadow:
 
 border-color:#cbd5f5;
 
+transform:translateY(-4px);
+
 box-shadow:
 0 0 15px rgba(203,213,245,.4),
 0 0 40px rgba(203,213,245,.2);
+
+}
+
+.theme-galaxy .product-card:active{
+
+transform:scale(.97);
+
+box-shadow:
+0 0 20px rgba(203,213,245,.6),
+0 0 60px rgba(203,213,245,.4);
 
 }
 
@@ -359,9 +373,13 @@ CATEGORIAS
 
 background:#0b1220;
 
-border:1px solid rgba(255,255,255,.06);
+border:1px solid rgba(255,255,255,.08);
 
 color:#e5e7eb;
+
+cursor:pointer;
+
+transition:all .25s ease;
 
 }
 
@@ -369,7 +387,31 @@ color:#e5e7eb;
 
 border-color:#cbd5f5;
 
-color:#f1f5f9;
+transform:translateY(-4px);
+
+box-shadow:
+0 0 15px rgba(203,213,245,.4),
+0 0 40px rgba(203,213,245,.25);
+
+}
+
+.theme-galaxy .category-card:active{
+
+transform:scale(.97);
+
+box-shadow:
+0 0 20px rgba(203,213,245,.6),
+0 0 60px rgba(203,213,245,.4);
+
+}
+
+.theme-galaxy .category-card:focus{
+
+outline:none;
+
+box-shadow:
+0 0 18px rgba(203,213,245,.5),
+0 0 50px rgba(203,213,245,.3);
 
 }
 
@@ -386,13 +428,27 @@ color:#020617;
 
 font-weight:700;
 
+transition:all .25s ease;
+
 }
 
 .theme-galaxy button:hover{
 
 box-shadow:
-0 0 12px rgba(203,213,245,.7),
-0 0 30px rgba(203,213,245,.4);
+0 0 12px rgba(203,213,245,.6),
+0 0 30px rgba(203,213,245,.35);
+
+transform:translateY(-2px);
+
+}
+
+.theme-galaxy button:active{
+
+transform:scale(.96);
+
+box-shadow:
+0 0 20px rgba(203,213,245,.7),
+0 0 60px rgba(203,213,245,.5);
 
 }
 
@@ -430,12 +486,92 @@ box-shadow:
 
 
 /* ===============================
-ESTRELLAS GALAXY PRO
-DOS CAPAS
+SECCIONES AVISOS
+================================ */
+
+.theme-galaxy .store-section{
+
+background:#0b1220;
+
+border:1px solid rgba(255,255,255,.08);
+
+transition:all .25s ease;
+
+box-shadow:
+0 0 12px rgba(203,213,245,.15),
+inset 0 0 10px rgba(148,163,184,.12);
+
+}
+
+.theme-galaxy .store-section:hover{
+
+box-shadow:
+0 0 20px rgba(203,213,245,.35),
+0 0 50px rgba(148,163,184,.2);
+
+}
+
+
+/* ===============================
+CHATBOT
+================================ */
+
+.theme-galaxy .chatbot{
+
+background:#9ca3af;
+
+color:#020617;
+
+cursor:pointer;
+
+transition:all .25s ease;
+
+box-shadow:
+0 0 10px rgba(203,213,245,.6),
+0 0 30px rgba(203,213,245,.35);
+
+}
+
+.theme-galaxy .chatbot:hover{
+
+transform:scale(1.1);
+
+box-shadow:
+0 0 15px rgba(203,213,245,.8),
+0 0 45px rgba(203,213,245,.45);
+
+}
+
+.theme-galaxy .chatbot:active{
+
+transform:scale(.92);
+
+box-shadow:
+0 0 25px rgba(203,213,245,.9),
+0 0 60px rgba(203,213,245,.6);
+
+}
+
+.theme-galaxy .chatbot-box{
+
+background:#0b1220;
+
+border:1px solid rgba(255,255,255,.08);
+
+box-shadow:
+0 0 20px rgba(203,213,245,.25);
+
+color:#e5e7eb;
+
+}
+
+
+/* ===============================
+ESTRELLAS GALAXY
 ================================ */
 
 
-/* capa estrellas pequeñas */
+/* estrellas pequeñas */
 
 .theme-galaxy::before{
 
@@ -473,7 +609,7 @@ z-index:-2;
 }
 
 
-/* capa estrellas grandes */
+/* estrellas grandes */
 
 .theme-galaxy::after{
 
@@ -510,7 +646,7 @@ z-index:-1;
 }
 
 
-/* movimiento */
+/* movimiento estrellas */
 
 @keyframes starsMove{
 
@@ -536,121 +672,41 @@ transform:translateY(-800px);
 }
 
 /* ===============================
-SECCIONES LUNAR GLOW
+FONDO GLOBAL GALAXY
 ================================ */
 
-.theme-galaxy .store-section{
-
-background:#0b1220;
-
-border:1px solid rgba(255,255,255,.08);
-
-box-shadow:
-0 0 12px rgba(203,213,245,.15),
-inset 0 0 10px rgba(148,163,184,.12);
-
+.theme-galaxy body{
+background:#000000;
 }
 
-.theme-galaxy .store-section:hover{
-
-box-shadow:
-0 0 20px rgba(203,213,245,.35),
-0 0 50px rgba(148,163,184,.2);
-
+.theme-galaxy{
+background:#000000;
 }
 
-/* ===============================
-CATEGORIAS GLOW
-================================ */
-
-.theme-galaxy .category-card{
-
-background:#0b1220;
-
-border:1px solid rgba(255,255,255,.08);
-
-color:#e5e7eb;
-
-transition:all .25s ease;
-
+.theme-galaxy section{
+background:transparent;
 }
 
-.theme-galaxy .category-card:hover{
-
-border-color:#cbd5f5;
-
-transform:translateY(-4px);
-
-box-shadow:
-0 0 15px rgba(203,213,245,.4),
-0 0 40px rgba(203,213,245,.25);
-
+.theme-galaxy .hero{
+background-color:#000000 !important;
 }
 
-/* ===============================
-BOTONES LUNAR GLOW
-================================ */
-
-.theme-galaxy button{
-
-background:linear-gradient(90deg,#9ca3af,#cbd5f5);
-
-color:#020617;
-
-font-weight:700;
-
-transition:all .25s ease;
-
+.theme-galaxy .featured{
+background:transparent;
 }
 
-.theme-galaxy button:hover{
-
-box-shadow:
-0 0 12px rgba(203,213,245,.6),
-0 0 30px rgba(203,213,245,.35);
-
-transform:translateY(-2px);
-
+.theme-galaxy .home-categories{
+background:transparent;
 }
 
-/* ===============================
-CHATBOT LUNAR
-================================ */
-
-.theme-galaxy .chatbot{
-
-background:#9ca3af;
-
-color:#020617;
-
-box-shadow:
-0 0 10px rgba(203,213,245,.6),
-0 0 30px rgba(203,213,245,.35);
-
-transition:all .25s ease;
-
+.theme-galaxy #products{
+background:transparent;
 }
 
-.theme-galaxy .chatbot:hover{
-
-transform:scale(1.1);
-
-box-shadow:
-0 0 15px rgba(203,213,245,.8),
-0 0 45px rgba(203,213,245,.45);
-
+.theme-galaxy::before{
+opacity:.8;
 }
 
-.theme-galaxy .chatbot-box{
-
-background:#0b1220;
-
-border:1px solid rgba(255,255,255,.08);
-
-box-shadow:
-0 0 20px rgba(203,213,245,.25);
-
-color:#e5e7eb;
-
+.theme-galaxy::after{
+opacity:1;
 }
-
