@@ -11,7 +11,7 @@
       "image":"/assets/products/shippz/followers1.jpg",
       "description":"Seguidores para impulsar tu cuenta de Instagram.",
       "bestseller": true,
-      "featured":true,
+      "featured":false,
       "active":true
     },
 
@@ -52,7 +52,7 @@
       "image":"/assets/products/shippz/followers4.jpg",
       "description":"Paquete popular para crecimiento rápido.",
       "bestseller": true,
-      "featured":false,
+      "featured":true,
       "active":true
     },
 
@@ -65,7 +65,7 @@
       "stock":999,
       "image":"/assets/products/shippz/followers5.jpg",
       "description":"Uno de los paquetes más comprados.",
-      "featured":true,
+      "featured":false,
       "active":true
     },
 
@@ -104,7 +104,7 @@
       "stock":999,
       "image":"/assets/products/shippz/followers8.jpg",
       "description":"El paquete grande para crecimiento rápido.",
-      "featured":true,
+      "featured":false,
       "active":true
     },
 
@@ -118,7 +118,7 @@
       "image":"/assets/products/shippz/likes1.jpg",
       "description":"Likes para tus publicaciones de Instagram.",
       "bestseller": true,
-      "featured":false,
+      "featured":true,
       "active":true
     },
 
@@ -159,7 +159,7 @@
       "image":"/assets/products/shippz/likes4.jpg",
       "description":"Impulsa el alcance de tus publicaciones.",
       "bestseller": true,
-      "featured":false,
+      "featured":true,
       "active":true
     },
 
@@ -172,7 +172,7 @@
       "stock":999,
       "image":"/assets/products/shippz/likes5.jpg",
       "description":"El paquete más grande de likes.",
-      "featured":true,
+      "featured":false,
       "active":true
     },
 {
@@ -222,7 +222,7 @@
 "image": "/assets/products/shippz/micro4.jpg",
 "description": "Micropaquete ideal para empezar a posicionar tu cuenta.",
 "bestseller": true,
-"featured": false,
+"featured": true,
 "active": true
 }
 
