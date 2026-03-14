@@ -734,3 +734,66 @@ z-index:-1;
 100%{opacity:.2}
 
 }
+
+/* ===============================
+MENSAJE CONFIANZA (FLOTANTE)
+================================ */
+
+.theme-galaxy #trust-message{
+
+max-width:900px;
+margin:80px auto;
+
+padding:0 20px;
+
+background:none;
+border:none;
+box-shadow:none;
+
+text-align:left;
+
+}
+
+
+/* quitar estilo de tarjeta */
+
+.theme-galaxy #trust-message .store-section{
+
+background:transparent;
+border:none;
+box-shadow:none;
+
+padding:0;
+
+}
+
+
+/* titulo */
+
+.theme-galaxy #trust-message h3{
+
+font-size:26px;
+margin-bottom:16px;
+
+color:#f1f5f9;
+
+text-shadow:
+0 0 10px rgba(255,255,255,.4),
+0 0 20px rgba(148,163,184,.25);
+
+}
+
+
+/* texto */
+
+.theme-galaxy #trust-message p{
+
+font-size:17px;
+
+line-height:1.7;
+
+color:#cbd5f5;
+
+max-width:520px;
+
+}
