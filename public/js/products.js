@@ -235,6 +235,9 @@ featuredContainer.innerHTML += `
 
 <div class="product-card">
 
+${p.bestseller ? `<span class="badge bestseller">🔥 Más vendido</span>` : ""}
+${p.recommended ? `<span class="badge recommended">⭐ Recomendado</span>` : ""}
+
 <img src="${p.image}" alt="${p.name}">
 
 <h3>${p.name}</h3>
@@ -252,7 +255,6 @@ Agregar al carrito
 });
 
 }
-
 
 // ===============================
 // TODOS LOS PRODUCTOS

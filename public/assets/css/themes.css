@@ -6,18 +6,16 @@ document.body.classList.add("theme-xxx")
 
 
 /* ===============================
-TEMA LUXURY / PREMIUM
-Ideal para marcas buchonas, lujo,
-joyería, sneakers premium
+TEMA LUXURY
 ================================ */
 
 .theme-luxury{
 
---primary:#c8a96a;        /* dorado */
---background:#0b0b0b;     /* negro profundo */
---card:#161616;           /* gris oscuro */
---text:#f2f2f2;           /* blanco suave */
---accent:#e6c88c;         /* dorado claro */
+--primary:#c8a96a;
+--background:#0b0b0b;
+--card:#161616;
+--text:#f2f2f2;
+--accent:#e6c88c;
 
 }
 
@@ -35,7 +33,6 @@ color:#e6c88c;
 
 .theme-luxury .category-card:hover{
 border-color:#e6c88c;
-color:#e6c88c;
 }
 
 .theme-luxury #search-input{
@@ -50,9 +47,9 @@ color:#fff;
 }
 
 
+
 /* ===============================
-TEMA STREET / SNEAKERS
-urbano pero neutro
+TEMA STREET
 ================================ */
 
 .theme-street{
@@ -72,18 +69,17 @@ border:1px solid rgba(255,255,255,.05);
 
 .theme-street .category-card{
 background:#1e293b;
-color:#f8fafc;
 border:1px solid rgba(255,255,255,.08);
 }
 
 .theme-street .category-card:hover{
 border-color:#94a3b8;
-color:#94a3b8;
 }
 
 
+
 /* ===============================
-TEMA SPA / BELLEZA
+TEMA SPA
 ================================ */
 
 .theme-spa{
@@ -99,17 +95,16 @@ TEMA SPA / BELLEZA
 .theme-spa .category-card{
 background:#ffffff;
 border:1px solid rgba(0,0,0,.08);
-color:#3a2e27;
 }
 
 .theme-spa .category-card:hover{
 border-color:#8b6f5a;
-color:#8b6f5a;
 }
 
 
+
 /* ===============================
-TEMA MODERNO / GRIS PREMIUM
+TEMA MODERN
 ================================ */
 
 .theme-modern{
@@ -125,17 +120,16 @@ TEMA MODERNO / GRIS PREMIUM
 .theme-modern .category-card{
 background:#ffffff;
 border:1px solid rgba(0,0,0,.08);
-color:#111827;
 }
 
 .theme-modern .category-card:hover{
 border-color:#374151;
-color:#374151;
 }
+
+
 
 /* ===============================
 TEMA STREET LUXURY
-gorras premium / streetwear
 ================================ */
 
 .theme-streetluxury{
@@ -148,8 +142,6 @@ gorras premium / streetwear
 
 }
 
-/* PRODUCTOS */
-
 .theme-streetluxury .product-card{
 background:#121212;
 border:1px solid rgba(255,255,255,.06);
@@ -160,48 +152,32 @@ box-shadow:0 8px 20px rgba(0,0,0,.45);
 .theme-streetluxury .product-card:hover{
 border-color:#e5e5e5;
 transform:translateY(-4px);
-box-shadow:0 15px 40px rgba(0,0,0,.6);
 }
-
-/* CATEGORIAS */
 
 .theme-streetluxury .category-card{
 background:#121212;
 border:1px solid rgba(255,255,255,.06);
-color:#f5f5f5;
 }
 
-.theme-streetluxury .category-card:hover
-
-/* BUSCADOR */
+.theme-streetluxury .category-card:hover{
+border-color:#9ca3af;
+}
 
 .theme-streetluxury #search-input{
 background:#0e0e0e;
-color:#ffffff;
+color:#fff;
 border:1px solid rgba(255,255,255,.08);
 }
 
-/* HEADER */
-
 .theme-streetluxury header{
 background:#0b0b0b;
-color:#ffffff;
 border-bottom:1px solid rgba(255,255,255,.05);
 }
-
-/* CHATBOT */
 
 .theme-streetluxury .chatbot{
 background:#e5e5e5;
 color:#000;
 }
-
-.theme-streetluxury .chatbot-box{
-background:#121212;
-color:#ffffff;
-}
-
-/* BOTONES */
 
 .theme-streetluxury button{
 background:#e5e5e5;
@@ -209,7 +185,11 @@ color:#000;
 font-weight:700;
 }
 
-.theme-streetluxury button:hover
+.theme-streetluxury button:hover{
+opacity:.9;
+}
+
+
 
 /* ===============================
 TEMA MINIMAL
@@ -228,13 +208,12 @@ TEMA MINIMAL
 .theme-minimal .category-card{
 background:#f9fafb;
 border:1px solid rgba(0,0,0,.08);
-color:#111827;
 }
 
 .theme-minimal .category-card:hover{
 border-color:#111827;
-color:#111827;
 }
+
 
 
 /* ===============================
@@ -255,6 +234,8 @@ button:hover{
 opacity:.9;
 }
 
+
+
 /* ===============================
 TEMA GALAXY
 ================================ */
@@ -273,58 +254,17 @@ color:#e5e7eb;
 }
 
 
-/* ===============================
-HEADER
-================================ */
+
+/* HEADER */
 
 .theme-galaxy header{
-
 background:#020617;
 border-bottom:1px solid rgba(255,255,255,.08);
-
 }
 
 
-/* ===============================
-TIPOGRAFIA
-================================ */
 
-.theme-galaxy #store-name{
-
-color:#e5e7eb;
-letter-spacing:2px;
-
-text-shadow:
-0 0 8px rgba(255,255,255,.5),
-0 0 18px rgba(148,163,184,.35);
-
-font-weight:800;
-
-}
-
-.theme-galaxy #hero-title{
-
-color:#f1f5f9;
-
-text-shadow:
-0 0 10px rgba(255,255,255,.6),
-0 0 30px rgba(148,163,184,.35);
-
-}
-
-.theme-galaxy #hero-subtitle{
-
-color:#cbd5f5;
-
-text-shadow:
-0 0 8px rgba(255,255,255,.35);
-
-}
-
-
-/* ===============================
-PRODUCTOS
-================================ */
+/* PRODUCTOS */
 
 .theme-galaxy .product-card{
 
@@ -334,44 +274,36 @@ border:1px solid rgba(255,255,255,.06);
 padding:22px;
 border-radius:16px;
 
-transition:.25s;
-
-box-shadow:
-0 8px 30px rgba(0,0,0,.6);
+box-shadow:0 8px 30px rgba(0,0,0,.6);
 
 position:relative;
+transition:.25s;
 
 }
 
 .theme-galaxy .product-card:hover{
 
 transform:translateY(-6px);
-
 border-color:#cbd5f5;
 
-box-shadow:
-0 0 20px rgba(203,213,245,.45);
+box-shadow:0 0 20px rgba(203,213,245,.45);
 
 }
 
 
-/* ===============================
-BADGES PRODUCTOS
-================================ */
+
+/* BADGES */
 
 .badge{
 
 position:absolute;
-
 top:-14px;
 left:16px;
 
 font-size:12px;
-
 padding:6px 12px;
 
 border-radius:10px;
-
 font-weight:700;
 
 z-index:10;
@@ -379,32 +311,15 @@ z-index:10;
 }
 
 .bestseller{
-
 background:#ff7a00;
-
 color:#000;
-
-box-shadow:
-0 0 14px rgba(255,120,0,.9);
-
 }
 
 .recommended{
-
 background:#cbd5f5;
-
 color:#000;
-
-box-shadow:
-0 0 14px rgba(203,213,245,.9);
-
 }
 
-.product-card{
-
-padding-top:30px;
-
-}
 
 
 /* ===============================
@@ -414,80 +329,20 @@ CATEGORIAS
 .theme-galaxy .category-card{
 
 background:#0b1220;
-
 border:1px solid rgba(255,255,255,.08);
 
-color:#e5e7eb;
-
 cursor:pointer;
-
 transition:.25s;
-
-position:relative;
-
-overflow:hidden;
 
 }
 
 .theme-galaxy .category-card:hover{
 
 border-color:#cbd5f5;
-
 transform:translateY(-4px);
 
-box-shadow:
-0 0 20px rgba(203,213,245,.35);
-
 }
 
-.theme-galaxy .category-card::after{
-
-content:"";
-
-position:absolute;
-
-inset:0;
-
-background:radial-gradient(circle,
-rgba(203,213,245,.25),
-transparent 70%);
-
-opacity:0;
-
-transition:.3s;
-
-}
-
-.theme-galaxy .category-card:hover::after{
-
-opacity:1;
-
-}
-
-
-/* ===============================
-BOTONES
-================================ */
-
-.theme-galaxy button{
-
-background:linear-gradient(90deg,#9ca3af,#cbd5f5);
-
-color:#020617;
-
-font-weight:700;
-
-transition:.25s;
-
-}
-
-.theme-galaxy button:hover{
-
-box-shadow:
-0 0 15px rgba(203,213,245,.6),
-0 0 40px rgba(203,213,245,.3);
-
-}
 
 
 /* ===============================
@@ -497,37 +352,31 @@ BUSCADOR
 .theme-galaxy .search-container{
 
 background:rgba(10,15,25,.55);
-
 backdrop-filter:blur(14px);
 
 border:1px solid rgba(255,255,255,.08);
-
-box-shadow:
-0 0 25px rgba(148,163,184,.25);
 
 }
 
 .theme-galaxy #search-input{
 
 background:#020617;
-
 color:#fff;
-
 border:1px solid rgba(255,255,255,.15);
 
 }
 
 
+
 /* ===============================
 MENSAJE CONFIANZA
+SOLO GALAXY
 ================================ */
 
-#trust-message{
+.theme-galaxy #trust-message{
 
 width:100%;
-
 margin:60px 0;
-
 padding:35px 0;
 
 background:#020617;
@@ -537,137 +386,53 @@ border-bottom:1px solid rgba(255,255,255,.08);
 
 }
 
-#trust-message .store-section{
-
-max-width:900px;
-
-margin:auto;
-
-background:transparent;
-
-border:none;
-
-box-shadow:none;
-
-text-align:center;
-
-}
-
-#trust-message p{
-
-font-size:17px;
-
-line-height:1.7;
-
-}
 
 
 /* ===============================
 METODOS DE PAGO
+HORIZONTAL
 ================================ */
 
-#store-payments{
+.theme-galaxy #store-payments{
 
-max-width:1000px;
-
+max-width:1100px;
 margin:70px auto;
 
-padding:0 20px;
-
 }
 
-#store-payments h2{
+.theme-galaxy .payments-grid{
 
-text-align:center;
-
-margin-bottom:35px;
-
-font-size:28px;
-
-}
-
-/* GRID LADO A LADO */
-
-.payments-grid{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-
+display:flex;
+justify-content:center;
 gap:30px;
-
-justify-items:center;
+flex-wrap:wrap;
 
 }
 
-.payment-card{
+.theme-galaxy .payment-card{
 
 background:#0b1220;
-
 border:1px solid rgba(255,255,255,.08);
 
 padding:25px;
-
 border-radius:18px;
 
-width:100%;
+width:320px;
 
-max-width:340px;
-
-box-shadow:
-0 0 20px rgba(203,213,245,.2);
+box-shadow:0 0 20px rgba(203,213,245,.2);
 
 transition:.25s;
 
 }
 
-.payment-card:hover{
+.theme-galaxy .payment-card:hover{
 
 transform:translateY(-6px);
 
-box-shadow:
-0 0 25px rgba(203,213,245,.45);
+box-shadow:0 0 25px rgba(203,213,245,.45);
 
 }
 
-.payment-card p{
-
-color:#cbd5f5;
-
-font-size:14px;
-
-}
-
-
-/* ===============================
-CHATBOT
-================================ */
-
-.theme-galaxy .chatbot{
-
-background:#9ca3af;
-
-color:#020617;
-
-cursor:pointer;
-
-box-shadow:
-0 0 12px rgba(203,213,245,.7),
-0 0 35px rgba(203,213,245,.35);
-
-transition:.25s;
-
-}
-
-.theme-galaxy .chatbot:hover{
-
-transform:scale(1.1);
-
-box-shadow:
-0 0 20px rgba(203,213,245,.9),
-0 0 60px rgba(203,213,245,.5);
-
-}
 
 
 /* ===============================
@@ -677,7 +442,6 @@ ESTRELLAS
 .theme-galaxy::before{
 
 content:"";
-
 position:fixed;
 
 top:0;
@@ -697,7 +461,6 @@ radial-gradient(4px 4px at 60% 10%, #cbd5f5, transparent),
 radial-gradient(3px 3px at 90% 80%, #fff, transparent);
 
 opacity:.9;
-
 z-index:-2;
 
 }
@@ -705,7 +468,6 @@ z-index:-2;
 .theme-galaxy::after{
 
 content:"";
-
 position:fixed;
 
 top:0;
