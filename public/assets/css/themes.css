@@ -710,3 +710,163 @@ opacity:.8;
 .theme-galaxy::after{
 opacity:1;
 }
+
+/* ===============================
+METODOS DE PAGO
+================================ */
+
+.theme-galaxy .payment-card{
+
+background:#0b1220;
+
+border:1px solid rgba(255,255,255,.08);
+
+padding:20px;
+
+border-radius:14px;
+
+margin:20px auto;
+
+max-width:420px;
+
+transition:all .25s ease;
+
+box-shadow:
+0 0 15px rgba(203,213,245,.15),
+inset 0 0 10px rgba(148,163,184,.12);
+
+}
+
+.theme-galaxy .payment-card:hover{
+
+transform:translateY(-4px);
+
+box-shadow:
+0 0 25px rgba(203,213,245,.35),
+0 0 50px rgba(148,163,184,.2);
+
+}
+
+.theme-galaxy .payment-card h3{
+
+color:#e5e7eb;
+
+text-shadow:
+0 0 6px rgba(255,255,255,.35),
+0 0 15px rgba(203,213,245,.25);
+
+margin-bottom:10px;
+
+}
+
+.theme-galaxy .payment-card p{
+
+color:#cbd5f5;
+
+font-size:14px;
+
+margin:4px 0;
+
+}
+
+/* ===============================
+LEYENDA CONFIANZA
+================================ */
+
+.theme-galaxy .trust-message{
+
+max-width:900px;
+
+margin:40px auto;
+
+padding:25px;
+
+background:#0b1220;
+
+border:1px solid rgba(255,255,255,.08);
+
+border-radius:16px;
+
+text-align:center;
+
+box-shadow:
+0 0 20px rgba(203,213,245,.15),
+inset 0 0 12px rgba(148,163,184,.12);
+
+}
+
+.theme-galaxy .trust-message p{
+
+color:#e5e7eb;
+
+line-height:1.6;
+
+font-size:16px;
+
+text-shadow:
+0 0 6px rgba(255,255,255,.25);
+
+}
+
+/* ===============================
+MICROPAQUETES
+================================ */
+
+.theme-galaxy .category-card h3{
+
+text-transform:capitalize;
+
+letter-spacing:1px;
+
+text-shadow:
+0 0 6px rgba(255,255,255,.25),
+0 0 15px rgba(203,213,245,.25);
+
+}
+
+.badge{
+
+position:absolute;
+
+top:10px;
+left:10px;
+
+font-size:12px;
+
+padding:4px 8px;
+
+border-radius:6px;
+
+font-weight:700;
+
+z-index:5;
+
+}
+
+.bestseller{
+
+background:#ff7a00;
+
+color:#000;
+
+box-shadow:
+0 0 10px rgba(255,120,0,.8);
+
+}
+
+.recommended{
+
+background:#cbd5f5;
+
+color:#000;
+
+box-shadow:
+0 0 10px rgba(203,213,245,.8);
+
+}
+
+.product-card{
+
+position:relative;
+
+}

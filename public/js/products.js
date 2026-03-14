@@ -120,6 +120,8 @@ hero.style.backgroundPosition = "center";
 
 renderStoreSections(storeInfo);
 renderStoreReferences(storeInfo);
+renderStoreTrustMessage(storeInfo);
+renderStorePayments(storeInfo);
 
 
 // ===============================
@@ -266,6 +268,9 @@ productsContainer.innerHTML += `
 
 <div class="product-card">
 
+${p.bestseller ? `<span class="badge bestseller">🔥 Más vendido</span>` : ""}
+${p.recommended ? `<span class="badge recommended">⭐ Recomendado</span>` : ""}
+
 <img src="${p.image}" alt="${p.name}">
 
 <h3>${p.name}</h3>
@@ -386,7 +391,7 @@ container.innerHTML = html;
 
 
 // ===============================
-// REFERENCIAS (FOTOS)
+// REFERENCIAS
 // ===============================
 
 function renderStoreReferences(storeInfo){
@@ -415,6 +420,72 @@ html += `<img src="${img}" alt="referencia">`;
 });
 
 html += "</div>";
+
+container.innerHTML = html;
+
+}
+
+
+// ===============================
+// LEYENDA DE CONFIANZA
+// ===============================
+
+function renderStoreTrustMessage(storeInfo){
+
+const container = document.getElementById("trust-message");
+
+if(!container) return;
+if(!storeInfo.trustMessage) return;
+
+container.innerHTML = `
+
+<div class="store-section">
+
+<h3>${storeInfo.trustMessage.title}</h3>
+
+<p>${storeInfo.trustMessage.text}</p>
+
+</div>
+
+`;
+
+}
+
+
+// ===============================
+// METODOS DE PAGO
+// ===============================
+
+function renderStorePayments(storeInfo){
+
+const container = document.getElementById("store-payments");
+
+if(!container) return;
+if(!storeInfo.payments) return;
+
+let html = `<h2 style="text-align:center;margin:30px 0;">Métodos de pago</h2>`;
+
+Object.values(storeInfo.payments).forEach(p=>{
+
+html += `
+
+<div class="payment-card">
+
+<h3>${p.title}</h3>
+
+<p>Banco: ${p.bank}</p>
+<p>Número: ${p.number}</p>
+<p>A nombre de: ${p.name}</p>
+
+<p><strong>Concepto:</strong> ${p.concept}</p>
+
+<p>${p.note}</p>
+
+</div>
+
+`;
+
+});
 
 container.innerHTML = html;
 

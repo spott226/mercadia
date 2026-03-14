@@ -76,7 +76,34 @@
     "/assets/references/referencia3.jpeg",
     "/assets/references/referencia4.jpeg",
     "/assets/references/referencia5.jpeg"
-  ]
+  ],
+
+  "payments": {
+
+    "oxxo": {
+      "title": "🏦 Depósito en OXXO",
+      "bank": "SPINN by OXXO",
+      "number": "2242 1701 8064 0326",
+      "name": "CANDY H",
+      "concept": "PAGO",
+      "note": "Cuando realices el depósito, mándame foto o captura del ticket para confirmar tu pedido."
+    },
+
+    "transfer": {
+      "title": "👤 Transferencia bancaria",
+      "bank": "Banco Azteca",
+      "number": "4027 6658 9125 6928",
+      "name": "CANDY H",
+      "concept": "PAGO",
+      "note": "Después de realizar la transferencia, envíame captura del comprobante para confirmar tu pedido."
+    }
+
+  },
+
+  "trustMessage": {
+    "title": "Compra con confianza",
+    "text": "Sabemos que hoy en día muchas personas han sido estafadas al intentar comprar seguidores o likes para Instagram. Por eso entendemos que tengas dudas. En SHIPPZ Shop queremos hacer las cosas diferente. No solo prometemos un buen servicio, lo demostramos. Ya son más de 100 personas satisfechas que confían en nosotros para impulsar su cuenta."
+  }
 
 },
     {

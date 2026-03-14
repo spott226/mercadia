@@ -10,6 +10,7 @@
       "stock":999,
       "image":"/assets/products/shippz/followers1.jpg",
       "description":"Seguidores para impulsar tu cuenta de Instagram.",
+      "bestseller": true,
       "featured":true,
       "active":true
     },
@@ -23,6 +24,7 @@
       "stock":999,
       "image":"/assets/products/shippz/followers2.jpg",
       "description":"Paquete de crecimiento para Instagram.",
+      "recommended": true,
       "featured":false,
       "active":true
     },
@@ -49,6 +51,7 @@
       "stock":999,
       "image":"/assets/products/shippz/followers4.jpg",
       "description":"Paquete popular para crecimiento rápido.",
+      "bestseller": true,
       "featured":false,
       "active":true
     },
@@ -114,6 +117,7 @@
       "stock":999,
       "image":"/assets/products/shippz/likes1.jpg",
       "description":"Likes para tus publicaciones de Instagram.",
+      "bestseller": true,
       "featured":false,
       "active":true
     },
@@ -140,6 +144,7 @@
       "stock":999,
       "image":"/assets/products/shippz/likes3.jpg",
       "description":"Más interacción para tu contenido.",
+      "recommended": true,
       "featured":false,
       "active":true
     },
@@ -153,6 +158,7 @@
       "stock":999,
       "image":"/assets/products/shippz/likes4.jpg",
       "description":"Impulsa el alcance de tus publicaciones.",
+      "bestseller": true,
       "featured":false,
       "active":true
     },
@@ -168,7 +174,57 @@
       "description":"El paquete más grande de likes.",
       "featured":true,
       "active":true
-    }
+    },
+{
+"id": 14,
+"store": "shippz",
+"name": "150 Seguidores Instagram",
+"price": 20,
+"category": "micropaquetes",
+"stock": 999,
+"image": "/assets/products/shippz/micro1.jpg",
+"description": "Paquete pequeño para comenzar a crecer tu cuenta.",
+"featured": false,
+"active": true
+},
+{
+"id": 15,
+"store": "shippz",
+"name": "220 Seguidores Instagram",
+"price": 30,
+"category": "micropaquetes",
+"stock": 999,
+"image": "/assets/products/shippz/micro2.jpg",
+"description": "Incrementa tu audiencia con este micropaquete.",
+"featured": false,
+"active": true
+},
+{
+"id": 16,
+"store": "shippz",
+"name": "350 Seguidores Instagram",
+"price": 40,
+"category": "micropaquetes",
+"stock": 999,
+"image": "/assets/products/shippz/micro3.jpg",
+"description": "Impulsa tu perfil con más visibilidad.",
+"recommended": true,
+"featured": false,
+"active": true
+},
+{
+"id": 17,
+"store": "shippz",
+"name": "450 Seguidores Instagram",
+"price": 50,
+"category": "micropaquetes",
+"stock": 999,
+"image": "/assets/products/shippz/micro4.jpg",
+"description": "Micropaquete ideal para empezar a posicionar tu cuenta.",
+"bestseller": true,
+"featured": false,
+"active": true
+}
 
   ]
 }
