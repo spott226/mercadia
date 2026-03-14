@@ -26,7 +26,7 @@ storeId = getStore();
 
 /* cargar stores */
 
-const storeRes = await fetch("data/stores.json");
+const storeRes = await fetch(`data/stores/${store}.json`);
 const storeData = await storeRes.json();
 
 const storeInfo = storeData.stores.find(
