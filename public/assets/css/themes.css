@@ -837,29 +837,33 @@ line-height:1.7;
 
 /* ===============================
 REFERENCIAS CARRUSEL
-SCROLL MANUAL IZQUIERDA
+SCROLL MANUAL
 ================================ */
 
 .references-carousel{
 
 width:100%;
-
-display:flex;
-gap:30px;
-
 overflow-x:auto;
 overflow-y:hidden;
 
 padding:40px 0;
 
 scroll-behavior:smooth;
-scroll-snap-type:x mandatory;
+
+}
+
+/* pista horizontal */
+
+.references-track{
+
+display:flex;
+gap:30px;
 
 }
 
 /* imágenes */
 
-.references-carousel img{
+.references-track img{
 
 height:420px;
 
@@ -869,15 +873,13 @@ box-shadow:0 10px 35px rgba(0,0,0,.6);
 
 flex-shrink:0;
 
-scroll-snap-align:start;
-
 transition:transform .3s ease;
 
 }
 
-/* efecto hover */
+/* hover */
 
-.references-carousel img:hover{
+.references-track img:hover{
 
 transform:scale(1.05);
 
@@ -889,14 +891,12 @@ transform:scale(1.05);
 display:none;
 }
 
-/* responsive móvil */
+/* responsive */
 
 @media(max-width:768px){
 
-.references-carousel img{
-
+.references-track img{
 height:280px;
-
 }
 
 }
