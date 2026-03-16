@@ -113,6 +113,11 @@ hero.style.backgroundPosition = "center";
 
 }
 
+hero.style.backgroundSize = "cover";
+hero.style.backgroundPosition = "center";
+
+}
+
 
 // ===============================
 // SECCIONES DINÁMICAS
