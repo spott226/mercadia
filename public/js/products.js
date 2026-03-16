@@ -98,20 +98,15 @@ heroSubtitle.textContent = storeInfo.heroSubtitle;
 // HERO
 // ===============================
 
-if(hero && storeInfo.hero){
+if(hero && storeInfo.hero_image){
 
 hero.style.background = `
 linear-gradient(
 rgba(0,0,0,0.55),
 rgba(0,0,0,0.55)
 ),
-url("${storeInfo.hero}")
+url("${storeInfo.hero_image}")
 `;
-
-hero.style.backgroundSize = "cover";
-hero.style.backgroundPosition = "center";
-
-}
 
 hero.style.backgroundSize = "cover";
 hero.style.backgroundPosition = "center";
@@ -210,9 +205,7 @@ div.className = "category-card";
 div.innerHTML = `<h3>${cat}</h3>`;
 
 div.addEventListener("click",()=>{
-
 filterCategory(cat);
-
 });
 
 categoriesContainer.appendChild(div);
@@ -260,6 +253,7 @@ Agregar al carrito
 });
 
 }
+
 
 // ===============================
 // TODOS LOS PRODUCTOS
@@ -425,17 +419,11 @@ Referencias reales
 `;
 
 storeInfo.references.forEach(img => {
-
 html += `<img src="${img}" alt="referencia">`;
-
 });
 
-/* duplicamos para loop infinito */
-
 storeInfo.references.forEach(img => {
-
 html += `<img src="${img}" alt="referencia">`;
-
 });
 
 html += `
@@ -449,6 +437,7 @@ html += `
 container.innerHTML = html;
 
 }
+
 
 // ===============================
 // LEYENDA DE CONFIANZA
