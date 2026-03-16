@@ -6,7 +6,7 @@
   "whatsapp": "525583088039",
   "currency": "MXN",
 
-  "hero": "/assets/heroes/shippz.jpg",
+  "hero_image": "/assets/heroes/heroshippz.png",
 
   "plan": "pro",
   "theme": "galaxy",
