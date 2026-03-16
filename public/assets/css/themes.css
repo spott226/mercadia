@@ -837,32 +837,29 @@ line-height:1.7;
 
 /* ===============================
 REFERENCIAS CARRUSEL
+SCROLL MANUAL IZQUIERDA
 ================================ */
 
 .references-carousel{
 
 width:100%;
-overflow:hidden;
-position:relative;
-
-}
-
-/* pista del carrusel */
-
-.references-track{
 
 display:flex;
 gap:30px;
 
-animation:carouselMove 35s linear infinite;
+overflow-x:auto;
+overflow-y:hidden;
 
-will-change:transform;
+padding:40px 0;
+
+scroll-behavior:smooth;
+scroll-snap-type:x mandatory;
 
 }
 
 /* imágenes */
 
-.references-track img{
+.references-carousel img{
 
 height:420px;
 
@@ -870,47 +867,33 @@ border-radius:18px;
 
 box-shadow:0 10px 35px rgba(0,0,0,.6);
 
-transition:transform .3s ease;
-
 flex-shrink:0;
+
+scroll-snap-align:start;
+
+transition:transform .3s ease;
 
 }
 
 /* efecto hover */
 
-.references-track img:hover{
+.references-carousel img:hover{
 
 transform:scale(1.05);
 
 }
 
-/* pausa carrusel al pasar mouse */
+/* ocultar scrollbar */
 
-.references-carousel:hover .references-track{
-
-animation-play-state:paused;
-
-}
-
-/* animación movimiento */
-
-@keyframes carouselMove{
-
-0%{
-transform:translateX(0);
-}
-
-100%{
-transform:translateX(-50%);
-}
-
+.references-carousel::-webkit-scrollbar{
+display:none;
 }
 
 /* responsive móvil */
 
 @media(max-width:768px){
 
-.references-track img{
+.references-carousel img{
 
 height:280px;
 
