@@ -98,14 +98,14 @@ heroSubtitle.textContent = storeInfo.heroSubtitle;
 // HERO
 // ===============================
 
-if(hero && storeInfo.hero_image){
+if(hero && storeInfo.hero){
 
 hero.style.background = `
 linear-gradient(
 rgba(0,0,0,0.55),
 rgba(0,0,0,0.55)
 ),
-url("${storeInfo.hero_image}")
+url("${storeInfo.hero}")
 `;
 
 hero.style.backgroundSize = "cover";
